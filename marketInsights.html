@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bull & Bear Research — Market Insights</title>
+  <meta name="description" content="Weekly market insights by term." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg: #0f1b39;
+  --card: #121823;
+  --muted: #8aa0b2;
+  --text: #e6edf3;
+  --accent: #5dd0ff;
+  --accent-2: #25238d;
+  --border: #1e293b;
+  --shadow: 0 10px 30px rgba(0,0,0,.35);
+  --r-xl: 18px;
+  --r-lg: 14px;
+  --r-md: 10px;
+  --maxw: 1200px;
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: Garamond, serif;
+  background: radial-gradient(1200px 800px at 80% -10%, rgba(192, 194, 198, 0.15), transparent 70%),
+              radial-gradient(900px 700px at -10% 10%, rgba(0, 149, 248, 0.12), transparent 80%),
+              var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+}
+.nav { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(10px);
+       background: rgba(9,13,18,.7); border-bottom: 1px solid rgba(255,255,255,.05); }
+.nav-inner { max-width: var(--maxw); margin: 0 auto; padding: 14px 20px;
+             display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--text); }
+.logo { width: 50px; height: 50px; display: grid; place-items:center; border-radius: 10px;
+        background: linear-gradient(145deg, var(--accent), var(--accent-2)); color: #001319; font-weight: 800;
+        font-size: 20px; box-shadow: var(--shadow); }
+.brand-name { font-weight: 700; font-size: 20px; letter-spacing: .2px; }
+.nav-links { display:flex; align-items:center; gap:18px; }
+.nav-links a { color: var(--muted); text-decoration:none; font-weight:500; padding:8px 10px; border-radius:10px; }
+.nav-links a:hover { color:var(--text); background: rgba(255,255,255,.05); }
+.cta { background: linear-gradient(145deg, var(--accent), var(--accent-2)); color:#001319 !important;
+       padding:10px 14px !important; border-radius:12px; font-weight:800 !important; box-shadow: var(--shadow); text-decoration:none; }
+
+.intro { max-width: var(--maxw); margin: 16px auto 10px; padding: 0 20px; }
+.intro h1 { margin: 12px 0 6px; font-size: clamp(26px, 4vw, 42px); letter-spacing: -0.3px; }
+.intro p { color: var(--muted); margin: 0 0 16px; }
+
+.verticals-nav {
+  max-width: 100%;
+  margin: 0 auto 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.verticals-nav a {
+  padding: 14px 0;
+  text-align: center;
+  border-radius: 0;
+  background: linear-gradient(145deg, var(--accent), var(--accent-2));
+  color: #001319;
+  font-weight: 600;
+  text-decoration: none;
+  border-right: 1px solid rgba(255,255,255,.1);
+}
+.verticals-nav a:last-child { border-right: none; }
+.verticals-nav a:hover { filter: brightness(1.1); }
+
+.section { max-width: var(--maxw); margin: 0 auto 40px; padding: 0 20px; }
+.section h2 { font-size: clamp(22px, 3vw, 34px); margin: 18px 0 6px; letter-spacing: -.3px; }
+.section p.lead { color: var(--muted); margin: 0 0 14px; }
+
+.report-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+@media (max-width: 980px) { .report-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .report-grid { grid-template-columns: 1fr; } }
+
+/* Flip-card styles (matching teams.html behavior) */
+.report-card.flip-card { position: relative; height: 420px; perspective: 1000px; }
+.flip-card-inner { position: relative; width: 100%; height: 100%; transition: transform 0.6s;
+                   transform-style: preserve-3d; }
+.flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
+.flip-face { position: absolute; inset: 0; backface-visibility: hidden; border-radius: var(--r-lg); overflow: hidden; }
+.flip-back { transform: rotateY(180deg); }
+
+.card-surface {
+  background: linear-gradient(180deg, rgba(18,24,35,.9), rgba(18,24,35,.7));
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow);
+  transition: transform .18s ease, border-color .18s ease;
+  overflow: hidden;
+}
+.card-surface:hover { transform: translateY(-3px); border-color: rgba(6, 91, 124, 0.4); }
+
+.card-content { padding: 14px; display: grid; gap: 8px; height: 100%; }
+.title { font-weight: 700; }
+.meta { color: var(--muted); font-size: 12px; }
+.actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items:center; justify-content:center; gap: 8px;
+  padding: 10px 14px; border-radius: 9999px; text-decoration: none; font-weight: 700;
+  background: linear-gradient(145deg, var(--accent), var(--accent-2)); color: #001319;
+  border: 1px solid rgba(255,255,255,.06);
+}
+.btn.muted { background: transparent; color: var(--muted); border: 1px solid var(--border); }
+
+.preview { max-height: 360px; overflow: hidden; border-top: 1px solid var(--border); }
+.preview iframe { width: 100%; height: 340px; border: 0; display: block; background: #0b0f14; }
+
+.back-cta { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; padding: 24px; }
+.flip-hint { color: var(--muted); font-size: 12px; text-align: center; margin-top: 8px; }
+</style>
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">
+        <div class="logo">BBR</div>
+        <div class="brand-name">Bull & Bear Research</div>
+      </a>
+      <nav class="nav-links">
+        <a href="marketinsight.html">Market Insights</a>
+        <a href="verticals.html">Verticals</a>
+        <a href="teams.html">Teams</a>
+        <a href="index.html#pastmemebers">Past Members</a>
+        <a class="cta" href="index.html#join">Join</a>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="verticals-nav">
+    <a href="#spring-2025">Spring 2025</a>
+    <a href="#fall-2024">Fall 2024</a>
+    <a href="#spring-2024">Spring 2024</a>
+    <a href="#fall-2023">Fall 2023</a>
+  </nav>
+
+  <main id="content">
+    
+  <section class="section" id="spring-2025">
+    <h2>Spring 2025</h2>
+    <p class="lead">Weekly market snapshots and macro themes from Spring 2025.</p>
+    <div class="report-grid">
+      
+      <article class="report-card flip-card" tabindex="0" role="button" aria-label="Flip card for February 3rd 2025">
+        <div class="flip-card-inner">
+          <div class="flip-face flip-front card-surface">
+            <div class="card-content">
+              <div class="title">February 3rd 2025</div>
+              <div class="meta">Spring 2025 · HTML</div>
+              <div class="actions">
+                <a class="btn open-link" href="Reports\Market Insights\Spring 2025\February 3rd 2025.pdf" target="_blank" rel="noopener">Open</a>
+                <a class="btn muted download-link" href="Reports\Market Insights\Spring 2025\February 3rd 2025.pdf" download>Download</a>
+              </div>
+              <div class="preview">
+                <iframe src="Reports\Market Insights\Spring 2025\February 3rd 2025.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+              </div>
+            </div>
+          </div>
+          <div class="flip-face flip-back card-surface">
+            
+          </div>
+        </div>
+      </article>
+    
+
+      <article class="report-card flip-card" tabindex="0" role="button" aria-label="Flip card for February 15th 2025">
+        <div class="flip-card-inner">
+          <div class="flip-face flip-front card-surface">
+            <div class="card-content">
+              <div class="title">February 15th 2025</div>
+              <div class="meta">Spring 2025 · HTML</div>
+              <div class="actions">
+                <a class="btn open-link" href="reports/Market%20Insights/Spring%202025/February%2015th%202025.html" target="_blank" rel="noopener">Open</a>
+                <a class="btn muted download-link" href="reports/Market%20Insights/Spring%202025/February%2015th%202025.html" download>Download</a>
+              </div>
+              <div class="preview">
+                <iframe src="reports/Market%20Insights/Spring%202025/February%2015th%202025.html#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+              </div>
+            </div>
+          </div>
+          <div class="flip-face flip-back card-surface">
+            <div class="card-content" style="place-content:center;">
+              <div class="title">February 15th 2025</div>
+              <div class="meta">Spring 2025 · HTML</div>
+              <div class="back-cta">
+                <a class="btn" href="reports/Market%20Insights/Spring%202025/February%2015th%202025.html" target="_blank" rel="noopener">Open Full Page</a>
+                <a class="btn muted" href="reports/Market%20Insights/Spring%202025/February%2015th%202025.html" download>Download</a>
+              </div>
+              <div class="flip-hint">Click (or press Enter/Space) to flip back</div>
+            </div>
+          </div>
+        </div>
+      </article>
+    
+
+      <article class="report-card flip-card" tabindex="0" role="button" aria-label="Flip card for February 19th 2025">
+        <div class="flip-card-inner">
+          <div class="flip-face flip-front card-surface">
+            <div class="card-content">
+              <div class="title">February 19th 2025</div>
+              <div class="meta">Spring 2025 · HTML</div>
+              <div class="actions">
+                <a class="btn open-link" href="reports/Market%20Insights/Spring%202025/February%2019th%202025.html" target="_blank" rel="noopener">Open</a>
+                <a class="btn muted download-link" href="reports/Market%20Insights/Spring%202025/February%2019th%202025.html" download>Download</a>
+              </div>
+              <div class="preview">
+                <iframe src="reports/Market%20Insights/Spring%202025/February%2019th%202025.html#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+              </div>
+            </div>
+          </div>
+          <div class="flip-face flip-back card-surface">
+            <div class="card-content" style="place-content:center;">
+              <div class="title">February 19th 2025</div>
+              <div class="meta">Spring 2025 · HTML</div>
+              <div class="back-cta">
+                <a class="btn" href="reports/Market%20Insights/Spring%202025/February%2019th%202025.html" target="_blank" rel="noopener">Open Full Page</a>
+                <a class="btn muted" href="reports/Market%20Insights/Spring%202025/February%2019th%202025.html" download>Download</a>
+              </div>
+              <div class="flip-hint">Click (or press Enter/Space) to flip back</div>
+            </div>
+          </div>
+        </div>
+      </article>
+    
+
+      <article class="report-card flip-card" tabindex="0" role="button" aria-label="Flip card for February 28th 2025">
+        <div class="flip-card-inner">
+          <div class="flip-face flip-front card-surface">
+            <div class="card-content">
+              <div class="title">February 28th 2025</div>
+              <div class="meta">Spring 2025 · HTML</div>
+              <div class="actions">
+                <a class="btn open-link" href="reports/Market%20Insights/Spring%202025/February%2028th%202025.html" target="_blank" rel="noopener">Open</a>
+                <a class="btn muted download-link" href="reports/Market%20Insights/Spring%202025/February%2028th%202025.html" download>Download</a>
+              </div>
+              <div class="preview">
+                <iframe src="reports/Market%20Insights/Spring%202025/February%2028th%202025.html#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+              </div>
+            </div>
+          </div>
+          <div class="flip-face flip-back card-surface">
+            <div class="card-content" style="place-content:center;">
+              <div class="title">February 28th 2025</div>
+              <div class="meta">Spring 2025 · HTML</div>
+              <div class="back-cta">
+                <a class="btn" href="reports/Market%20Insights/Spring%202025/February%2028th%202025.html" target="_blank" rel="noopener">Open Full Page</a>
+                <a class="btn muted" href="reports/Market%20Insights/Spring%202025/February%2028th%202025.html" download>Download</a>
+              </div>
+              <div class="flip-hint">Click (or press Enter/Space) to flip back</div>
+            </div>
+          </div>
+        </div>
+      </article>
+    
+
+      <article class="report-card flip-card" tabindex="0" role="button" aria-label="Flip card for March 18th 2025">
+        <div class="flip-card-inner">
+          <div class="flip-face flip-front card-surface">
+            <div class="card-content">
+              <div class="title">March 18th 2025</div>
+              <div class="meta">Spring 2025 · HTML</div>
+              <div class="actions">
+                <a class="btn open-link" href="reports/Market%20Insights/Spring%202025/March%2018th%202025.html" target="_blank" rel="noopener">Open</a>
+                <a class="btn muted download-link" href="reports/Market%20Insights/Spring%202025/March%2018th%202025.html" download>Download</a>
+              </div>
+              <div class="preview">
+                <iframe src="reports/Market%20Insights/Spring%202025/March%2018th%202025.html#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+              </div>
+            </div>
+          </div>
+          <div class="flip-face flip-back card-surface">
+            <div class="card-content" style="place-content:center;">
+              <div class="title">March 18th 2025</div>
+              <div class="meta">Spring 2025 · HTML</div>
+              <div class="back-cta">
+                <a class="btn" href="reports/Market%20Insights/Spring%202025/March%2018th%202025.html" target="_blank" rel="noopener">Open Full Page</a>
+                <a class="btn muted" href="reports/Market%20Insights/Spring%202025/March%2018th%202025.html" download>Download</a>
+              </div>
+              <div class="flip-hint">Click (or press Enter/Space) to flip back</div>
+            </div>
+          </div>
+        </div>
+      </article>
+    
+
+      <article class="report-card flip-card" tabindex="0" role="button" aria-label="Flip card for March 25th 2025">
+        <div class="flip-card-inner">
+          <div class="flip-face flip-front card-surface">
+            <div class="card-content">
+              <div class="title">March 25th 2025</div>
+              <div class="meta">Spring 2025 · HTML</div>
+              <div class="actions">
+                <a class="btn open-link" href="reports/Market%20Insights/Spring%202025/March%2025th%202025.html" target="_blank" rel="noopener">Open</a>
+                <a class="btn muted download-link" href="reports/Market%20Insights/Spring%202025/March%2025th%202025.html" download>Download</a>
+              </div>
+              <div class="preview">
+                <iframe src="reports/Market%20Insights/Spring%202025/March%2025th%202025.html#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+              </div>
+            </div>
+          </div>
+          <div class="flip-face flip-back card-surface">
+            <div class="card-content" style="place-content:center;">
+              <div class="title">March 25th 2025</div>
+              <div class="meta">Spring 2025 · HTML</div>
+              <div class="back-cta">
+                <a class="btn" href="reports/Market%20Insights/Spring%202025/March%2025th%202025.html" target="_blank" rel="noopener">Open Full Page</a>
+                <a class="btn muted" href="reports/Market%20Insights/Spring%202025/March%2025th%202025.html" download>Download</a>
+              </div>
+              <div class="flip-hint">Click (or press Enter/Space) to flip back</div>
+            </div>
+          </div>
+        </div>
+      </article>
+    
+
+      <article class="report-card flip-card" tabindex="0" role="button" aria-label="Flip card for April 3rd 2025">
+        <div class="flip-card-inner">
+          <div class="flip-face flip-front card-surface">
+            <div class="card-content">
+              <div class="title">April 3rd 2025</div>
+              <div class="meta">Spring 2025 · HTML</div>
+              <div class="actions">
+                <a class="btn open-link" href="reports/Market%20Insights/Spring%202025/April%203rd%202025.html" target="_blank" rel="noopener">Open</a>
+                <a class="btn muted download-link" href="reports/Market%20Insights/Spring%202025/April%203rd%202025.html" download>Download</a>
+              </div>
+              <div class="preview">
+                <iframe src="reports/Market%20Insights/Spring%202025/April%203rd%202025.html#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+              </div>
+            </div>
+          </div>
+          <div class="flip-face flip-back card-surface">
+            <div class="card-content" style="place-content:center;">
+              <div class="title">April 3rd 2025</div>
+              <div class="meta">Spring 2025 · HTML</div>
+              <div class="back-cta">
+                <a class="btn" href="reports/Market%20Insights/Spring%202025/April%203rd%202025.html" target="_blank" rel="noopener">Open Full Page</a>
+                <a class="btn muted" href="reports/Market%20Insights/Spring%202025/April%203rd%202025.html" download>Download</a>
+              </div>
+              <div class="flip-hint">Click (or press Enter/Space) to flip back</div>
+            </div>
+          </div>
+        </div>
+      </article>
+    
+
+      <article class="report-card flip-card" tabindex="0" role="button" aria-label="Flip card for April 10th 2025">
+        <div class="flip-card-inner">
+          <div class="flip-face flip-front card-surface">
+            <div class="card-content">
+              <div class="title">April 10th 2025</div>
+              <div class="meta">Spring 2025 · HTML</div>
+              <div class="actions">
+                <a class="btn open-link" href="reports/Market%20Insights/Spring%202025/April%2010th%202025.html" target="_blank" rel="noopener">Open</a>
+                <a class="btn muted download-link" href="reports/Market%20Insights/Spring%202025/April%2010th%202025.html" download>Download</a>
+              </div>
+              <div class="preview">
+                <iframe src="reports/Market%20Insights/Spring%202025/April%2010th%202025.html#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+              </div>
+            </div>
+          </div>
+          <div class="flip-face flip-back card-surface">
+            <div class="card-content" style="place-content:center;">
+              <div class="title">April 10th 2025</div>
+              <div class="meta">Spring 2025 · HTML</div>
+              <div class="back-cta">
+                <a class="btn" href="reports/Market%20Insights/Spring%202025/April%2010th%202025.html" target="_blank" rel="noopener">Open Full Page</a>
+                <a class="btn muted" href="reports/Market%20Insights/Spring%202025/April%2010th%202025.html" download>Download</a>
+              </div>
+              <div class="flip-hint">Click (or press Enter/Space) to flip back</div>
+            </div>
+          </div>
+        </div>
+      </article>
+    
+    </div>
+  </section>
+
+  <section class="section" id="fall-2024">
+    <h2>Fall 2024</h2>
+    <p class="lead">Weekly market snapshots and macro themes from Fall 2024.</p>
+    <div class="report-grid">
+      
+      <article class="report-card flip-card" tabindex="0" role="button" aria-label="Flip card for October 15th 2024">
+        <div class="flip-card-inner">
+          <div class="flip-face flip-front card-surface">
+            <div class="card-content">
+              <div class="title">October 15th 2024</div>
+              <div class="meta">Fall 2024 · HTML</div>
+              <div class="actions">
+                <a class="btn open-link" href="reports/Market%20Insights/Fall%202024/October%2015th%202024.html" target="_blank" rel="noopener">Open</a>
+                <a class="btn muted download-link" href="reports/Market%20Insights/Fall%202024/October%2015th%202024.html" download>Download</a>
+              </div>
+              <div class="preview">
+                <iframe src="reports/Market%20Insights/Fall%202024/October%2015th%202024.html#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+              </div>
+            </div>
+          </div>
+          <div class="flip-face flip-back card-surface">
+            <div class="card-content" style="place-content:center;">
+              <div class="title">October 15th 2024</div>
+              <div class="meta">Fall 2024 · HTML</div>
+              <div class="back-cta">
+                <a class="btn" href="reports/Market%20Insights/Fall%202024/October%2015th%202024.html" target="_blank" rel="noopener">Open Full Page</a>
+                <a class="btn muted" href="reports/Market%20Insights/Fall%202024/October%2015th%202024.html" download>Download</a>
+              </div>
+              <div class="flip-hint">Click (or press Enter/Space) to flip back</div>
+            </div>
+          </div>
+        </div>
+      </article>
+    
+
+      <article class="report-card flip-card" tabindex="0" role="button" aria-label="Flip card for October 21st 2024">
+        <div class="flip-card-inner">
+          <div class="flip-face flip-front card-surface">
+            <div class="card-content">
+              <div class="title">October 21st 2024</div>
+              <div class="meta">Fall 2024 · HTML</div>
+              <div class="actions">
+                <a class="btn open-link" href="reports/Market%20Insights/Fall%202024/October%2021st%202024.html" target="_blank" rel="noopener">Open</a>
+                <a class="btn muted download-link" href="reports/Market%20Insights/Fall%202024/October%2021st%202024.html" download>Download</a>
+              </div>
+              <div class="preview">
+                <iframe src="reports/Market%20Insights/Fall%202024/October%2021st%202024.html#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+              </div>
+            </div>
+          </div>
+          <div class="flip-face flip-back card-surface">
+            <div class="card-content" style="place-content:center;">
+              <div class="title">October 21st 2024</div>
+              <div class="meta">Fall 2024 · HTML</div>
+              <div class="back-cta">
+                <a class="btn" href="reports/Market%20Insights/Fall%202024/October%2021st%202024.html" target="_blank" rel="noopener">Open Full Page</a>
+                <a class="btn muted" href="reports/Market%20Insights/Fall%202024/October%2021st%202024.html" download>Download</a>
+              </div>
+              <div class="flip-hint">Click (or press Enter/Space) to flip back</div>
+            </div>
+          </div>
+        </div>
+      </article>
+    
+
+      <article class="report-card flip-card" tabindex="0" role="button" aria-label="Flip card for October 28th 2024">
+        <div class="flip-card-inner">
+          <div class="flip-face flip-front card-surface">
+            <div class="card-content">
+              <div class="title">October 28th 2024</div>
+              <div class="meta">Fall 2024 · HTML</div>
+              <div class="actions">
+                <a class="btn open-link" href="reports/Market%20Insights/Fall%202024/October%2028th%202024.html" target="_blank" rel="noopener">Open</a>
+                <a class="btn muted download-link" href="reports/Market%20Insights/Fall%202024/October%2028th%202024.html" download>Download</a>
+              </div>
+              <div class="preview">
+                <iframe src="reports/Market%20Insights/Fall%202024/October%2028th%202024.html#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+              </div>
+            </div>
+          </div>
+          <div class="flip-face flip-back card-surface">
+            <div class="card-content" style="place-content:center;">
+              <div class="title">October 28th 2024</div>
+              <div class="meta">Fall 2024 · HTML</div>
+              <div class="back-cta">
+                <a class="btn" href="reports/Market%20Insights/Fall%202024/October%2028th%202024.html" target="_blank" rel="noopener">Open Full Page</a>
+                <a class="btn muted" href="reports/Market%20Insights/Fall%202024/October%2028th%202024.html" download>Download</a>
+              </div>
+              <div class="flip-hint">Click (or press Enter/Space) to flip back</div>
+            </div>
+          </div>
+        </div>
+      </article>
+    
+
+      <article class="report-card flip-card" tabindex="0" role="button" aria-label="Flip card for November 4th 2024">
+        <div class="flip-card-inner">
+          <div class="flip-face flip-front card-surface">
+            <div class="card-content">
+              <div class="title">November 4th 2024</div>
+              <div class="meta">Fall 2024 · HTML</div>
+              <div class="actions">
+                <a class="btn open-link" href="reports/Market%20Insights/Fall%202024/November%204th%202024.html" target="_blank" rel="noopener">Open</a>
+                <a class="btn muted download-link" href="reports/Market%20Insights/Fall%202024/November%204th%202024.html" download>Download</a>
+              </div>
+              <div class="preview">
+                <iframe src="reports/Market%20Insights/Fall%202024/November%204th%202024.html#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+              </div>
+            </div>
+          </div>
+          <div class="flip-face flip-back card-surface">
+            <div class="card-content" style="place-content:center;">
+              <div class="title">November 4th 2024</div>
+              <div class="meta">Fall 2024 · HTML</div>
+              <div class="back-cta">
+                <a class="btn" href="reports/Market%20Insights/Fall%202024/November%204th%202024.html" target="_blank" rel="noopener">Open Full Page</a>
+                <a class="btn muted" href="reports/Market%20Insights/Fall%202024/November%204th%202024.html" download>Download</a>
+              </div>
+              <div class="flip-hint">Click (or press Enter/Space) to flip back</div>
+            </div>
+          </div>
+        </div>
+      </article>
+    
+
+      <article class="report-card flip-card" tabindex="0" role="button" aria-label="Flip card for November 12th 2024">
+        <div class="flip-card-inner">
+          <div class="flip-face flip-front card-surface">
+            <div class="card-content">
+              <div class="title">November 12th 2024</div>
+              <div class="meta">Fall 2024 · HTML</div>
+              <div class="actions">
+                <a class="btn open-link" href="reports/Market%20Insights/Fall%202024/November%2012th%202024.html" target="_blank" rel="noopener">Open</a>
+                <a class="btn muted download-link" href="reports/Market%20Insights/Fall%202024/November%2012th%202024.html" download>Download</a>
+              </div>
+              <div class="preview">
+                <iframe src="reports/Market%20Insights/Fall%202024/November%2012th%202024.html#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+              </div>
+            </div>
+          </div>
+          <div class="flip-face flip-back card-surface">
+            <div class="card-content" style="place-content:center;">
+              <div class="title">November 12th 2024</div>
+              <div class="meta">Fall 2024 · HTML</div>
+              <div class="back-cta">
+                <a class="btn" href="reports/Market%20Insights/Fall%202024/November%2012th%202024.html" target="_blank" rel="noopener">Open Full Page</a>
+                <a class="btn muted" href="reports/Market%20Insights/Fall%202024/November%2012th%202024.html" download>Download</a>
+              </div>
+              <div class="flip-hint">Click (or press Enter/Space) to flip back</div>
+            </div>
+          </div>
+        </div>
+      </article>
+    
+
+      <article class="report-card flip-card" tabindex="0" role="button" aria-label="Flip card for November 18th 2024">
+        <div class="flip-card-inner">
+          <div class="flip-face flip-front card-surface">
+            <div class="card-content">
+              <div class="title">November 18th 2024</div>
+              <div class="meta">Fall 2024 · HTML</div>
+              <div class="actions">
+                <a class="btn open-link" href="reports/Market%20Insights/Fall%202024/November%2018th%202024.html" target="_blank" rel="noopener">Open</a>
+                <a class="btn muted download-link" href="reports/Market%20Insights/Fall%202024/November%2018th%202024.html" download>Download</a>
+              </div>
+              <div class="preview">
+                <iframe src="reports/Market%20Insights/Fall%202024/November%2018th%202024.html#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+              </div>
+            </div>
+          </div>
+          <div class="flip-face flip-back card-surface">
+            <div class="card-content" style="place-content:center;">
+              <div class="title">November 18th 2024</div>
+              <div class="meta">Fall 2024 · HTML</div>
+              <div class="back-cta">
+                <a class="btn" href="reports/Market%20Insights/Fall%202024/November%2018th%202024.html" target="_blank" rel="noopener">Open Full Page</a>
+                <a class="btn muted" href="reports/Market%20Insights/Fall%202024/November%2018th%202024.html" download>Download</a>
+              </div>
+              <div class="flip-hint">Click (or press Enter/Space) to flip back</div>
+            </div>
+          </div>
+        </div>
+      </article>
+    
+
+      <article class="report-card flip-card" tabindex="0" role="button" aria-label="Flip card for November 25th 2024">
+        <div class="flip-card-inner">
+          <div class="flip-face flip-front card-surface">
+            <div class="card-content">
+              <div class="title">November 25th 2024</div>
+              <div class="meta">Fall 2024 · HTML</div>
+              <div class="actions">
+                <a class="btn open-link" href="reports/Market%20Insights/Fall%202024/November%2025th%202024.html" target="_blank" rel="noopener">Open</a>
+                <a class="btn muted download-link" href="reports/Market%20Insights/Fall%202024/November%2025th%202024.html" download>Download</a>
+              </div>
+              <div class="preview">
+                <iframe src="reports/Market%20Insights/Fall%202024/November%2025th%202024.html#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+              </div>
+            </div>
+          </div>
+          <div class="flip-face flip-back card-surface">
+            <div class="card-content" style="place-content:center;">
+              <div class="title">November 25th 2024</div>
+              <div class="meta">Fall 2024 · HTML</div>
+              <div class="back-cta">
+                <a class="btn" href="reports/Market%20Insights/Fall%202024/November%2025th%202024.html" target="_blank" rel="noopener">Open Full Page</a>
+                <a class="btn muted" href="reports/Market%20Insights/Fall%202024/November%2025th%202024.html" download>Download</a>
+              </div>
+              <div class="flip-hint">Click (or press Enter/Space) to flip back</div>
+            </div>
+          </div>
+        </div>
+      </article>
+    
+    </div>
+  </section>
+
+  <section class="section" id="spring-2024">
+    <h2>Spring 2024</h2>
+    <p class="lead">Weekly market snapshots and macro themes from Spring 2024.</p>
+    <div class="report-grid">
+      
+      <article class="report-card flip-card" tabindex="0" role="button" aria-label="Flip card for February 19th 2024">
+        <div class="flip-card-inner">
+          <div class="flip-face flip-front card-surface">
+            <div class="card-content">
+              <div class="title">February 19th 2024</div>
+              <div class="meta">Spring 2024 · HTML</div>
+              <div class="actions">
+                <a class="btn open-link" href="reports/Market%20Insights/Spring%202024/February%2019th%202024.html" target="_blank" rel="noopener">Open</a>
+                <a class="btn muted download-link" href="reports/Market%20Insights/Spring%202024/February%2019th%202024.html" download>Download</a>
+              </div>
+              <div class="preview">
+                <iframe src="reports/Market%20Insights/Spring%202024/February%2019th%202024.html#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+              </div>
+            </div>
+          </div>
+          <div class="flip-face flip-back card-surface">
+            <div class="card-content" style="place-content:center;">
+              <div class="title">February 19th 2024</div>
+              <div class="meta">Spring 2024 · HTML</div>
+              <div class="back-cta">
+                <a class="btn" href="reports/Market%20Insights/Spring%202024/February%2019th%202024.html" target="_blank" rel="noopener">Open Full Page</a>
+                <a class="btn muted" href="reports/Market%20Insights/Spring%202024/February%2019th%202024.html" download>Download</a>
+              </div>
+              <div class="flip-hint">Click (or press Enter/Space) to flip back</div>
+            </div>
+          </div>
+        </div>
+      </article>
+    
+
+      <article class="report-card flip-card" tabindex="0" role="button" aria-label="Flip card for February 26th 2024">
+        <div class="flip-card-inner">
+          <div class="flip-face flip-front card-surface">
+            <div class="card-content">
+              <div class="title">February 26th 2024</div>
+              <div class="meta">Spring 2024 · HTML</div>
+              <div class="actions">
+                <a class="btn open-link" href="reports/Market%20Insights/Spring%202024/February%2026th%202024.html" target="_blank" rel="noopener">Open</a>
+                <a class="btn muted download-link" href="reports/Market%20Insights/Spring%202024/February%2026th%202024.html" download>Download</a>
+              </div>
+              <div class="preview">
+                <iframe src="reports/Market%20Insights/Spring%202024/February%2026th%202024.html#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+              </div>
+            </div>
+          </div>
+          <div class="flip-face flip-back card-surface">
+            <div class="card-content" style="place-content:center;">
+              <div class="title">February 26th 2024</div>
+              <div class="meta">Spring 2024 · HTML</div>
+              <div class="back-cta">
+                <a class="btn" href="reports/Market%20Insights/Spring%202024/February%2026th%202024.html" target="_blank" rel="noopener">Open Full Page</a>
+                <a class="btn muted" href="reports/Market%20Insights/Spring%202024/February%2026th%202024.html" download>Download</a>
+              </div>
+              <div class="flip-hint">Click (or press Enter/Space) to flip back</div>
+            </div>
+          </div>
+        </div>
+      </article>
+    
+
+      <article class="report-card flip-card" tabindex="0" role="button" aria-label="Flip card for March 4th 2024">
+        <div class="flip-card-inner">
+          <div class="flip-face flip-front card-surface">
+            <div class="card-content">
+              <div class="title">March 4th 2024</div>
+              <div class="meta">Spring 2024 · HTML</div>
+              <div class="actions">
+                <a class="btn open-link" href="reports/Market%20Insights/Spring%202024/March%204th%202024.html" target="_blank" rel="noopener">Open</a>
+                <a class="btn muted download-link" href="reports/Market%20Insights/Spring%202024/March%204th%202024.html" download>Download</a>
+              </div>
+              <div class="preview">
+                <iframe src="reports/Market%20Insights/Spring%202024/March%204th%202024.html#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+              </div>
+            </div>
+          </div>
+          <div class="flip-face flip-back card-surface">
+            <div class="card-content" style="place-content:center;">
+              <div class="title">March 4th 2024</div>
+              <div class="meta">Spring 2024 · HTML</div>
+              <div class="back-cta">
+                <a class="btn" href="reports/Market%20Insights/Spring%202024/March%204th%202024.html" target="_blank" rel="noopener">Open Full Page</a>
+                <a class="btn muted" href="reports/Market%20Insights/Spring%202024/March%204th%202024.html" download>Download</a>
+              </div>
+              <div class="flip-hint">Click (or press Enter/Space) to flip back</div>
+            </div>
+          </div>
+        </div>
+      </article>
+    
+
+      <article class="report-card flip-card" tabindex="0" role="button" aria-label="Flip card for March 18th 2024">
+        <div class="flip-card-inner">
+          <div class="flip-face flip-front card-surface">
+            <div class="card-content">
+              <div class="title">March 18th 2024</div>
+              <div class="meta">Spring 2024 · HTML</div>
+              <div class="actions">
+                <a class="btn open-link" href="reports/Market%20Insights/Spring%202024/March%2018th%202024.html" target="_blank" rel="noopener">Open</a>
+                <a class="btn muted download-link" href="reports/Market%20Insights/Spring%202024/March%2018th%202024.html" download>Download</a>
+              </div>
+              <div class="preview">
+                <iframe src="reports/Market%20Insights/Spring%202024/March%2018th%202024.html#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+              </div>
+            </div>
+          </div>
+          <div class="flip-face flip-back card-surface">
+            <div class="card-content" style="place-content:center;">
+              <div class="title">March 18th 2024</div>
+              <div class="meta">Spring 2024 · HTML</div>
+              <div class="back-cta">
+                <a class="btn" href="reports/Market%20Insights/Spring%202024/March%2018th%202024.html" target="_blank" rel="noopener">Open Full Page</a>
+                <a class="btn muted" href="reports/Market%20Insights/Spring%202024/March%2018th%202024.html" download>Download</a>
+              </div>
+              <div class="flip-hint">Click (or press Enter/Space) to flip back</div>
+            </div>
+          </div>
+        </div>
+      </article>
+    
+
+      <article class="report-card flip-card" tabindex="0" role="button" aria-label="Flip card for March 25th 2024">
+        <div class="flip-card-inner">
+          <div class="flip-face flip-front card-surface">
+            <div class="card-content">
+              <div class="title">March 25th 2024</div>
+              <div class="meta">Spring 2024 · HTML</div>
+              <div class="actions">
+                <a class="btn open-link" href="reports/Market%20Insights/Spring%202024/March%2025th%202024.html" target="_blank" rel="noopener">Open</a>
+                <a class="btn muted download-link" href="reports/Market%20Insights/Spring%202024/March%2025th%202024.html" download>Download</a>
+              </div>
+              <div class="preview">
+                <iframe src="reports/Market%20Insights/Spring%202024/March%2025th%202024.html#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+              </div>
+            </div>
+          </div>
+          <div class="flip-face flip-back card-surface">
+            <div class="card-content" style="place-content:center;">
+              <div class="title">March 25th 2024</div>
+              <div class="meta">Spring 2024 · HTML</div>
+              <div class="back-cta">
+                <a class="btn" href="reports/Market%20Insights/Spring%202024/March%2025th%202024.html" target="_blank" rel="noopener">Open Full Page</a>
+                <a class="btn muted" href="reports/Market%20Insights/Spring%202024/March%2025th%202024.html" download>Download</a>
+              </div>
+              <div class="flip-hint">Click (or press Enter/Space) to flip back</div>
+            </div>
+          </div>
+        </div>
+      </article>
+    
+
+      <article class="report-card flip-card" tabindex="0" role="button" aria-label="Flip card for April 1st 2024">
+        <div class="flip-card-inner">
+          <div class="flip-face flip-front card-surface">
+            <div class="card-content">
+              <div class="title">April 1st 2024</div>
+              <div class="meta">Spring 2024 · HTML</div>
+              <div class="actions">
+                <a class="btn open-link" href="reports/Market%20Insights/Spring%202024/April%201st%202024.html" target="_blank" rel="noopener">Open</a>
+                <a class="btn muted download-link" href="reports/Market%20Insights/Spring%202024/April%201st%202024.html" download>Download</a>
+              </div>
+              <div class="preview">
+                <iframe src="reports/Market%20Insights/Spring%202024/April%201st%202024.html#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+              </div>
+            </div>
+          </div>
+          <div class="flip-face flip-back card-surface">
+            <div class="card-content" style="place-content:center;">
+              <div class="title">April 1st 2024</div>
+              <div class="meta">Spring 2024 · HTML</div>
+              <div class="back-cta">
+                <a class="btn" href="reports/Market%20Insights/Spring%202024/April%201st%202024.html" target="_blank" rel="noopener">Open Full Page</a>
+                <a class="btn muted" href="reports/Market%20Insights/Spring%202024/April%201st%202024.html" download>Download</a>
+              </div>
+              <div class="flip-hint">Click (or press Enter/Space) to flip back</div>
+            </div>
+          </div>
+        </div>
+      </article>
+    
+
+      <article class="report-card flip-card" tabindex="0" role="button" aria-label="Flip card for April 8th 2024">
+        <div class="flip-card-inner">
+          <div class="flip-face flip-front card-surface">
+            <div class="card-content">
+              <div class="title">April 8th 2024</div>
+              <div class="meta">Spring 2024 · HTML</div>
+              <div class="actions">
+                <a class="btn open-link" href="reports/Market%20Insights/Spring%202024/April%208th%202024.html" target="_blank" rel="noopener">Open</a>
+                <a class="btn muted download-link" href="reports/Market%20Insights/Spring%202024/April%208th%202024.html" download>Download</a>
+              </div>
+              <div class="preview">
+                <iframe src="reports/Market%20Insights/Spring%202024/April%208th%202024.html#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+              </div>
+            </div>
+          </div>
+          <div class="flip-face flip-back card-surface">
+            <div class="card-content" style="place-content:center;">
+              <div class="title">April 8th 2024</div>
+              <div class="meta">Spring 2024 · HTML</div>
+              <div class="back-cta">
+                <a class="btn" href="reports/Market%20Insights/Spring%202024/April%208th%202024.html" target="_blank" rel="noopener">Open Full Page</a>
+                <a class="btn muted" href="reports/Market%20Insights/Spring%202024/April%208th%202024.html" download>Download</a>
+              </div>
+              <div class="flip-hint">Click (or press Enter/Space) to flip back</div>
+            </div>
+          </div>
+        </div>
+      </article>
+    
+    </div>
+  </section>
+
+  <section class="section" id="fall-2023">
+    <h2>Fall 2023</h2>
+    <p class="lead">Weekly market snapshots and macro themes from Fall 2023.</p>
+    <div class="report-grid">
+      
+      <article class="report-card flip-card" tabindex="0" role="button" aria-label="Flip card for October 10th">
+        <div class="flip-card-inner">
+          <div class="flip-face flip-front card-surface">
+            <div class="card-content">
+              <div class="title">October 10th</div>
+              <div class="meta">Fall 2023 · HTML</div>
+              <div class="actions">
+                <a class="btn open-link" href="reports/Market%20Insights/Fall%202023/October%2010th.html" target="_blank" rel="noopener">Open</a>
+                <a class="btn muted download-link" href="reports/Market%20Insights/Fall%202023/October%2010th.html" download>Download</a>
+              </div>
+              <div class="preview">
+                <iframe src="reports/Market%20Insights/Fall%202023/October%2010th.html#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+              </div>
+            </div>
+          </div>
+          <div class="flip-face flip-back card-surface">
+            <div class="card-content" style="place-content:center;">
+              <div class="title">October 10th</div>
+              <div class="meta">Fall 2023 · HTML</div>
+              <div class="back-cta">
+                <a class="btn" href="reports/Market%20Insights/Fall%202023/October%2010th.html" target="_blank" rel="noopener">Open Full Page</a>
+                <a class="btn muted" href="reports/Market%20Insights/Fall%202023/October%2010th.html" download>Download</a>
+              </div>
+              <div class="flip-hint">Click (or press Enter/Space) to flip back</div>
+            </div>
+          </div>
+        </div>
+      </article>
+    
+
+      <article class="report-card flip-card" tabindex="0" role="button" aria-label="Flip card for October 16th">
+        <div class="flip-card-inner">
+          <div class="flip-face flip-front card-surface">
+            <div class="card-content">
+              <div class="title">October 16th</div>
+              <div class="meta">Fall 2023 · HTML</div>
+              <div class="actions">
+                <a class="btn open-link" href="reports/Market%20Insights/Fall%202023/October%2016th.html" target="_blank" rel="noopener">Open</a>
+                <a class="btn muted download-link" href="reports/Market%20Insights/Fall%202023/October%2016th.html" download>Download</a>
+              </div>
+              <div class="preview">
+                <iframe src="reports/Market%20Insights/Fall%202023/October%2016th.html#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+              </div>
+            </div>
+          </div>
+          <div class="flip-face flip-back card-surface">
+            <div class="card-content" style="place-content:center;">
+              <div class="title">October 16th</div>
+              <div class="meta">Fall 2023 · HTML</div>
+              <div class="back-cta">
+                <a class="btn" href="reports/Market%20Insights/Fall%202023/October%2016th.html" target="_blank" rel="noopener">Open Full Page</a>
+                <a class="btn muted" href="reports/Market%20Insights/Fall%202023/October%2016th.html" download>Download</a>
+              </div>
+              <div class="flip-hint">Click (or press Enter/Space) to flip back</div>
+            </div>
+          </div>
+        </div>
+      </article>
+    
+
+      <article class="report-card flip-card" tabindex="0" role="button" aria-label="Flip card for October 23rd">
+        <div class="flip-card-inner">
+          <div class="flip-face flip-front card-surface">
+            <div class="card-content">
+              <div class="title">October 23rd</div>
+              <div class="meta">Fall 2023 · HTML</div>
+              <div class="actions">
+                <a class="btn open-link" href="reports/Market%20Insights/Fall%202023/October%2023rd.html" target="_blank" rel="noopener">Open</a>
+                <a class="btn muted download-link" href="reports/Market%20Insights/Fall%202023/October%2023rd.html" download>Download</a>
+              </div>
+              <div class="preview">
+                <iframe src="reports/Market%20Insights/Fall%202023/October%2023rd.html#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+              </div>
+            </div>
+          </div>
+          <div class="flip-face flip-back card-surface">
+            <div class="card-content" style="place-content:center;">
+              <div class="title">October 23rd</div>
+              <div class="meta">Fall 2023 · HTML</div>
+              <div class="back-cta">
+                <a class="btn" href="reports/Market%20Insights/Fall%202023/October%2023rd.html" target="_blank" rel="noopener">Open Full Page</a>
+                <a class="btn muted" href="reports/Market%20Insights/Fall%202023/October%2023rd.html" download>Download</a>
+              </div>
+              <div class="flip-hint">Click (or press Enter/Space) to flip back</div>
+            </div>
+          </div>
+        </div>
+      </article>
+    
+
+      <article class="report-card flip-card" tabindex="0" role="button" aria-label="Flip card for October 30th">
+        <div class="flip-card-inner">
+          <div class="flip-face flip-front card-surface">
+            <div class="card-content">
+              <div class="title">October 30th</div>
+              <div class="meta">Fall 2023 · HTML</div>
+              <div class="actions">
+                <a class="btn open-link" href="reports/Market%20Insights/Fall%202023/October%2030th.html" target="_blank" rel="noopener">Open</a>
+                <a class="btn muted download-link" href="reports/Market%20Insights/Fall%202023/October%2030th.html" download>Download</a>
+              </div>
+              <div class="preview">
+                <iframe src="reports/Market%20Insights/Fall%202023/October%2030th.html#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+              </div>
+            </div>
+          </div>
+          <div class="flip-face flip-back card-surface">
+            <div class="card-content" style="place-content:center;">
+              <div class="title">October 30th</div>
+              <div class="meta">Fall 2023 · HTML</div>
+              <div class="back-cta">
+                <a class="btn" href="reports/Market%20Insights/Fall%202023/October%2030th.html" target="_blank" rel="noopener">Open Full Page</a>
+                <a class="btn muted" href="reports/Market%20Insights/Fall%202023/October%2030th.html" download>Download</a>
+              </div>
+              <div class="flip-hint">Click (or press Enter/Space) to flip back</div>
+            </div>
+          </div>
+        </div>
+      </article>
+    
+
+      <article class="report-card flip-card" tabindex="0" role="button" aria-label="Flip card for November 14th">
+        <div class="flip-card-inner">
+          <div class="flip-face flip-front card-surface">
+            <div class="card-content">
+              <div class="title">November 14th</div>
+              <div class="meta">Fall 2023 · HTML</div>
+              <div class="actions">
+                <a class="btn open-link" href="reports/Market%20Insights/Fall%202023/November%2014th.html" target="_blank" rel="noopener">Open</a>
+                <a class="btn muted download-link" href="reports/Market%20Insights/Fall%202023/November%2014th.html" download>Download</a>
+              </div>
+              <div class="preview">
+                <iframe src="reports/Market%20Insights/Fall%202023/November%2014th.html#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+              </div>
+            </div>
+          </div>
+          <div class="flip-face flip-back card-surface">
+            <div class="card-content" style="place-content:center;">
+              <div class="title">November 14th</div>
+              <div class="meta">Fall 2023 · HTML</div>
+              <div class="back-cta">
+                <a class="btn" href="reports/Market%20Insights/Fall%202023/November%2014th.html" target="_blank" rel="noopener">Open Full Page</a>
+                <a class="btn muted" href="reports/Market%20Insights/Fall%202023/November%2014th.html" download>Download</a>
+              </div>
+              <div class="flip-hint">Click (or press Enter/Space) to flip back</div>
+            </div>
+          </div>
+        </div>
+      </article>
+    
+
+      <article class="report-card flip-card" tabindex="0" role="button" aria-label="Flip card for November 21st">
+        <div class="flip-card-inner">
+          <div class="flip-face flip-front card-surface">
+            <div class="card-content">
+              <div class="title">November 21st</div>
+              <div class="meta">Fall 2023 · HTML</div>
+              <div class="actions">
+                <a class="btn open-link" href="reports/Market%20Insights/Fall%202023/November%2021st.html" target="_blank" rel="noopener">Open</a>
+                <a class="btn muted download-link" href="reports/Market%20Insights/Fall%202023/November%2021st.html" download>Download</a>
+              </div>
+              <div class="preview">
+                <iframe src="reports/Market%20Insights/Fall%202023/November%2021st.html#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+              </div>
+            </div>
+          </div>
+          <div class="flip-face flip-back card-surface">
+            <div class="card-content" style="place-content:center;">
+              <div class="title">November 21st</div>
+              <div class="meta">Fall 2023 · HTML</div>
+              <div class="back-cta">
+                <a class="btn" href="reports/Market%20Insights/Fall%202023/November%2021st.html" target="_blank" rel="noopener">Open Full Page</a>
+                <a class="btn muted" href="reports/Market%20Insights/Fall%202023/November%2021st.html" download>Download</a>
+              </div>
+              <div class="flip-hint">Click (or press Enter/Space) to flip back</div>
+            </div>
+          </div>
+        </div>
+      </article>
+    
+
+      <article class="report-card flip-card" tabindex="0" role="button" aria-label="Flip card for December 4th">
+        <div class="flip-card-inner">
+          <div class="flip-face flip-front card-surface">
+            <div class="card-content">
+              <div class="title">December 4th</div>
+              <div class="meta">Fall 2023 · HTML</div>
+              <div class="actions">
+                <a class="btn open-link" href="reports/Market%20Insights/Fall%202023/December%204th.html" target="_blank" rel="noopener">Open</a>
+                <a class="btn muted download-link" href="reports/Market%20Insights/Fall%202023/December%204th.html" download>Download</a>
+              </div>
+              <div class="preview">
+                <iframe src="reports/Market%20Insights/Fall%202023/December%204th.html#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+              </div>
+            </div>
+          </div>
+          <div class="flip-face flip-back card-surface">
+            <div class="card-content" style="place-content:center;">
+              <div class="title">December 4th</div>
+              <div class="meta">Fall 2023 · HTML</div>
+              <div class="back-cta">
+                <a class="btn" href="reports/Market%20Insights/Fall%202023/December%204th.html" target="_blank" rel="noopener">Open Full Page</a>
+                <a class="btn muted" href="reports/Market%20Insights/Fall%202023/December%204th.html" download>Download</a>
+              </div>
+              <div class="flip-hint">Click (or press Enter/Space) to flip back</div>
+            </div>
+          </div>
+        </div>
+      </article>
+    
+    </div>
+  </section>
+
+  </main>
+
+  <footer style="border-top:1px solid rgba(255,255,255,.06); margin-top: 40px;">
+    <div style="max-width:var(--maxw); margin:0 auto; padding:22px 20px; color:var(--muted); display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+      <div>© <span id="y"></span> Bull & Bear Research</div>
+      <div style="display:flex; gap:12px;">
+        <a href="#" style="color:var(--muted); text-decoration:none;">Code of Conduct</a>
+        <a href="#" style="color:var(--muted); text-decoration:none;">Privacy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Click-to-flip behavior (mirrors teams file concept)
+    function initFlipCards() {
+      const cards = document.querySelectorAll('.flip-card');
+      cards.forEach(card => {
+        // Prevent link clicks from flipping
+        card.querySelectorAll('a').forEach(a => {
+          a.addEventListener('click', e => e.stopPropagation());
+        });
+
+        // Toggle on click
+        card.addEventListener('click', () => card.classList.toggle('flipped'));
+
+        // Keyboard accessibility
+        card.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            card.classList.toggle('flipped');
+          }
+        });
+      });
+    }
+    initFlipCards();
+  </script>
+</body>
+</html>
