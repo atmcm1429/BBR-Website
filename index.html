@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bull & Bear Research — Team</title>
+  <meta name="description" content="Team page template inspired by a modern student quant fund website." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f1b39;
+      --card: #121823;
+      --muted: #8aa0b2;
+      --text: #e6edf3;
+      --accent: #5dd0ff;
+      --accent-2: #25238d;
+      --border: #1e293b;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius-xl: 18px;
+      --radius-lg: 14px;
+      --radius-md: 10px;
+      --maxw: 1200px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: Garamond, serif;
+      background: radial-gradient(1200px 800px at 80% -10%, rgba(192, 194, 198, 0.15), transparent 70%),
+                  radial-gradient(900px 700px at -10% 10%, rgba(0, 149, 248, 0.12), transparent 80%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(10px);
+      background: rgba(11, 15, 20, 0.7);
+      border-bottom: 1px solid rgba(255,255,255,.05);
+    }
+    .nav-inner {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 20px;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--text); }
+    .logo {
+      width: 50px; height: 50px; display: grid; place-items: center;
+      border-radius: 10px; background: linear-gradient(145deg, var(--accent), var(--accent-2));
+      color: #001319; font-weight: 800; font-size: 20px; box-shadow: var(--shadow);
+    }
+    .brand-name { font-weight: 700; font-size: 20px; letter-spacing: .2px; }
+
+    .nav-links { display: flex; align-items: center; gap: 18px; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-weight: 500; padding: 8px 10px; border-radius: 8px; }
+    .nav-links a:hover { color: var(--text); background: rgba(255,255,255,.04); }
+    .cta {
+      background: linear-gradient(145deg, var(--accent), var(--accent-2));
+      color: #001319 !important;
+      padding: 10px 14px !important; border-radius: 10px; font-weight: 700 !important;
+      box-shadow: var(--shadow); text-decoration: none; border: none;
+    }
+
+    .hero {
+      max-width: var(--maxw);
+      margin: 36px auto 12px;
+      padding: 0 20px 20px;
+      display: grid; grid-template-columns: 0.95fr 1.05fr; gap: 24px;
+      align-items: center;
+    }
+    @media (max-width: 900px) { .hero { grid-template-columns: 1fr; } }
+
+    .h-eyebrow { color: var(--accent); font-weight: 700; letter-spacing: .14em; font-size: 16px; text-transform: uppercase; }
+    .h-title { font-size: clamp(28px, 4.2vw, 54px); line-height: 1.05; margin: 10px 0 14px; font-weight: 800; }
+    .h-sub { color: var(--muted); font-size: clamp(14px, 1.6vw, 18px); max-width: 52ch; }
+    .h-badges { display: flex; gap: 12px; margin-top: 18px; flex-wrap: wrap; }
+    .badge { border: 1px solid var(--border); color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 13px; }
+
+    .hero-card {
+      background: linear-gradient(180deg, rgba(18,24,35,.8), rgba(18,24,35,.6));
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+
+    .hero-stat { display: grid; grid-template-columns: 64px 1fr; gap: 14px; align-items: center; padding: 12px; border-radius: 14px;
+      background: rgba(255,255,255,.03); border: 1px solid var(--border);
+    }
+    .stat-icon { width: 64px; height: 64px; border-radius: 12px; display: grid; place-items: center; background: rgba(93,208,255,.12); border: 1px solid var(--border); font-weight: 800; color: var(--accent); }
+    .stat-title { font-weight: 700; }
+    .stat-desc { color: var(--muted); font-size: 14px; }
+
+    .section { max-width: var(--maxw); margin: 8px auto; padding: 24px 20px 60px; }
+    .section h2 { font-size: clamp(22px, 3vw, 34px); margin: 0 0 14px; letter-spacing: -.3px; }
+    .section p.lead { color: var(--muted); margin: 0 0 22px; }
+
+    .grid { display: grid; gap: 16px; }
+    .grid.team { grid-template-columns: repeat(3, 1fr); }
+    .grid.directors { grid-template-columns: repeat(2, 1fr); }
+    @media (max-width: 900px) { .grid.team { grid-template-columns: repeat(2, 1fr);} }
+    @media (max-width: 640px) { .grid.team, .grid.directors { grid-template-columns: 1fr; } }
+
+    .card {
+      background: linear-gradient(180deg, rgba(18,24,35,.9), rgba(18,24,35,.7));
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform .18s ease, border-color .18s ease;
+    }
+    .card:hover { transform: translateY(-3px); border-color: rgba(6, 91, 124, 0.4); }
+    .card-head {
+      position: relative;
+      padding-top: 58%;
+      background: radial-gradient(400px 200px at 80% -30%, rgba(93,208,255,.25), transparent 60%), #0c121b;
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    }
+    .avatar {
+      position: absolute;
+      bottom: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 250px;
+      height: 250px;
+      border: 3px solid var(--border);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+    .card-body { padding: 48px 16px 16px; }
+    .name { font-weight: 700; font-size: 18px; }
+    .role { color: var(--muted); font-size: 14px; margin-top: 2px; }
+    .meta { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+    .pill { font-size: 12px; color: var(--muted); border: 1px solid var(--border); padding: 6px 8px; border-radius: 999px; }
+    .links { display: flex; gap: 10px; margin-top: 14px; }
+    .link {
+      display: inline-flex; align-items: center; gap: 8px; padding: 8px 10px; border-radius: 10px; text-decoration: none; font-weight: 600;
+      color: #001319; background: linear-gradient(145deg, var(--accent), var(--accent-2));
+    }
+    .link.muted { background: none; color: var(--muted); border: 1px solid var(--border); }
+    .link.muted:hover { color: var(--text); }
+
+    footer { border-top: 1px solid rgba(255,255,255,.06); padding: 22px 20px; color: var(--muted); }
+    .footer-inner { max-width: var(--maxw); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+
+    /* PDF Carousel */
+    .pdf-carousel { padding: 12px; }
+    .pdf-stage {
+      position: relative;
+      display: grid;
+      grid-template-columns: 40px 1fr 40px;
+      align-items: center;
+      gap: 10px;
+    }
+    .pdf-frame {
+      position: relative;
+      background: rgba(255,255,255,.02);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      height: clamp(600px, 52vh, 600px);
+    }
+    .pdf-frame img, .pdf-frame iframe, .pdf-frame object {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      border: 0; object-fit: contain; background: #0c121b;
+    }
+    .pdf-frame object { display: none; }
+    .nav-btn {
+      height: 44px; width: 44px; border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      color: var(--text); font-size: 26px; line-height: 1;
+      cursor: pointer; transition: transform .12s ease, background .12s ease, border-color .12s ease;
+    }
+    .nav-btn:hover { transform: translateY(-1px); background: rgba(255,255,255,.07); border-color: rgba(6,91,124,.4); }
+    .pdf-caption {
+      margin-top: 10px;
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(18,24,35,.85), rgba(18,24,35,.65));
+      border-radius: var(--radius-lg);
+      padding: 12px 14px;
+      font-weight: 600;
+      letter-spacing: .2px;
+    }
+    .pdf-caption a { color: var(--accent); text-decoration: none; }
+    .pdf-caption a:hover { text-decoration: underline; }
+
+    .pdf-dots { display: flex; gap: 6px; justify-content: center; margin-top: 10px; }
+    .pdf-dots button {
+      width: 8px; height: 8px; border-radius: 999px; border: 0; cursor: pointer;
+      background: rgba(255,255,255,.18);
+    }
+    .pdf-dots button.active { background: var(--accent); }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .pdf-frame { height: 340px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#">
+        <div class="logo">BBR</div>
+        <div class="brand-name">Bull & Bear Research</div>
+      </a>
+      <nav class="nav-links">
+        <a href="marketInsights.html">Market Insights</a>
+        <a href="verticals.html">Verticals</a>
+        <a href="teams.html">Teams</a>
+        <a href="#pastmembers">Past Members</a>
+        <a class="cta" href="#join">Apply</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div>
+      <div class="h-eyebrow">Northeastern's Premier Undergraduate Equity Research Group</div>
+      <h1 class="h-title">Actionable Insights.</h1>
+      <p class="h-sub">A student club designed to provide in-depth coverage of the markets.</p>
+      <div class="h-badges">
+        <span class="badge">Industrials</span>
+        <span class="badge">Technology</span>
+        <span class="badge">Real Estate</span>
+        <span class="badge">Healthcare</span>
+        <span class="badge">Consumer</span>
+      </div>
+    </div>
+    <aside class="hero-card pdf-carousel">
+      <div class="pdf-stage">
+        <button class="nav-btn prev" aria-label="Previous PDF">‹</button>
+        <div class="pdf-frame">
+          <!-- Show ONLY first page image -->
+          <img id="pdfImage" src="" alt="PDF first page preview" />
+          <!-- Keep these hidden/unused to avoid full PDF render -->
+          <iframe id="pdfViewer" src="" title="PDF preview" loading="lazy" style="display:none;"></iframe>
+          <object id="pdfFallback" data="" type="application/pdf" aria-label="PDF preview (fallback)" style="display:none;"></object>
+        </div>
+        <button class="nav-btn next" aria-label="Next PDF">›</button>
+      </div>
+      <div class="pdf-caption" id="pdfCaption">Loading…</div>
+      <div class="pdf-dots" id="pdfDots"></div>
+    </aside>
+  </section>
+
+  <section id="team" class="section">
+    <h2>Executive Board</h2>
+    <p class="lead">Meet the team at the helm of BBR this semester with extensive experience across each of our covered sectors</p>
+    <div class="grid team">
+      <article class="card">
+        <div class="card-head">
+          <div class="avatar"><img src="/Pictures/E-Board/Aru Mehta.png" alt="Team Member" /></div>
+        </div>
+        <div class="card-body">
+          <div class="name">Aru Mehta</div>
+          <div class="role">President</div>
+          <div class="meta"><span class="pill">Industrials</span></div>
+          <div class="links">
+            <a class="link" href="#">LinkedIn</a>
+            <a class="link muted" href="mailto:president@example.edu">Email</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <div class="avatar"><img src="/Pictures/Historical/Ben.JPG" alt="Team Member" /></div>
+        </div>
+        <div class="card-body">
+          <div class="name">Andrew Shih </div>
+          <div class="role">Executive Vice President</div>
+          <div class="meta"><span class="pill">Technology</span></div>
+          <div class="links">
+            <a class="link" href="#">LinkedIn</a>
+            <a class="link muted" href="mailto:evp@example.edu">Email</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <div class="avatar"><img src="/Pictures/Historical/Ben.JPG" alt="Team Member" /></div>
+        </div>
+        <div class="card-body">
+          <div class="name">Ben Rosenberg</div>
+          <div class="role">Chief Research Officer</div>
+          <div class="meta"><span class="pill">Real Estate</span><span class="pill">Technology</span></div>
+          <div class="links">
+            <a class="link" href="#">LinkedIn</a>
+            <a class="link muted" href="mailto:education@example.edu">Email</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <div class="avatar"><img src="/Pictures/Historical/Ben.JPG" alt="Team Member" /></div>
+        </div>
+        <div class="card-body">
+          <div class="name">Erin Schoolsky</div>
+          <div class="role">Chief Marketing Officer</div>
+          <div class="meta"><span class="pill">Healthcare</span></div>
+          <div class="links">
+            <a class="link" href="#">LinkedIn</a>
+            <a class="link muted" href="mailto:finance@example.edu">Email</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <div class="avatar"><img src="/Pictures/Historical/ben.JPG" alt="Team Member" /></div>
+        </div>
+        <div class="card-body">
+          <div class="name">Alex McMillan</div>
+          <div class="role">Chief Technology Officer</div>
+          <div class="meta"><span class="pill">Industrials</span><span class="pill">Healthcare</span></div>
+          <div class="links">
+            <a class="link" href="https://www.linkedin.com/in/alex-mcmillan-526806221/">LinkedIn</a>
+            <a class="link muted" href="mailto:atmcm46@gmail.com">Email</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <div class="avatar"><img src="/Pictures/Historical/Ben.JPG" alt="Team Member" /></div>
+        </div>
+        <div class="card-body">
+          <div class="name">Andrew Wu</div>
+          <div class="role">Chief Technology Officer</div>
+          <div class="meta"><span class="pill">Industrials</span></div>
+          <div class="links">
+            <a class="link" href="#">LinkedIn</a>
+            <a class="link muted" href="mailto:finance@example.edu">Email</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="research" class="section">
+    <h2>Fall 2025 Research Team</h2>
+    <p class="lead">Coming soon. You can mirror the same card grid to list research associates, pods, or projects.</p>
+  </section>
+
+  <section id="join" class="section">
+    <h2>Join the Team</h2>
+    <p class="lead">Interested in research, engineering, or operations? Share your resume and a short note about your interests.</p>
+    <div class="grid" style="grid-template-columns: 1.2fr .8fr; gap: 18px;">
+      <form class="card" style="padding: 16px;">
+        <label style="display:block; font-weight:600; margin: 6px 0 6px">Name</label>
+        <label style="display:block; font-weight:600; margin: 6px 0 6px">INSERT INFO HERE ABOUT BBR AND THE APPLICATION</label>
+        <div style="display:flex; justify-content:flex-end; margin-top: 12px;">
+          <button class="link" type="button">Apply</button>
+        </div>
+      </form>
+      <aside class="card" style="padding: 18px;">
+        <div class="stat-title" style="font-size:18px;">Current Openings:</div>
+        <ul style="margin: 10px 0 0 18px; color: var(--muted);">
+          <li>All positions have been filled at this time</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div>© <span id="y"></span> Bull & Bear Research</div>
+      <div style="display:flex; gap:12px;">
+        <a href="#" style="color:var(--muted); text-decoration:none;">Code of Conduct</a>
+        <a href="#" style="color:var(--muted); text-decoration:none;">Privacy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+  <script>
+    // Show only the FIRST PAGE IMAGE for each PDF; keep a link to the full PDF
+    const pdfs = [
+      { img: "/Reports/Industrials/Industrials - Spring 2025.png", pdf: "/Reports/Industrials/Autos - Spring 2025.pdf",  name: "Industrials — Autos Overview" },
+      { img: "/Reports/Real Estate/Hospitality - Spring 2025_page1.png", pdf: "/Reports/Real Estate/Hospitality - Spring 2025.pdf", name: "Real Estate — Hospitality" },
+      { img: "/Reports/Technology/ERP _ Spring 2025_page1.png", pdf: "/Reports/Technology/ERP _ Spring 2025.pdf", name: "Healthcare — Biotech Watchlist" }
+    ];
+
+    let idx = 0;
+    const imgEl = document.getElementById('pdfImage');
+    const iframe = document.getElementById('pdfViewer');   // kept hidden
+    const fallback = document.getElementById('pdfFallback'); // kept hidden
+    const caption = document.getElementById('pdfCaption');
+    const dotsWrap = document.getElementById('pdfDots');
+
+    function buildDots() {
+      dotsWrap.innerHTML = "";
+      pdfs.forEach((_, i) => {
+        const b = document.createElement('button');
+        b.addEventListener('click', () => { idx = i; render(); });
+        dotsWrap.appendChild(b);
+      });
+    }
+
+    function markActiveDot() {
+      [...dotsWrap.children].forEach((b, i) => { b.classList.toggle('active', i === idx); });
+    }
+
+    function render() {
+      const { img, pdf, name } = pdfs[idx];
+      // Set image only (no full PDF)
+      imgEl.src = img;
+      imgEl.alt = name + " — first page preview";
+      // Update caption with an 'Open PDF' link
+      caption.innerHTML = name + ' — <a href="' + pdf + '" target="_blank" rel="noopener">Open PDF</a>';
+      // Ensure the iframe/fallback stay hidden
+      if (iframe) iframe.style.display = 'none';
+      if (fallback) fallback.style.display = 'none';
+      // Smooth scroll into view
+      document.querySelector('.pdf-carousel').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      markActiveDot();
+    }
+
+    function prev() { idx = (idx - 1 + pdfs.length) % pdfs.length; render(); }
+    function next() { idx = (idx + 1) % pdfs.length; render(); }
+
+    const prevBtn = document.querySelector('.nav-btn.prev');
+    const nextBtn = document.querySelector('.nav-btn.next');
+    if (prevBtn && nextBtn) {
+      prevBtn.addEventListener('click', prev);
+      nextBtn.addEventListener('click', next);
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') prev();
+      if (e.key === 'ArrowRight') next();
+    });
+
+    buildDots();
+    render();
+  </script>
+</body>
+</html>
