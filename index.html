@@ -210,6 +210,47 @@
       .hero { grid-template-columns: 1fr; }
       .pdf-frame { height: 340px; }
     }
+
+    .avatar {
+      width: clamp(120px, 30vw, 250px);
+      height: clamp(120px, 30vw, 250px);
+    }
+    /* So the avatar doesn't overflow when card header gets small */
+    .card-head { padding-top: min(58%, 320px); }
+
+    /* More fluid padding inside cards */
+    .card-body {
+      padding: clamp(32px, 8vw, 48px) clamp(12px, 5vw, 16px) 16px;
+    }
+
+    /* Grid breakpoints: make teams 2 cols on medium screens, 1 col on phones */
+    @media (max-width: 1100px) {
+      .grid.team { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .grid.team { grid-template-columns: 1fr; }
+    }
+
+    /* PDF frame height tuned per device size */
+    @media (max-width: 768px) {
+      .pdf-frame { height: 300px; }
+    }
+    @media (max-width: 480px) {
+      .pdf-frame { height: 240px; }
+    }
+
+    /* Make nav links collapse on smaller screens (placeholder for hamburger) */
+    @media (max-width: 768px) {
+      .nav-inner { flex-wrap: wrap; }
+      .nav-links { display: none; } /* Replace with hamburger menu later */
+    }
+
+    /* Slightly reduce hero spacing on small screens */
+    @media (max-width: 600px) {
+      .hero { margin: 20px auto 0; padding: 0 16px 16px; }
+      .h-title { margin: 8px 0 10px; }
+    }
+
   </style>
 </head>
 <body>
