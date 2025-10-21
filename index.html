@@ -251,6 +251,54 @@
       .h-title { margin: 8px 0 10px; }
     }
 
+    /* Mobile Hamburger Menu */
+    .nav-inner { position: relative; }
+    .hamburger {
+      display: none;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 8px 10px;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      height: 42px;
+      width: 48px;
+      color: var(--text);
+    }
+    .hamburger .bar {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text);
+      margin: 4px 0;
+      transition: transform .2s ease, opacity .2s ease;
+    }
+    .hamburger.active .bar:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .hamburger.active .bar:nth-child(2) { opacity: 0; }
+    .hamburger.active .bar:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+    @media (max-width: 768px) {
+      .hamburger { display: inline-flex; }
+      .nav-links {
+        position: absolute;
+        right: 20px;
+        top: calc(100% + 10px);
+        display: none;
+        flex-direction: column;
+        gap: 8px;
+        background: rgba(11, 15, 20, 0.96);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        padding: 12px;
+        width: min(86vw, 360px);
+        box-shadow: var(--shadow);
+      }
+      .nav-links a { padding: 10px 12px; border-radius: 8px; }
+      .nav-links.open { display: flex; }
+    }
+
   </style>
 </head>
 <body>
