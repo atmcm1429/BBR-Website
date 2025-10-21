@@ -210,12 +210,14 @@
       .hero { grid-template-columns: 1fr; }
       .pdf-frame { height: 340px; }
     }
-
+  
+    /* ===== Responsive Enhancements + Mobile Hamburger Menu (added by ChatGPT) ===== */
+    /* Fluid avatar sizes instead of fixed */
     .avatar {
       width: clamp(120px, 30vw, 250px);
       height: clamp(120px, 30vw, 250px);
     }
-    /* So the avatar doesn't overflow when card header gets small */
+    /* Avoid header crowding */
     .card-head { padding-top: min(58%, 320px); }
 
     /* More fluid padding inside cards */
@@ -223,7 +225,7 @@
       padding: clamp(32px, 8vw, 48px) clamp(12px, 5vw, 16px) 16px;
     }
 
-    /* Grid breakpoints: make teams 2 cols on medium screens, 1 col on phones */
+    /* Extra grid breakpoints */
     @media (max-width: 1100px) {
       .grid.team { grid-template-columns: repeat(2, 1fr); }
     }
@@ -231,18 +233,12 @@
       .grid.team { grid-template-columns: 1fr; }
     }
 
-    /* PDF frame height tuned per device size */
+    /* PDF frame height tuned per device */
     @media (max-width: 768px) {
       .pdf-frame { height: 300px; }
     }
     @media (max-width: 480px) {
       .pdf-frame { height: 240px; }
-    }
-
-    /* Make nav links collapse on smaller screens (placeholder for hamburger) */
-    @media (max-width: 768px) {
-      .nav-inner { flex-wrap: wrap; }
-      .nav-links { display: none; } /* Replace with hamburger menu later */
     }
 
     /* Slightly reduce hero spacing on small screens */
@@ -298,8 +294,9 @@
       .nav-links a { padding: 10px 12px; border-radius: 8px; }
       .nav-links.open { display: flex; }
     }
+    /* ===== End Additions ===== */
 
-  </style>
+</style>
 </head>
 <body>
   <header class="nav">
@@ -308,7 +305,8 @@
         <div class="logo">BBR</div>
         <div class="brand-name">Bull & Bear Research</div>
       </a>
-      <nav class="nav-links">
+      <button class="hamburger" aria-label="Open menu" aria-controls="site-menu" aria-expanded="false"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+<nav id="site-menu" class="nav-links">
         <a href="marketInsights.html">Market Insights</a>
         <a href="verticals.html">Verticals</a>
         <a href="teams.html">Teams</a>
@@ -544,40 +542,42 @@
     render();
   </script>
 
-<script>
-  (function() {
-    const btn = document.querySelector('.hamburger');
-    const menu = document.getElementById('site-menu');
-    if (!btn || !menu) return;
+  <script>
+    (function() {
+      const btn = document.querySelector('.hamburger');
+      const menu = document.getElementById('site-menu');
+      if (!btn || !menu) return;
 
-    function closeMenu() {
-      menu.classList.remove('open');
-      btn.classList.remove('active');
-      btn.setAttribute('aria-expanded', 'false');
-    }
-    function toggleMenu() {
-      const isOpen = menu.classList.toggle('open');
-      btn.classList.toggle('active', isOpen);
-      btn.setAttribute('aria-expanded', String(isOpen));
-    }
-
-    btn.addEventListener('click', toggleMenu);
-
-    // Close when clicking outside
-    document.addEventListener('click', (e) => {
-      if (!menu.contains(e.target) && !btn.contains(e.target)) {
-        closeMenu();
+      function closeMenu() {
+        menu.classList.remove('open');
+        btn.classList.remove('active');
+        btn.setAttribute('aria-expanded', 'false');
       }
-    });
+      function toggleMenu() {
+        const isOpen = menu.classList.toggle('open');
+        btn.classList.toggle('active', isOpen);
+        btn.setAttribute('aria-expanded', String(isOpen));
+      }
 
-    // Close with Escape
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeMenu();
-    });
+      btn.addEventListener('click', toggleMenu);
 
-    // Close after selecting a menu item
-    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
-  })();
-</script>
+      // Close when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!menu.contains(e.target) && !btn.contains(e.target)) {
+          closeMenu();
+        }
+      });
+
+      // Close with Escape
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeMenu();
+      });
+
+      // Close after selecting a menu item
+      menu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+    })();
+  </script>
+
 </body>
 </html>
+
