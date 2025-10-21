@@ -543,5 +543,41 @@
     buildDots();
     render();
   </script>
+
+<script>
+  (function() {
+    const btn = document.querySelector('.hamburger');
+    const menu = document.getElementById('site-menu');
+    if (!btn || !menu) return;
+
+    function closeMenu() {
+      menu.classList.remove('open');
+      btn.classList.remove('active');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+    function toggleMenu() {
+      const isOpen = menu.classList.toggle('open');
+      btn.classList.toggle('active', isOpen);
+      btn.setAttribute('aria-expanded', String(isOpen));
+    }
+
+    btn.addEventListener('click', toggleMenu);
+
+    // Close when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!menu.contains(e.target) && !btn.contains(e.target)) {
+        closeMenu();
+      }
+    });
+
+    // Close with Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMenu();
+    });
+
+    // Close after selecting a menu item
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  })();
+</script>
 </body>
 </html>
