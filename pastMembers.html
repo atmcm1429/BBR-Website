@@ -47,11 +47,60 @@ html { scroll-behavior: smooth; }
             background: linear-gradient(145deg, var(--accent), var(--accent-2)); color: #001319; font-weight: 800;
             font-size: 20px; box-shadow: var(--shadow); }
     .brand-name { font-weight: 700; font-size: 20px; letter-spacing: .2px; }
+    .nav-inner { position: relative; }
     .nav-links { display:flex; align-items:center; gap:18px; }
     .nav-links a { color: var(--muted); text-decoration:none; font-weight:500; padding:8px 10px; border-radius:10px; }
     .nav-links a:hover { color:var(--text); background: rgba(255,255,255,.05); }
     .cta { background: linear-gradient(145deg, var(--accent), var(--accent-2)); color:#001319 !important;
            padding:10px 14px !important; border-radius:12px; font-weight:800 !important; box-shadow: var(--shadow); text-decoration:none; }
+
+    /* Mobile Hamburger Menu */
+    .hamburger {
+      display: none;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 8px 10px;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      height: 42px;
+      width: 48px;
+      color: var(--text);
+    }
+    .hamburger .bar {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text);
+      margin: 4px 0;
+      transition: transform .2s ease, opacity .2s ease;
+    }
+    .hamburger.active .bar:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .hamburger.active .bar:nth-child(2) { opacity: 0; }
+    .hamburger.active .bar:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+    @media (max-width: 768px) {
+      .hamburger { display: inline-flex; }
+      .nav-links {
+        position: absolute;
+        right: 20px;
+        top: calc(100% + 10px);
+        display: none;
+        flex-direction: column;
+        gap: 8px;
+        background: rgba(11, 15, 20, 0.96);
+        border: 1px solid var(--border);
+        border-radius: var(--r-lg);
+        padding: 12px;
+        width: min(86vw, 360px);
+        box-shadow: var(--shadow);
+        z-index: 100;
+      }
+      .nav-links a { padding: 10px 12px; border-radius: 8px; }
+      .nav-links.open { display: flex; }
+    }
 
     .section { max-width: var(--maxw); margin: 8px auto; padding: 22px 20px 80px; }
     .section h2 { font-size: clamp(22px, 3vw, 34px); margin: 0 0 10px; }
@@ -296,12 +345,13 @@ html { scroll-behavior: smooth; }
         <div class="logo">BBR</div>
         <div class="brand-name">Bull & Bear Research</div>
       </a>
-      <nav class="nav-links">
+      <button class="hamburger" aria-label="Open menu" aria-controls="site-menu" aria-expanded="false"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+      <nav id="site-menu" class="nav-links">
         <a href="marketInsights.html">Market Insights</a>
         <a href="verticals.html">Verticals</a>
         <a href="teams.html">Teams</a>
-        <a href="pastmemebers.html">Past Members</a>
-        <a class="cta" href="index.html#join">Join</a>
+        <a href="index.html#pastmemebers">Past Members</a>
+        <a class="cta" href="index.html#join">Apply</a>
       </nav>
     </div>
   </header>
@@ -703,7 +753,44 @@ html { scroll-behavior: smooth; }
     </div>
   </footer>
 
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Hamburger menu toggle
+    (function() {
+      const btn = document.querySelector('.hamburger');
+      const menu = document.getElementById('site-menu');
+      if (!btn || !menu) return;
+
+      function closeMenu() {
+        menu.classList.remove('open');
+        btn.classList.remove('active');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+      function toggleMenu() {
+        const isOpen = menu.classList.toggle('open');
+        btn.classList.toggle('active', isOpen);
+        btn.setAttribute('aria-expanded', String(isOpen));
+      }
+
+      btn.addEventListener('click', toggleMenu);
+
+      // Close when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!menu.contains(e.target) && !btn.contains(e.target)) {
+          closeMenu();
+        }
+      });
+
+      // Close with Escape
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeMenu();
+      });
+
+      // Close after selecting a menu item
+      menu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+    })();
+  </script>
 
 <script>
   // Click-to-flip for small cards

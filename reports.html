@@ -20,15 +20,28 @@
     *{box-sizing:border-box}
     body{margin:0;font-family:Garamond, "Times New Roman", serif;background:var(--navy);color:var(--text)}
 
-    .nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);background:rgba(15,27,57,.7);border-bottom:1px solid rgba(255,255,255,.08)}
-    .nav-inner{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 20px}
+    .nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);background:rgba(11,15,20,.7);border-bottom:1px solid rgba(255,255,255,.05)}
+    .nav-inner{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 20px;position:relative}
     .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--text)}
-    .logo-img{height:36px;width:auto;display:block;border-radius:4px}
-    .brand-name{font-weight:700;letter-spacing:.2px}
+    .logo{width:50px;height:50px;display:grid;place-items:center;border-radius:10px;background:linear-gradient(145deg,#5dd0ff,#25238d);color:#001319;font-weight:800;font-size:20px;box-shadow:var(--shadow)}
+    .brand-name{font-weight:700;font-size:20px;letter-spacing:.2px}
     .nav-links{display:flex;align-items:center;gap:18px}
     .nav-links a{color:var(--muted);text-decoration:none;font-weight:500;padding:8px 10px;border-radius:8px}
-    .nav-links a:hover{color:var(--text);background:rgba(255,255,255,.06)}
-    .cta{background:var(--accent);color:var(--navy) !important;padding:10px 14px !important;border-radius:10px;font-weight:700 !important;box-shadow:var(--shadow);text-decoration:none;border:1px solid var(--accent)}
+    .nav-links a:hover{color:var(--text);background:rgba(255,255,255,.04)}
+    .cta{background:linear-gradient(145deg,#5dd0ff,#25238d);color:#001319 !important;padding:10px 14px !important;border-radius:10px;font-weight:700 !important;box-shadow:var(--shadow);text-decoration:none;border:none}
+
+    /* Mobile Hamburger Menu */
+    .hamburger{display:none;background:transparent;border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:8px 10px;cursor:pointer;align-items:center;justify-content:center;gap:6px;height:42px;width:48px;color:var(--text)}
+    .hamburger .bar{display:block;width:22px;height:2px;background:var(--text);margin:4px 0;transition:transform .2s ease,opacity .2s ease}
+    .hamburger.active .bar:nth-child(1){transform:translateY(6px) rotate(45deg)}
+    .hamburger.active .bar:nth-child(2){opacity:0}
+    .hamburger.active .bar:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+    @media (max-width:768px){
+      .hamburger{display:inline-flex}
+      .nav-links{position:absolute;right:20px;top:calc(100% + 10px);display:none;flex-direction:column;gap:8px;background:rgba(11,15,20,.96);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:12px;width:min(86vw,360px);box-shadow:var(--shadow);z-index:100}
+      .nav-links a{padding:10px 12px;border-radius:8px}
+      .nav-links.open{display:flex}
+    }
 
     .container{max-width:1100px;margin:32px auto;padding:0 20px}
     h1{font-size:32px;margin:10px 0 8px;font-family:Garamond, "Times New Roman", serif}
@@ -68,14 +81,16 @@
   <header class="nav">
     <div class="nav-inner">
       <a class="brand" href="index.html">
-        <img src="Pictures/Backgrounds/BBR Main Logo.png" alt="Bull & Bear Research logo" class="logo-img" />
+        <div class="logo">BBR</div>
+        <div class="brand-name">Bull & Bear Research</div>
       </a>
-      <nav class="nav-links">
-        <a href="reports.html" style="color:var(--text);background:rgba(255,255,255,.06)">Reports</a>
+      <button class="hamburger" aria-label="Open menu" aria-controls="site-menu" aria-expanded="false"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+      <nav id="site-menu" class="nav-links">
+        <a href="marketInsights.html">Market Insights</a>
+        <a href="verticals.html">Verticals</a>
         <a href="teams.html">Teams</a>
-        <a href="index.html#directors">Directors</a>
-        <a href="index.html#research">Research</a>
-        <a class="cta" href="index.html#join">Join</a>
+        <a href="index.html#pastmemebers">Past Members</a>
+        <a class="cta" href="index.html#join">Apply</a>
       </nav>
     </div>
   </header>
@@ -188,6 +203,41 @@
     initFromHash();
 
     document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Hamburger menu toggle
+    (function() {
+      const btn = document.querySelector('.hamburger');
+      const menu = document.getElementById('site-menu');
+      if (!btn || !menu) return;
+
+      function closeMenu() {
+        menu.classList.remove('open');
+        btn.classList.remove('active');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+      function toggleMenu() {
+        const isOpen = menu.classList.toggle('open');
+        btn.classList.toggle('active', isOpen);
+        btn.setAttribute('aria-expanded', String(isOpen));
+      }
+
+      btn.addEventListener('click', toggleMenu);
+
+      // Close when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!menu.contains(e.target) && !btn.contains(e.target)) {
+          closeMenu();
+        }
+      });
+
+      // Close with Escape
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeMenu();
+      });
+
+      // Close after selecting a menu item
+      menu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+    })();
   </script>
 </body>
 </html>
