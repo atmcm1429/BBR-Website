@@ -311,7 +311,7 @@
         <a href="verticals.html">Verticals</a>
         <a href="teams.html">Teams</a>
         <a href="pastMembers.html">Past Members</a>
-        <a class="cta" href="#join">Apply</a>
+        <a class="cta" href="https://docs.google.com/forms/d/e/1FAIpQLSfM_gBcxjGRGj3959yo_IR2OUh4J6UyWsmvRwhZIcY8l2weQQ/viewform?pli=1">Apply</a>
       </nav>
     </div>
   </header>
@@ -486,12 +486,13 @@
   </script>
   <script>
     // Show only the FIRST PAGE IMAGE for each PDF; keep a link to the full PDF
+    
     const pdfs = [
-      { img: "/pictures/Industrials Fall 2025.png", pdf: "/reports/Industrials/Space Manufacturing - Fall 2025.pdf",  name: "OUT NOW - Space Manufacturing Report" },
-      { img: "/Reports/Real Estate/Hospitality - Spring 2025_page1.png", pdf: "/Reports/Real Estate/Hospitality - Spring 2025.pdf", name: "Real Estate — Hospitality" },
-      { img: "/Reports/Technology/ERP _ Spring 2025_page1.png", pdf: "/Reports/Technology/ERP _ Spring 2025.pdf", name: "Technology - ERP Software" }
-    ];
-
+      { img: "/pictures/Industrials - Fall 2025.png", pdf: "/reports/Industrials/Space Manufacturing - Fall 2025.pdf",  name: "OUT NOW - Space Manufacturing Report" },
+      { img: "/pictures/Healthcare - Fall 2025.png", pdf: "/reports/Healtcare/Drug Manufacturers - Fall 2025.pdf",  name: "OUT NOW - Drug Manufacturers Report" },
+      { img: "/pictures/Technology - Fall 2025.png", pdf: "/reports/Technology/Financial Payments - Fall 2025.pdf",  name: "OUT NOW - Financial Payments Report" }
+      { img: "/pictures/Real Estate - Fall 2025.png", pdf: "/reports/Real Estate/Retail - Fall 2025.pdf",  name: "OUT NOW - Retail Report" }
+  ];
     let idx = 0;
     const imgEl = document.getElementById('pdfImage');
     const iframe = document.getElementById('pdfViewer');   // kept hidden
