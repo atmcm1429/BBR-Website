@@ -260,7 +260,7 @@ html { scroll-behavior: smooth; }
       flex-shrink: 0;
     }
   
-/* --- Flip-card additions --- */
+/* --- Flip-card additions (COMMENTED OUT) ---
 .cards .card {
   height: clamp(380px, 52vw, 420px);
   min-height: 380px;
@@ -464,7 +464,6 @@ html { scroll-behavior: smooth; }
 .pill-btn:hover { transform: scale(1.05); }
 
 
-/* Featured flip support */
 .featured {
   position: relative;
   height: var(--featured-h, 380px);
@@ -487,6 +486,7 @@ html { scroll-behavior: smooth; }
   gap: 14px;
   padding: 20px;
 }
+--- END FLIP-CARD CSS COMMENT */
 
 
 .verticals-nav {
@@ -617,7 +617,7 @@ html { scroll-behavior: smooth; }
     <a href="#industrials">Industrials</a>
     <a href="#real-estate">Real Estate</a>
     <a href="#technology">Technology</a>
-    <a href="#healthcare">Healthcare</a>
+    <a href="#market-insights">Market Insights</a>
     <a href="#consumer">Consumer</a>
   </nav>
 
@@ -625,11 +625,10 @@ html { scroll-behavior: smooth; }
   <section class="section" id="industrials">
     <h2>Industrials</h2>
     <div class="directors-layout">
-      <!-- Large blank panel on the left (use for notes, a future map, or a hero image) -->
       <div class="hero" style="background-image: url('/pictures/Industrials Team - Fall 2025.JPG');" aria-hidden="true"></div>
 
-      <!-- Featured director card on the right -->
-      <aside class="featured flip-card"><div class="flip-card-inner"><div class="flip-card-front">
+      <!-- Featured director card -->
+      <aside class="featured">
         <div class="img-wrap">
           <img class="img" src="/pictures/Zach Cohen.JPG" alt="Featured director portrait">
         </div>
@@ -638,76 +637,76 @@ html { scroll-behavior: smooth; }
           <div class="role">Director of Industrials</div>
           <div class="links">
             <a class="btn" href="https://www.linkedin.com/in/zachary-j-cohen/" target="_blank" rel="noopener">LinkedIn</a>
-            <a class="btn muted" href="mailto:cohen.zach@northeastern.edu">Email</a>
+            <!-- <a class="btn muted" href="mailto:cohen.zach@northeastern.edu">Email</a> -->
           </div>
         </div>
-      </div>
-      <div class="flip-card-back">
-        
-      </div>
-    </div></aside>
+      </aside>
 
       <!-- Lower grid -->
       <div class="cards">
-        <article class="card flip-card"><div class="flip-card-inner"><div class="flip-card-front">
+        <article class="card">
           <div class="card-top">
-            <img class="img" src="/pictures/Rohan Kalaria.jpg" alt="Ben Rosenberg">
+            <img class="img" src="/pictures/Rohan Kalaria.jpg" alt="Rohan Kalaria">
           </div>
           <div class="body">
             <div class="name">Rohan Kalaria</div>
             <div class="role">Industrials · Associate</div>
             <div class="links">
               <a class="btn small" href="https://www.linkedin.com/in/rohan-kalaria/" target="_blank">LinkedIn</a>
-              <a class="btn small muted" href="mailto:example@gmail.com">Email</a></div>
+              <!-- <a class="btn small muted" href="mailto:example@gmail.com">Email</a> -->
+            </div>
           </div>
-        </div><div class="flip-card-back">
-          <a href="Reports/Industrials/Autos - Spring 2025.pdf" class="pill-btn" target="_blank">Autos - Spring 2025</a>
-        </div></div></article>
+          <!-- <div class="flip-card-back">
+            <a href="Reports/Industrials/Autos - Spring 2025.pdf" class="pill-btn" target="_blank">Autos - Spring 2025</a>
+          </div> -->
+        </article>
 
-        <article class="card flip-card"><div class="flip-card-inner"><div class="flip-card-front">
+        <article class="card">
           <div class="card-top">
-            <img class="img" src="/pictures/Goncalo Soares.png" alt="Ben Rosenberg">
+            <img class="img" src="/pictures/Goncalo Soares.png" alt="Goncalo Soares">
           </div>
           <div class="body">
             <div class="name">Goncalo Soares</div>
             <div class="role">Industrials · Analyst</div>
             <div class="links">
               <a class="btn small" href="www.linkedin.com/in/goncalo-soares1" target="_blank">LinkedIn</a>
-              <a class="btn small muted" href="mailto:soares.go@northeastern.edu">Email</a></div>
+              <!-- <a class="btn small muted" href="mailto:soares.go@northeastern.edu">Email</a> -->
+            </div>
           </div>
-        </div><div class="flip-card-back">
+          <!-- <div class="flip-card-back"></div> -->
+        </article>
 
-        </div></div></article>
-
-        <article class="card flip-card"><div class="flip-card-inner"><div class="flip-card-front">
+        <article class="card">
           <div class="card-top">
-            <img class="img" src="/pictures/Nora Byrne.jpeg" alt="Ben Rosenberg">
+            <img class="img" src="/pictures/Nora Byrne.jpeg" alt="Nora Byrne">
           </div>
           <div class="body">
             <div class="name">Nora Byrne</div>
             <div class="role">Industrials · Analyst</div>
             <div class="links">
               <a class="btn small" href="https://www.linkedin.com/in/nora-byrne-3b2938310/" target="_blank">LinkedIn</a>
-              <a class="btn small muted" href="mailto:byrne.n@northeastern.edu">Email</a></div>
+              <!-- <a class="btn small muted" href="mailto:byrne.n@northeastern.edu">Email</a> -->
+            </div>
           </div>
-        </div><div class="flip-card-back">
-          <a href="Reports/Industrials/Autos - Spring 2025.pdf" class="pill-btn" target="_blank">Autos - Spring 2025</a>
-        </div></div></article>
+          <!-- <div class="flip-card-back">
+            <a href="Reports/Industrials/Autos - Spring 2025.pdf" class="pill-btn" target="_blank">Autos - Spring 2025</a>
+          </div> -->
+        </article>
 
-        <article class="card flip-card"><div class="flip-card-inner"><div class="flip-card-front">
+        <article class="card">
           <div class="card-top">
-            <img class="img" src="/pictures/Gautham Kotha.jpeg" alt="Ben Rosenberg">
+            <img class="img" src="/pictures/Gautham Kotha.jpeg" alt="Gautham Kotha">
           </div>
           <div class="body">
             <div class="name">Gautham Kotha</div>
             <div class="role">Industrials · Analyst</div>
             <div class="links">
               <a class="btn small" href="https://www.linkedin.com/in/gautham-kotha/" target="_blank">LinkedIn</a>
-              <a class="btn small muted" href="mailto:kapur.ra@northeastern.edu">Email</a></div>
+              <!-- <a class="btn small muted" href="mailto:kapur.ra@northeastern.edu">Email</a> -->
+            </div>
           </div>
-        </div><div class="flip-card-back">
-
-        </div></div></article>
+          <!-- <div class="flip-card-back"></div> -->
+        </article>
       </div>
     </div>
   </section>
@@ -715,11 +714,10 @@ html { scroll-behavior: smooth; }
   <section class="section" id="real-estate">
     <h2>Real Estate</h2>
     <div class="directors-layout">
-      <!-- Large blank panel on the left (use for notes, a future map, or a hero image) -->
       <div class="hero" style="background-image: url('/pictures/Real Estate Team - Fall 25.JPG');" aria-hidden="true"></div>
 
-      <!-- Featured director card on the right -->
-      <aside class="featured flip-card"><div class="flip-card-inner"><div class="flip-card-front">
+      <!-- Featured director card -->
+      <aside class="featured">
         <div class="img-wrap">
           <img class="img" src="/pictures/Anthony Butsikares.JPG" alt="Featured director portrait">
         </div>
@@ -728,64 +726,93 @@ html { scroll-behavior: smooth; }
           <div class="role">Director of Real Estate</div>
           <div class="links">
             <a class="btn" href="https://www.linkedin.com/in/anthony-butsikares/" target="_blank" rel="noopener">LinkedIn</a>
-            <a class="btn muted" href="mailto:butsikares.a@northeastern.edu">Email</a>
+            <!-- <a class="btn muted" href="mailto:butsikares.a@northeastern.edu">Email</a> -->
           </div>
         </div>
-      </div><div class="flip-card-back">
-        <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
-        <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
-        <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
-      </div></div></aside>
+        <!-- <div class="flip-card-back">
+          <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+          <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+          <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+        </div> -->
+      </aside>
 
       <!-- Lower grid -->
       <div class="cards">
-        <article class="card flip-card"><div class="flip-card-inner"><div class="flip-card-front">
+        <article class="card">
           <div class="card-top">
-            <img class="img" src="/pictures/Max Klinger.jpeg" alt="Ben Rosenberg">
+            <img class="img" src="/pictures/Max Klinger.jpeg" alt="Max Klinger">
           </div>
           <div class="body">
             <div class="name">Max Klinger</div>
             <div class="role">Real Estate · Associate</div>
             <div class="links">
               <a class="btn small" href="https://www.linkedin.com/in/max-klinger-mk/" target="_blank">LinkedIn</a>
-              <a class="btn small muted" href="mailto:alex@example.edu">Email</a></div>
+              <!-- <a class="btn small muted" href="mailto:alex@example.edu">Email</a> -->
+            </div>
           </div>
-        </div><div class="flip-card-back"><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a></div></div></article>
+          <!-- <div class="flip-card-back">
+            <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+            <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+            <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+          </div> -->
+        </article>
 
-        <article class="card flip-card"><div class="flip-card-inner"><div class="flip-card-front">
+        <article class="card">
           <div class="card-top">
-            <img class="img" src="/pictures/Om Hirani.jpeg" alt="Ben Rosenberg">
+            <img class="img" src="/pictures/Om Hirani.jpeg" alt="Alex Foroohar">
           </div>
           <div class="body">
-            <div class="name">Alex Foroohar</div>
+            <div class="name">Om Hirani</div>
             <div class="role">Real Estate · Analyst</div>
             <div class="links">
               <a class="btn small" href="https://www.linkedin.com/in/om-hirani-50a264281/" target="_blank">LinkedIn</a>
-              <a class="btn small muted" href="mailto:om.hirani@northeastern.edu">Email</a></div>
+              <!-- <a class="btn small muted" href="mailto:om.hirani@northeastern.edu">Email</a> -->
+            </div>
           </div>
-        </div><div class="flip-card-back"><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a></div></div></article>
+          <!-- <div class="flip-card-back">
+            <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+            <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+            <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+          </div> -->
+        </article>
 
-        <article class="card flip-card"><div class="flip-card-inner"><div class="flip-card-front">
+        <article class="card">
           <div class="card-top">
-            <img class="img" src="/pictures/Devin Hikspoors.jpeg" alt="Ben Rosenberg">
+            <img class="img" src="/pictures/Devin Hikspoors.jpeg" alt="Devin Hikspoors">
           </div>
           <div class="body">
             <div class="name">Devin Hikspoors</div>
             <div class="role">Real Estate · Analyst</div>
-<div class="links"><a class="btn small" href="https://www.linkedin.com/in/deven-hikspoors-6a314b35b/" target="_blank">LinkedIn</a><a class="btn small muted" href="mailto:alex@example.edu">Email</a></div>
+            <div class="links">
+              <a class="btn small" href="https://www.linkedin.com/in/deven-hikspoors-6a314b35b/" target="_blank">LinkedIn</a>
+              <!-- <a class="btn small muted" href="mailto:alex@example.edu">Email</a> -->
+            </div>
           </div>
-        </div><div class="flip-card-back"><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a></div></div></article>
+          <!-- <div class="flip-card-back">
+            <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+            <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+            <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+          </div> -->
+        </article>
 
-        <article class="card flip-card"><div class="flip-card-inner"><div class="flip-card-front">
+        <article class="card">
           <div class="card-top">
-            <img class="img" src="/pictures/Catalina Sposato.jpeg" alt="Ben Rosenberg">
+            <img class="img" src="/pictures/Catalina Sposato.jpeg" alt="Catalina Sposato">
           </div>
           <div class="body">
             <div class="name">Catalina Sposato</div>
             <div class="role">Real Estate · Analyst</div>
-<div class="links"><a class="btn small" href="https://www.linkedin.com/in/catalina-sposato/" target="_blank">LinkedIn</a><a class="btn small muted" href="mailto:alex@example.edu">Email</a></div>
+            <div class="links">
+              <a class="btn small" href="https://www.linkedin.com/in/catalina-sposato/" target="_blank">LinkedIn</a>
+              <!-- <a class="btn small muted" href="mailto:alex@example.edu">Email</a> -->
+            </div>
           </div>
-        </div><div class="flip-card-back"><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a></div></div></article>
+          <!-- <div class="flip-card-back">
+            <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+            <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+            <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+          </div> -->
+        </article>
       </div>
     </div>
   </section>
@@ -793,11 +820,10 @@ html { scroll-behavior: smooth; }
   <section class="section" id="technology">
     <h2>Technology</h2>
     <div class="directors-layout">
-      <!-- Large blank panel on the left (use for notes, a future map, or a hero image) -->
       <div class="hero" style="background-image: url('/pictures/Technology Team - Fall 2025.JPG');" aria-hidden="true"></div>
 
-      <!-- Featured director card on the right -->
-      <aside class="featured flip-card"><div class="flip-card-inner"><div class="flip-card-front">
+      <!-- Featured director card -->
+      <aside class="featured">
         <div class="img-wrap">
           <img class="img" src="/pictures/Nicholas Berg.jpeg" alt="Featured director portrait">
         </div>
@@ -806,56 +832,93 @@ html { scroll-behavior: smooth; }
           <div class="role">Director of Technology</div>
           <div class="links">
             <a class="btn" href="https://www.linkedin.com/in/nicholasb38/" target="_blank" rel="noopener">LinkedIn</a>
-            <a class="btn muted" href="mailto:alex@example.edu">Email</a>
+            <!-- <a class="btn muted" href="mailto:alex@example.edu">Email</a> -->
           </div>
         </div>
-      </div><div class="flip-card-back"><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a></div></div></aside>
+        <!-- <div class="flip-card-back">
+          <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+          <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+          <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+        </div> -->
+      </aside>
 
       <!-- Lower grid -->
       <div class="cards">
-        <article class="card flip-card"><div class="flip-card-inner"><div class="flip-card-front">
+        <article class="card">
           <div class="card-top">
-            <img class="img" src="/pictures/Rebekah Campus-Hartman.jpeg" alt="Ben Rosenberg">
+            <img class="img" src="/pictures/Rebekah Campus-Hartman.jpeg" alt="Rebekah Campus-Hartman">
           </div>
           <div class="body">
             <div class="name">Rebekah Campus-Hartman</div>
             <div class="role">Technology · Associate</div>
-<div class="links"><a class="btn small" href="https://www.linkedin.com/in/rebekah-campus-hartman/" target="_blank">LinkedIn</a><a class="btn small muted" href="mailto:alex@example.edu">Email</a></div>
+            <div class="links">
+              <a class="btn small" href="https://www.linkedin.com/in/rebekah-campus-hartman/" target="_blank">LinkedIn</a>
+              <!-- <a class="btn small muted" href="mailto:alex@example.edu">Email</a> -->
+            </div>
           </div>
-        </div><div class="flip-card-back"><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a></div></div></article>
+          <!-- <div class="flip-card-back">
+            <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+            <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+            <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+          </div> -->
+        </article>
 
-        <article class="card flip-card"><div class="flip-card-inner"><div class="flip-card-front">
+        <article class="card">
           <div class="card-top">
-            <img class="img" src="/pictures/Eric Bullard.png" alt="Ben Rosenberg">
+            <img class="img" src="/pictures/Eric Bullard.png" alt="Eric Bullard">
           </div>
           <div class="body">
             <div class="name">Eric Bullard</div>
             <div class="role">Technology · Analyst</div>
-<div class="links"><a class="btn small" href="#" target="_blank">LinkedIn</a><a class="btn small muted" href="mailto:alex@example.edu">Email</a></div>
+            <div class="links">
+              <a class="btn small" href="#" target="_blank">LinkedIn</a>
+              <!-- <a class="btn small muted" href="mailto:alex@example.edu">Email</a> -->
+            </div>
           </div>
-        </div><div class="flip-card-back"><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a></div></div></article>
+          <!-- <div class="flip-card-back">
+            <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+            <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+            <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+          </div> -->
+        </article>
 
-        <article class="card flip-card"><div class="flip-card-inner"><div class="flip-card-front">
+        <article class="card">
           <div class="card-top">
-            <img class="img" src="/pictures/Sahil Shah.JPG" alt="Ben Rosenberg">
+            <img class="img" src="/pictures/Sahil Shah.JPG" alt="Sahil Shah">
           </div>
           <div class="body">
             <div class="name">Sahil Shah​</div>
             <div class="role">Technology · Analyst</div>
-<div class="links"><a class="btn small" href="#" target="_blank">LinkedIn</a><a class="btn small muted" href="mailto:alex@example.edu">Email</a></div>
+            <div class="links">
+              <a class="btn small" href="#" target="_blank">LinkedIn</a>
+              <!-- <a class="btn small muted" href="mailto:alex@example.edu">Email</a> -->
+            </div>
           </div>
-        </div><div class="flip-card-back"><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a></div></div></article>
+          <!-- <div class="flip-card-back">
+            <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+            <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+            <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+          </div> -->
+        </article>
 
-        <article class="card flip-card"><div class="flip-card-inner"><div class="flip-card-front">
+        <article class="card">
           <div class="card-top">
-            <img class="img" src="/pictures/Mia Patel.jpeg" alt="Ben Rosenberg">
+            <img class="img" src="/pictures/Mia Patel.jpeg" alt="Mia Patel">
           </div>
           <div class="body">
             <div class="name">Mia Patel</div>
             <div class="role">Technology · Analyst</div>
-<div class="links"><a class="btn small" href="https://www.linkedin.com/in/miapatel858/" target="_blank">LinkedIn</a><a class="btn small muted" href="mailto:alex@example.edu">Email</a></div>
+            <div class="links">
+              <a class="btn small" href="https://www.linkedin.com/in/miapatel858/" target="_blank">LinkedIn</a>
+              <!-- <a class="btn small muted" href="mailto:alex@example.edu">Email</a> -->
+            </div>
           </div>
-        </div><div class="flip-card-back"><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a></div></div></article>
+          <!-- <div class="flip-card-back">
+            <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+            <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+            <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+          </div> -->
+        </article>
       </div>
     </div>
   </section>
@@ -863,11 +926,10 @@ html { scroll-behavior: smooth; }
   <section class="section" id="market-insights">
   <h2>Market Insights</h2>
   <div class="directors-layout">
-    <!-- Group photo back on the left -->
     <div class="hero" style="background-image: url('/pictures/Market Insights Team - Fall 2025.JPG');" aria-hidden="true"></div>
 
-    <!-- Featured director card on the right -->
-    <aside class="featured flip-card"><div class="flip-card-inner"><div class="flip-card-front">
+    <!-- Featured director card -->
+    <aside class="featured">
       <div class="img-wrap">
         <img class="img" src="/pictures/Rahul Kapur.jpeg" alt="Rahul Kapur">
       </div>
@@ -876,87 +938,112 @@ html { scroll-behavior: smooth; }
         <div class="role">Director of Market Insights</div>
         <div class="links">
           <a class="btn" href="https://www.linkedin.com/in/rahul-kapur/" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="btn muted" href="mailto:alex@example.edu">Email</a>
+          <!-- <a class="btn muted" href="mailto:alex@example.edu">Email</a> -->
         </div>
       </div>
-    </div><div class="flip-card-back">
-      <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
-      <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
-      <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
-    </div></div></aside>
+      <!-- <div class="flip-card-back">
+        <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+        <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+        <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+      </div> -->
+    </aside>
 
       <!-- Lower grid -->
       <div class="cards market-insights-cards">
-        <article class="card flip-card"><div class="flip-card-inner"><div class="flip-card-front">
+        <article class="card">
           <div class="card-top">
-            <img class="img" src="/pictures/Jake Eisner.jpeg" alt="Ben Rosenberg">
+            <img class="img" src="/pictures/Jake Eisner.jpeg" alt="Jake Eisner">
           </div>
           <div class="body">
             <div class="name">Jake Eisner</div>
             <div class="role">Market Insights · Associate</div>
-<div class="links"><a class="btn small" href="https://www.linkedin.com/in/jake-eisner/" target="_blank">LinkedIn</a><a class="btn small muted" href="mailto:alex@example.edu">Email</a></div>
+            <div class="links">
+              <a class="btn small" href="https://www.linkedin.com/in/jake-eisner/" target="_blank">LinkedIn</a>
+              <!-- <a class="btn small muted" href="mailto:alex@example.edu">Email</a> -->
+            </div>
           </div>
-        </div><div class="flip-card-back"><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a></div></div></article>
+          <!-- <div class="flip-card-back">
+            <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+            <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+            <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+          </div> -->
+        </article>
 
-      <article class="card flip-card"><div class="flip-card-inner"><div class="flip-card-front">
+      <article class="card">
         <div class="card-top">
           <img class="img" src="/pictures/Dhilan Vyas.jpeg" alt="Dhilan Vyas">
         </div>
         <div class="body">
           <div class="name">Dhilan Vyas</div>
           <div class="role">Market Insights · Analyst</div>
-          <div class="links"><a class="btn small" href="https://www.linkedin.com/in/dhilanvyas/" target="_blank">LinkedIn</a><a class="btn small muted" href="mailto:alex@example.edu">Email</a></div>
+          <div class="links">
+            <a class="btn small" href="https://www.linkedin.com/in/dhilanvyas/" target="_blank">LinkedIn</a>
+            <!-- <a class="btn small muted" href="mailto:alex@example.edu">Email</a> -->
+          </div>
         </div>
-      </div><div class="flip-card-back">
-        <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
-        <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
-        <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
-      </div></div></article>
+        <!-- <div class="flip-card-back">
+          <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+          <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+          <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+        </div> -->
+      </article>
 
-      <article class="card flip-card"><div class="flip-card-inner"><div class="flip-card-front">
+      <article class="card">
         <div class="card-top">
           <img class="img" src="/pictures/Riya Pallamreddy.jpeg" alt="Riya Pallamreddy">
         </div>
         <div class="body">
           <div class="name">Riya Pallamreddy</div>
           <div class="role">Market Insights · Analyst</div>
-          <div class="links"><a class="btn small" href="https://www.linkedin.com/in/riyapallamreddy/" target="_blank">LinkedIn</a><a class="btn small muted" href="mailto:alex@example.edu">Email</a></div>
+          <div class="links">
+            <a class="btn small" href="https://www.linkedin.com/in/riyapallamreddy/" target="_blank">LinkedIn</a>
+            <!-- <a class="btn small muted" href="mailto:alex@example.edu">Email</a> -->
+          </div>
         </div>
-      </div><div class="flip-card-back">
-        <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
-        <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
-        <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
-      </div></div></article>
+        <!-- <div class="flip-card-back">
+          <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+          <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+          <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+        </div> -->
+      </article>
 
-      <article class="card flip-card"><div class="flip-card-inner"><div class="flip-card-front">
+      <article class="card">
         <div class="card-top">
           <img class="img" src="/pictures/Ahmad Shaikh.jpeg" alt="Ahmad Shaikh">
         </div>
         <div class="body">
           <div class="name">Ahmad Shaikh</div>
           <div class="role">Market Insights · Analyst</div>
-          <div class="links"><a class="btn small" href="https://www.linkedin.com/in/ahmad-shaikh2005/" target="_blank">LinkedIn</a><a class="btn small muted" href="mailto:alex@example.edu">Email</a></div>
+          <div class="links">
+            <a class="btn small" href="https://www.linkedin.com/in/ahmad-shaikh2005/" target="_blank">LinkedIn</a>
+            <!-- <a class="btn small muted" href="mailto:alex@example.edu">Email</a> -->
+          </div>
         </div>
-      </div><div class="flip-card-back">
-        <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
-        <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
-        <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
-      </div></div></article>
+        <!-- <div class="flip-card-back">
+          <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+          <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+          <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+        </div> -->
+      </article>
 
-      <article class="card flip-card"><div class="flip-card-inner"><div class="flip-card-front">
+      <article class="card">
         <div class="card-top">
           <img class="img" src="/pictures/Jessica Chen.jpeg" alt="Jessica Chen">
         </div>
         <div class="body">
           <div class="name">Jessica Chen</div>
           <div class="role">Market Insights · Analyst</div>
-          <div class="links"><a class="btn small" href="https://www.linkedin.com/in/jessica-chen-s/" target="_blank">LinkedIn</a><a class="btn small muted" href="mailto:newmember@example.edu">Email</a></div>
+          <div class="links">
+            <a class="btn small" href="https://www.linkedin.com/in/jessica-chen-s/" target="_blank">LinkedIn</a>
+            <!-- <a class="btn small muted" href="mailto:newmember@example.edu">Email</a> -->
+          </div>
         </div>
-      </div><div class="flip-card-back">
-        <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
-        <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
-        <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
-      </div></div></article>
+        <!-- <div class="flip-card-back">
+          <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+          <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+          <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+        </div> -->
+      </article>
     </div>
   </div>
 </section>
@@ -964,11 +1051,10 @@ html { scroll-behavior: smooth; }
   <section class="section" id="consumer">
     <h2>Consumer</h2>
     <div class="directors-layout">
-      <!-- Large blank panel on the left (use for notes, a future map, or a hero image) -->
       <div class="hero" style="background-image: url('/pictures/consumer\ placeholder.jpg');" aria-hidden="true"></div>
 
-      <!-- Featured director card on the right -->
-      <aside class="featured flip-card"><div class="flip-card-inner"><div class="flip-card-front">
+      <!-- Featured director card -->
+      <aside class="featured">
         <div class="img-wrap">
           <img class="img" src="/pictures/Stephen Corrou.JPG" alt="Featured director portrait">
         </div>
@@ -977,56 +1063,93 @@ html { scroll-behavior: smooth; }
           <div class="role">Director of Consumer</div>
           <div class="links">
             <a class="btn" href="https://www.linkedin.com/in/stephen-corrou-jr-49530825a/" target="_blank" rel="noopener">LinkedIn</a>
-            <a class="btn muted" href="mailto:alex@example.edu">Email</a>
+            <!-- <a class="btn muted" href="mailto:alex@example.edu">Email</a> -->
           </div>
         </div>
-      </div><div class="flip-card-back"><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a></div></div></aside>
+        <!-- <div class="flip-card-back">
+          <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+          <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+          <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+        </div> -->
+      </aside>
 
       <!-- Lower grid -->
       <div class="cards">
-        <article class="card flip-card"><div class="flip-card-inner"><div class="flip-card-front">
+        <article class="card">
           <div class="card-top">
-            <img class="img" src="/pictures/Kelly Yam.jpeg" alt="Ben Rosenberg">
+            <img class="img" src="/pictures/Kelly Yam.jpeg" alt="Kelly Yam">
           </div>
           <div class="body">
             <div class="name">Kelly Yam</div>
             <div class="role">Consumer · Associate</div>
-<div class="links"><a class="btn small" href="https://www.linkedin.com/in/kelly-yam/" target="_blank">LinkedIn</a><a class="btn small muted" href="mailto:alex@example.edu">Email</a></div>
+            <div class="links">
+              <a class="btn small" href="https://www.linkedin.com/in/kelly-yam/" target="_blank">LinkedIn</a>
+              <!-- <a class="btn small muted" href="mailto:alex@example.edu">Email</a> -->
+            </div>
           </div>
-        </div><div class="flip-card-back"><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a></div></div></article>
+          <!-- <div class="flip-card-back">
+            <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+            <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+            <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+          </div> -->
+        </article>
 
-        <article class="card flip-card"><div class="flip-card-inner"><div class="flip-card-front">
+        <article class="card">
           <div class="card-top">
-            <img class="img" src="/pictures/Dylan Fetterman.jpeg" alt="Ben Rosenberg">
+            <img class="img" src="/pictures/Dylan Fetterman.jpeg" alt="Dylan Fetterman">
           </div>
           <div class="body">
             <div class="name">Dylan Fetterman</div>
             <div class="role">Consumer · Analyst</div>
-<div class="links"><a class="btn small" href="https://www.linkedin.com/in/dylanfetterman/" target="_blank">LinkedIn</a><a class="btn small muted" href="mailto:alex@example.edu">Email</a></div>
+            <div class="links">
+              <a class="btn small" href="https://www.linkedin.com/in/dylanfetterman/" target="_blank">LinkedIn</a>
+              <!-- <a class="btn small muted" href="mailto:alex@example.edu">Email</a> -->
+            </div>
           </div>
-        </div><div class="flip-card-back"><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a></div></div></article>
+          <!-- <div class="flip-card-back">
+            <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+            <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+            <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+          </div> -->
+        </article>
 
-        <article class="card flip-card"><div class="flip-card-inner"><div class="flip-card-front">
+        <article class="card">
           <div class="card-top">
-            <img class="img" src="/pictures/Thomas McCarthy.jpeg" alt="Ben Rosenberg">
+            <img class="img" src="/pictures/Thomas McCarthy.jpeg" alt="Thomas McCarthy">
           </div>
           <div class="body">
             <div class="name">Thomas McCarthy</div>
             <div class="role">Consumer · Analyst</div>
-<div class="links"><a class="btn small" href="https://www.linkedin.com/in/thomasmccarthy06/" target="_blank">LinkedIn</a><a class="btn small muted" href="mailto:alex@example.edu">Email</a></div>
+            <div class="links">
+              <a class="btn small" href="https://www.linkedin.com/in/thomasmccarthy06/" target="_blank">LinkedIn</a>
+              <!-- <a class="btn small muted" href="mailto:alex@example.edu">Email</a> -->
+            </div>
           </div>
-        </div><div class="flip-card-back"><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a></div></div></article>
+          <!-- <div class="flip-card-back">
+            <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+            <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+            <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+          </div> -->
+        </article>
 
-        <article class="card flip-card"><div class="flip-card-inner"><div class="flip-card-front">
+        <article class="card">
           <div class="card-top">
-            <img class="img" src="/pictures/Javier Kumar.JPG" alt="Ben Rosenberg">
+            <img class="img" src="/pictures/Javier Kumar.JPG" alt="Javier Kumar">
           </div>
           <div class="body">
             <div class="name">Javier Kumar</div>
             <div class="role">Consumer · Analyst</div>
-<div class="links"><a class="btn small" href="https://www.linkedin.com/in/jaiveer-kumar-48a490282/?trk=people-guest_people_search-card&originalSubdomain=in" target="_blank">LinkedIn</a><a class="btn small muted" href="mailto:alex@example.edu">Email</a></div>
+            <div class="links">
+              <a class="btn small" href="https://www.linkedin.com/in/jaiveer-kumar-48a490282/?trk=people-guest_people_search-card&originalSubdomain=in" target="_blank">LinkedIn</a>
+              <!-- <a class="btn small muted" href="mailto:alex@example.edu">Email</a> -->
+            </div>
           </div>
-        </div><div class="flip-card-back"><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a></div></div></article>
+          <!-- <div class="flip-card-back">
+            <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+            <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+            <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+          </div> -->
+        </article>
       </div>
     </div>
   </section>
@@ -1063,23 +1186,21 @@ html { scroll-behavior: smooth; }
 
       btn.addEventListener('click', toggleMenu);
 
-      // Close when clicking outside
       document.addEventListener('click', (e) => {
         if (!menu.contains(e.target) && !btn.contains(e.target)) {
           closeMenu();
         }
       });
 
-      // Close with Escape
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') closeMenu();
       });
 
-      // Close after selecting a menu item
       menu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
     })();
   </script>
 
+<!-- FLIP CARD JS (COMMENTED OUT)
 <script>
   // Click-to-flip for small cards
   document.addEventListener('click', function(e) {
@@ -1089,6 +1210,7 @@ html { scroll-behavior: smooth; }
     }
   }, false);
 </script>
+-->
 
 </body>
 </html>
