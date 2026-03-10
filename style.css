@@ -107,3 +107,73 @@ footer {
   background: #f4f4f4;
   color: #333;
 }
+
+
+/* Market Insights only */
+#market-insights .cards.market-insights-cards {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+}
+
+#market-insights .cards.market-insights-cards .card {
+  height: 340px;
+  min-height: 340px;
+}
+
+#market-insights .cards.market-insights-cards .card-top {
+  padding: 10px 10px 0 10px;
+}
+
+#market-insights .cards.market-insights-cards .card .img {
+  width: 78%;
+  border-radius: 14px;
+}
+
+#market-insights .cards.market-insights-cards .card .body {
+  padding: 10px;
+  gap: 5px;
+}
+
+#market-insights .cards.market-insights-cards .card .name {
+  font-size: 14px;
+  line-height: 1.25;
+}
+
+#market-insights .cards.market-insights-cards .card .role {
+  font-size: 11px;
+  line-height: 1.25;
+  margin-top: 2px;
+}
+
+#market-insights .cards.market-insights-cards .card .links {
+  padding-top: 8px;
+  gap: 6px;
+}
+
+#market-insights .cards.market-insights-cards .btn.small {
+  padding: 5px 8px;
+  font-size: 11px;
+}
+
+@media (max-width: 1100px) {
+  #market-insights .cards.market-insights-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  #market-insights .cards.market-insights-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  #market-insights .cards.market-insights-cards .card {
+    height: 360px;
+    min-height: 360px;
+  }
+}
+
+@media (max-width: 560px) {
+  #market-insights .cards.market-insights-cards {
+    grid-template-columns: 1fr;
+  }
+}

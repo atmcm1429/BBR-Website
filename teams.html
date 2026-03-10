@@ -523,6 +523,76 @@ html { scroll-behavior: smooth; }
   .verticals-nav a:nth-child(n+3) { border-bottom: none; }
 }
 
+/* Market Insights only: force 5 cards in one row */
+#market-insights .cards.market-insights-cards {
+  grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  gap: 10px !important;
+}
+
+#market-insights .cards.market-insights-cards .card {
+  height: 320px !important;
+  min-height: 320px !important;
+}
+
+#market-insights .cards.market-insights-cards .card-top {
+  padding: 8px 8px 0 8px !important;
+}
+
+#market-insights .cards.market-insights-cards .card .img {
+  width: 72% !important;
+  border-radius: 12px !important;
+}
+
+#market-insights .cards.market-insights-cards .card .body {
+  padding: 8px !important;
+  gap: 4px !important;
+}
+
+#market-insights .cards.market-insights-cards .card .name {
+  font-size: 13px !important;
+  line-height: 1.2 !important;
+}
+
+#market-insights .cards.market-insights-cards .card .role {
+  font-size: 10px !important;
+  line-height: 1.2 !important;
+  margin-top: 2px !important;
+}
+
+#market-insights .cards.market-insights-cards .card .links {
+  padding-top: 6px !important;
+  gap: 5px !important;
+}
+
+#market-insights .cards.market-insights-cards .btn.small {
+  padding: 4px 7px !important;
+  font-size: 10px !important;
+}
+
+@media (max-width: 1100px) {
+  #market-insights .cards.market-insights-cards {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  #market-insights .cards.market-insights-cards {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  #market-insights .cards.market-insights-cards .card {
+    height: 350px !important;
+    min-height: 350px !important;
+  }
+}
+
+@media (max-width: 560px) {
+  #market-insights .cards.market-insights-cards {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+
 </style>
 </head>
 <body>
@@ -790,29 +860,33 @@ html { scroll-behavior: smooth; }
     </div>
   </section>
 
-  <section class="section" id="market insights">
-    <h2>Market Insights</h2>
-    <div class="directors-layout">
-      <!-- Large blank panel on the left (use for notes, a future map, or a hero image) -->
-      <div class="hero" style="background-image: url('/pictures/Market Insights Team - Fall 2025.jpeg');" aria-hidden="true"></div>
+  <section class="section" id="market-insights">
+  <h2>Market Insights</h2>
+  <div class="directors-layout">
+    <!-- Group photo back on the left -->
+    <div class="hero" style="background-image: url('/pictures/Market Insights Team - Fall 2025.JPG');" aria-hidden="true"></div>
 
-      <!-- Featured director card on the right -->
-      <aside class="featured flip-card"><div class="flip-card-inner"><div class="flip-card-front">
-        <div class="img-wrap">
-          <img class="img" src="/pictures/Rahul Kapur.jpeg" alt="Featured director portrait">
+    <!-- Featured director card on the right -->
+    <aside class="featured flip-card"><div class="flip-card-inner"><div class="flip-card-front">
+      <div class="img-wrap">
+        <img class="img" src="/pictures/Rahul Kapur.jpeg" alt="Rahul Kapur">
+      </div>
+      <div class="content">
+        <div class="name">Rahul Kapur</div>
+        <div class="role">Director of Market Insights</div>
+        <div class="links">
+          <a class="btn" href="https://www.linkedin.com/in/rahul-kapur/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn muted" href="mailto:alex@example.edu">Email</a>
         </div>
-        <div class="content">
-          <div class="name">Rahul Kapur</div>
-          <div class="role">Director of Market Insights</div>
-          <div class="links">
-            <a class="btn" href="https://www.linkedin.com/in/rahul-kapur/" target="_blank" rel="noopener">LinkedIn</a>
-            <a class="btn muted" href="mailto:alex@example.edu">Email</a>
-          </div>
-        </div>
-      </div><div class="flip-card-back"><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a></div></div></aside>
+      </div>
+    </div><div class="flip-card-back">
+      <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+      <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+      <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+    </div></div></aside>
 
       <!-- Lower grid -->
-      <div class="cards">
+      <div class="cards market-insights-cards">
         <article class="card flip-card"><div class="flip-card-inner"><div class="flip-card-front">
           <div class="card-top">
             <img class="img" src="/pictures/Jake Eisner.jpeg" alt="Ben Rosenberg">
@@ -824,60 +898,74 @@ html { scroll-behavior: smooth; }
           </div>
         </div><div class="flip-card-back"><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a></div></div></article>
 
-        <article class="card flip-card"><div class="flip-card-inner"><div class="flip-card-front">
-          <div class="card-top">
-            <img class="img" src="/pictures/Dhilan Vyas.jpeg" alt="Ben Rosenberg">
-          </div>
-          <div class="body">
-            <div class="name">Dhilan Vyas</div>
-            <div class="role">Market Insights · Analyst</div>
-<div class="links"><a class="btn small" href="https://www.linkedin.com/in/dhilanvyas/" target="_blank">LinkedIn</a><a class="btn small muted" href="mailto:alex@example.edu">Email</a></div>
-          </div>
-        </div><div class="flip-card-back"><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a></div></div></article>
+      <article class="card flip-card"><div class="flip-card-inner"><div class="flip-card-front">
+        <div class="card-top">
+          <img class="img" src="/pictures/Dhilan Vyas.jpeg" alt="Dhilan Vyas">
+        </div>
+        <div class="body">
+          <div class="name">Dhilan Vyas</div>
+          <div class="role">Market Insights · Analyst</div>
+          <div class="links"><a class="btn small" href="https://www.linkedin.com/in/dhilanvyas/" target="_blank">LinkedIn</a><a class="btn small muted" href="mailto:alex@example.edu">Email</a></div>
+        </div>
+      </div><div class="flip-card-back">
+        <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+        <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+        <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+      </div></div></article>
 
-        <article class="card flip-card"><div class="flip-card-inner"><div class="flip-card-front">
-          <div class="card-top">
-            <img class="img" src="/pictures/Riya Pallamreddy.jpeg" alt="Ben Rosenberg">
-          </div>
-          <div class="body">
-            <div class="name">Riya Pallamreddy</div>
-            <div class="role">Market Insights · Analyst</div>
-<div class="links"><a class="btn small" href="https://www.linkedin.com/in/riyapallamreddy/" target="_blank">LinkedIn</a><a class="btn small muted" href="mailto:alex@example.edu">Email</a></div>
-          </div>
-        </div><div class="flip-card-back"><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a></div></div></article>
+      <article class="card flip-card"><div class="flip-card-inner"><div class="flip-card-front">
+        <div class="card-top">
+          <img class="img" src="/pictures/Riya Pallamreddy.jpeg" alt="Riya Pallamreddy">
+        </div>
+        <div class="body">
+          <div class="name">Riya Pallamreddy</div>
+          <div class="role">Market Insights · Analyst</div>
+          <div class="links"><a class="btn small" href="https://www.linkedin.com/in/riyapallamreddy/" target="_blank">LinkedIn</a><a class="btn small muted" href="mailto:alex@example.edu">Email</a></div>
+        </div>
+      </div><div class="flip-card-back">
+        <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+        <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+        <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+      </div></div></article>
 
-        <article class="card flip-card"><div class="flip-card-inner"><div class="flip-card-front">
-          <div class="card-top">
-            <img class="img" src="/pictures/Ahmad Shaikh.jpeg" alt="Ben Rosenberg">
-          </div>
-          <div class="body">
-            <div class="name">Ahmad Shaikh</div>
-            <div class="role">Market Insights · Analyst</div>
-<div class="links"><a class="btn small" href="https://www.linkedin.com/in/ahmad-shaikh2005/" target="_blank">LinkedIn</a><a class="btn small muted" href="mailto:alex@example.edu">Email</a></div>
-          </div>
-        </div><div class="flip-card-back"><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a></div></div></article>
-      
-        <article class="card flip-card"><div class="flip-card-inner"><div class="flip-card-front">
-    <div class="card-top">
-      <img class="img" src="/pictures/Jessica Chen.jpeg" alt="New Member">
+      <article class="card flip-card"><div class="flip-card-inner"><div class="flip-card-front">
+        <div class="card-top">
+          <img class="img" src="/pictures/Ahmad Shaikh.jpeg" alt="Ahmad Shaikh">
+        </div>
+        <div class="body">
+          <div class="name">Ahmad Shaikh</div>
+          <div class="role">Market Insights · Analyst</div>
+          <div class="links"><a class="btn small" href="https://www.linkedin.com/in/ahmad-shaikh2005/" target="_blank">LinkedIn</a><a class="btn small muted" href="mailto:alex@example.edu">Email</a></div>
+        </div>
+      </div><div class="flip-card-back">
+        <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+        <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+        <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+      </div></div></article>
+
+      <article class="card flip-card"><div class="flip-card-inner"><div class="flip-card-front">
+        <div class="card-top">
+          <img class="img" src="/pictures/Jessica Chen.jpeg" alt="Jessica Chen">
+        </div>
+        <div class="body">
+          <div class="name">Jessica Chen</div>
+          <div class="role">Market Insights · Analyst</div>
+          <div class="links"><a class="btn small" href="https://www.linkedin.com/in/jessica-chen-s/" target="_blank">LinkedIn</a><a class="btn small muted" href="mailto:newmember@example.edu">Email</a></div>
+        </div>
+      </div><div class="flip-card-back">
+        <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+        <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+        <a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a>
+      </div></div></article>
     </div>
-    <div class="body">
-      <div class="name">Jessica Chen</div>
-      <div class="role">Market Insights · Analyst</div>
-  <div class="links"><a class="btn small" href="https://www.linkedin.com/in/jessica-chen-s/" target="_blank">LinkedIn</a><a class="btn small muted" href="mailto:newmember@example.edu">Email</a></div>
-    </div>
-  </div><div class="flip-card-back"><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a><a href="Reports/Industrials/Autos.pdf" class="pill-btn" target="_blank">Test Report</a></div></div></article>
-        
-        
-      </div>
-    </div>
-  </section>
+  </div>
+</section>
 
   <section class="section" id="consumer">
     <h2>Consumer</h2>
     <div class="directors-layout">
       <!-- Large blank panel on the left (use for notes, a future map, or a hero image) -->
-      <div class="hero" style="background-image: url('/pictures/Industrials Team - Fall 2025.JPG');" aria-hidden="true"></div>
+      <div class="hero" style="background-image: url('/pictures/consumer\ placeholder.jpg');" aria-hidden="true"></div>
 
       <!-- Featured director card on the right -->
       <aside class="featured flip-card"><div class="flip-card-inner"><div class="flip-card-front">
