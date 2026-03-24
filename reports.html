@@ -4,76 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Bull & Bear Research — Reports</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <style>
-    :root{
-      --navy:#0f1b39;
-      --navy-700:#17224a;
-      --navy-600:#1c2a58;
-      --text:#ffffff;
-      --muted:#c7cfdf;
-      --accent:#ffffff;
-      --shadow:0 10px 30px rgba(0,0,0,.35);
-      --maxw:1200px;
-    }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Garamond, "Times New Roman", serif;background:var(--navy);color:var(--text)}
-
-    .nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);background:rgba(11,15,20,.7);border-bottom:1px solid rgba(255,255,255,.05)}
-    .nav-inner{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 20px;position:relative}
-    .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--text)}
-    .logo{width:50px;height:50px;display:grid;place-items:center;border-radius:10px;background:linear-gradient(145deg,#5dd0ff,#25238d);color:#001319;font-weight:800;font-size:20px;box-shadow:var(--shadow)}
-    .brand-name{font-weight:700;font-size:20px;letter-spacing:.2px}
-    .nav-links{display:flex;align-items:center;gap:18px}
-    .nav-links a{color:var(--muted);text-decoration:none;font-weight:500;padding:8px 10px;border-radius:8px}
-    .nav-links a:hover{color:var(--text);background:rgba(255,255,255,.04)}
-    .cta{background:linear-gradient(145deg,#5dd0ff,#25238d);color:#001319 !important;padding:10px 14px !important;border-radius:10px;font-weight:700 !important;box-shadow:var(--shadow);text-decoration:none;border:none}
-
-    /* Mobile Hamburger Menu */
-    .hamburger{display:none;background:transparent;border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:8px 10px;cursor:pointer;align-items:center;justify-content:center;gap:6px;height:42px;width:48px;color:var(--text)}
-    .hamburger .bar{display:block;width:22px;height:2px;background:var(--text);margin:4px 0;transition:transform .2s ease,opacity .2s ease}
-    .hamburger.active .bar:nth-child(1){transform:translateY(6px) rotate(45deg)}
-    .hamburger.active .bar:nth-child(2){opacity:0}
-    .hamburger.active .bar:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
-    @media (max-width:768px){
-      .hamburger{display:inline-flex}
-      .nav-links{position:absolute;right:20px;top:calc(100% + 10px);display:none;flex-direction:column;gap:8px;background:rgba(11,15,20,.96);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:12px;width:min(86vw,360px);box-shadow:var(--shadow);z-index:100}
-      .nav-links a{padding:10px 12px;border-radius:8px}
-      .nav-links.open{display:flex}
-    }
-
-    .container{max-width:1100px;margin:32px auto;padding:0 20px}
-    h1{font-size:32px;margin:10px 0 8px;font-family:Garamond, "Times New Roman", serif}
-    p.lead{color:var(--muted);margin:0 0 18px;font-family:Garamond, "Times New Roman", serif}
-
-    .viewer-wrap{display:grid;grid-template-columns: 300px 1fr;gap:16px;align-items:start}
-    @media (max-width: 900px){ .viewer-wrap{grid-template-columns:1fr} }
-    .sidebar{background:var(--navy-700);border:1px solid var(--navy-600);border-radius:12px;padding:14px}
-    .sidebar h2{font-size:16px;margin:0 0 8px;font-family:Garamond, "Times New Roman", serif}
-    .search{display:flex;gap:8px;margin-bottom:10px}
-    .search input{flex:1;padding:10px;border-radius:8px;border:1px solid var(--navy-600);background:#0c142f;color:var(--text);font-family:Garamond, "Times New Roman", serif}
-    .list{display:flex;flex-direction:column;gap:10px;max-height:60vh;overflow:auto}
-    .item{padding:10px;border:1px solid var(--navy-600);border-radius:10px;background:#0e1a3a;cursor:pointer;text-align:left;font-family:Garamond, "Times New Roman", serif}
-    .item:hover{border-color:rgba(255,255,255,.35)}
-    .item-title{font-weight:700;font-size:14px}
-    .item-meta{color:var(--muted);font-size:12px;margin-top:2px}
-
-    .viewer{background:var(--navy-700);border:1px solid var(--navy-600);border-radius:12px;padding:12px}
-    .viewer-header{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px;font-family:Garamond, "Times New Roman", serif}
-    .viewer-header .title{font-weight:700}
-    .controls{display:flex;gap:8px;flex-wrap:wrap}
-    .btn{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:8px;background:var(--accent);color:var(--navy);font-weight:700;border:1px solid var(--accent);cursor:pointer;font-family:Garamond, "Times New Roman", serif}
-    .btn.ghost{background:none;color:var(--muted);border:1px solid var(--navy-600)}
-    .pdf-frame{width:100%;height:80vh;border:none;border-radius:8px;background:#0a1230}
-    @media (max-width: 600px){ .pdf-frame{height:70vh} }
-
-    .report-card{background:var(--navy-700);border:1px solid var(--navy-600);border-radius:12px;padding:16px;margin-top:18px;font-family:Garamond, "Times New Roman", serif}
-    .report-card h3{margin:0 0 6px;font-size:18px}
-    .report-card p{margin:0;color:var(--muted)}
-
-    footer{border-top:1px solid rgba(255,255,255,.08);padding:20px;text-align:center;color:var(--muted);margin-top:28px;font-family:Garamond, "Times New Roman", serif}
-  </style>
+  <link rel="stylesheet" href="assets/site.css" />
+  <link rel="stylesheet" href="assets/reports.css" />
+  <script src="assets/site.js" defer></script>
 
 
 </head>
@@ -124,28 +57,36 @@
     </section>
 
     <div class="report-card">
-      <h3>Quarterly Macro Strategy — Q3 2025</h3>
-      <p>Macro indicators, equity factors, and cross‑asset signals.</p>
+      <h3>Space Manufacturing - Fall 2025</h3>
+      <p>Industrials coverage on emerging aerospace manufacturing and sector positioning.</p>
     </div>
     <div class="report-card">
-      <h3>Equity Factor Research Note</h3>
-      <p>Momentum and value spreads with backtests and implications.</p>
+      <h3>Retail - Fall 2025</h3>
+      <p>Real estate research on retail fundamentals, leasing trends, and valuation dynamics.</p>
     </div>
     <div class="report-card">
-      <h3>Alternative Data Spotlight</h3>
-      <p>Novel datasets and predictive modeling applications.</p>
+      <h3>Financial Payments - Fall 2025</h3>
+      <p>Technology coverage on payment infrastructure, growth drivers, and competitive landscape.</p>
     </div>
   </main>
 
-  <footer>
-    © <span id="y"></span> Bull & Bear Research
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>© <span data-current-year></span> Bull & Bear Research</div>
+      <div class="footer-links">
+        <a class="footer-link" href="#">Code of Conduct</a>
+        <a class="footer-link" href="#">Privacy</a>
+      </div>
+    </div>
   </footer>
 
   <script>
     const REPORTS = [
-      { id: 'q3-2025-macro', title: 'Quarterly Macro Strategy — Q3 2025', date: '2025-09-15', tags: ['macro','cross-asset','outlook'], url: 'Spring 2025/Autos.pdf' },
-      { id: 'equity-factor-note', title: 'Equity Factor Research Note', date: '2025-08-30', tags: ['equities','factors','momentum','value'], url: 'reports/equity-factor-note.pdf' },
-      { id: 'alt-data-spotlight', title: 'Alternative Data Spotlight', date: '2025-07-20', tags: ['alt-data','ml'], url: 'reports/alt-data-spotlight.pdf' }
+      { id: 'space-manufacturing-fall-2025', title: 'Space Manufacturing - Fall 2025', date: '2025-11-01', tags: ['industrials', 'aerospace'], url: 'reports/Industrials/Space Manufacturing - Fall 2025.pdf' },
+      { id: 'retail-fall-2025', title: 'Retail - Fall 2025', date: '2025-11-01', tags: ['real estate', 'retail'], url: 'reports/Real Estate/Retail - Fall 2025.pdf' },
+      { id: 'financial-payments-fall-2025', title: 'Financial Payments - Fall 2025', date: '2025-11-01', tags: ['technology', 'payments'], url: 'reports/Technology/Financial Payments - Fall 2025.pdf' },
+      { id: 'drug-manufacturers-fall-2025', title: 'Drug Manufacturers - Fall 2025', date: '2025-11-01', tags: ['healthcare', 'pharma'], url: 'reports/Healthcare/Drug Manufacturers - Fall 2025.pdf' },
+      { id: 'consumer-staples-fall-2025', title: 'Consumer Staples - Fall 2025', date: '2025-11-01', tags: ['consumer', 'staples'], url: 'reports/Consumer/Consumer Staples - Fall 2025.pdf' }
     ];
 
     const fmt = (dStr)=> new Date(dStr).toLocaleDateString(undefined,{year:'numeric',month:'short',day:'2-digit'});
@@ -201,43 +142,6 @@
 
     renderList('');
     initFromHash();
-
-    document.getElementById('y').textContent = new Date().getFullYear();
-
-    // Hamburger menu toggle
-    (function() {
-      const btn = document.querySelector('.hamburger');
-      const menu = document.getElementById('site-menu');
-      if (!btn || !menu) return;
-
-      function closeMenu() {
-        menu.classList.remove('open');
-        btn.classList.remove('active');
-        btn.setAttribute('aria-expanded', 'false');
-      }
-      function toggleMenu() {
-        const isOpen = menu.classList.toggle('open');
-        btn.classList.toggle('active', isOpen);
-        btn.setAttribute('aria-expanded', String(isOpen));
-      }
-
-      btn.addEventListener('click', toggleMenu);
-
-      // Close when clicking outside
-      document.addEventListener('click', (e) => {
-        if (!menu.contains(e.target) && !btn.contains(e.target)) {
-          closeMenu();
-        }
-      });
-
-      // Close with Escape
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeMenu();
-      });
-
-      // Close after selecting a menu item
-      menu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
-    })();
   </script>
 </body>
 </html>

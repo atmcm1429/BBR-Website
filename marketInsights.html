@@ -5,237 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Bull & Bear Research — Market Insights</title>
   <meta name="description" content="Weekly market insights by term." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-:root {
-  --bg: #0f1b39;
-  --card: #121823;
-  --muted: #8aa0b2;
-  --text: #e6edf3;
-  --accent: #5dd0ff;
-  --accent-2: #25238d;
-  --border: #1e293b;
-  --shadow: 0 10px 30px rgba(0,0,0,.35);
-  --r-xl: 18px;
-  --r-lg: 14px;
-  --r-md: 10px;
-  --maxw: 1200px;
-}
-* { box-sizing: border-box; }
-html, body { height: 100%; }
-html { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  font-family: Garamond, serif;
-  background: radial-gradient(clamp(600px, 100vw, 1200px) clamp(400px, 70vh, 800px) at 80% -10%, rgba(192, 194, 198, 0.15), transparent 70%),
-              radial-gradient(clamp(450px, 75vw, 900px) clamp(350px, 60vh, 700px) at -10% 10%, rgba(0, 149, 248, 0.12), transparent 80%),
-              var(--bg);
-  color: var(--text);
-  line-height: 1.55;
-}
-.nav { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(10px);
-       background: rgba(9,13,18,.7); border-bottom: 1px solid rgba(255,255,255,.05); }
-.nav-inner { max-width: var(--maxw); margin: 0 auto; padding: 14px 20px;
-             display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--text); }
-.logo { width: 50px; height: 50px; display: grid; place-items:center; border-radius: 10px;
-        background: linear-gradient(145deg, var(--accent), var(--accent-2)); color: #001319; font-weight: 800;
-        font-size: 20px; box-shadow: var(--shadow); }
-.brand-name { font-weight: 700; font-size: 20px; letter-spacing: .2px; }
-.nav-inner { position: relative; }
-.nav-links { display:flex; align-items:center; gap:18px; }
-.nav-links a { color: var(--muted); text-decoration:none; font-weight:500; padding:8px 10px; border-radius:10px; }
-.nav-links a:hover { color:var(--text); background: rgba(255,255,255,.05); }
-.cta { background: linear-gradient(145deg, var(--accent), var(--accent-2)); color:#001319 !important;
-       padding:10px 14px !important; border-radius:12px; font-weight:800 !important; box-shadow: var(--shadow); text-decoration:none; }
-
-/* Mobile Hamburger Menu */
-.hamburger {
-  display: none;
-  background: transparent;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 8px 10px;
-  cursor: pointer;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  height: 42px;
-  width: 48px;
-  color: var(--text);
-}
-.hamburger .bar {
-  display: block;
-  width: 22px;
-  height: 2px;
-  background: var(--text);
-  margin: 4px 0;
-  transition: transform .2s ease, opacity .2s ease;
-}
-.hamburger.active .bar:nth-child(1) { transform: translateY(6px) rotate(45deg); }
-.hamburger.active .bar:nth-child(2) { opacity: 0; }
-.hamburger.active .bar:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
-
-@media (max-width: 768px) {
-  .hamburger { display: inline-flex; }
-  .nav-links {
-    position: absolute;
-    right: 20px;
-    top: calc(100% + 10px);
-    display: none;
-    flex-direction: column;
-    gap: 8px;
-    background: rgba(11, 15, 20, 0.96);
-    border: 1px solid var(--border);
-    border-radius: var(--r-lg);
-    padding: 12px;
-    width: min(86vw, 360px);
-    box-shadow: var(--shadow);
-    z-index: 100;
-  }
-  .nav-links a { padding: 10px 12px; border-radius: 8px; }
-  .nav-links.open { display: flex; }
-}
-
-.intro { max-width: var(--maxw); margin: 16px auto 10px; padding: 0 20px; }
-.intro h1 { margin: 12px 0 6px; font-size: clamp(26px, 4vw, 42px); letter-spacing: -0.3px; }
-.intro p { color: var(--muted); margin: 0 0 16px; }
-
-.verticals-nav {
-  max-width: 100%;
-  margin: 0 auto 20px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-}
-.verticals-nav a {
-  padding: clamp(10px, 2.5vw, 14px) 0;
-  text-align: center;
-  border-radius: 0;
-  background: linear-gradient(145deg, var(--accent), var(--accent-2));
-  color: #001319;
-  font-weight: 600;
-  text-decoration: none;
-  border-right: 1px solid rgba(255,255,255,.1);
-  font-size: clamp(12px, 2vw, 16px);
-}
-.verticals-nav a:last-child { border-right: none; }
-.verticals-nav a:hover { filter: brightness(1.1); }
-@media (max-width: 768px) {
-  .verticals-nav { grid-template-columns: repeat(2, 1fr); }
-  .verticals-nav a { border-right: 1px solid rgba(255,255,255,.1); border-bottom: 1px solid rgba(255,255,255,.1); }
-  .verticals-nav a:nth-child(2n) { border-right: none; }
-  .verticals-nav a:nth-child(n+3) { border-bottom: none; }
-}
-@media (max-width: 480px) {
-  .verticals-nav { grid-template-columns: 1fr; }
-  .verticals-nav a { border-right: none; border-bottom: 1px solid rgba(255,255,255,.1); }
-  .verticals-nav a:last-child { border-bottom: none; }
-}
-
-.section { max-width: var(--maxw); margin: 0 auto clamp(24px, 5vw, 40px); padding: 0 clamp(16px, 4vw, 20px); }
-.section h2 { font-size: clamp(22px, 3vw, 34px); margin: clamp(12px, 3vw, 18px) 0 6px; letter-spacing: -.3px; }
-.section p.lead { color: var(--muted); margin: 0 0 clamp(10px, 2.5vw, 14px); font-size: clamp(14px, 2vw, 16px); }
-
-.report-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-@media (max-width: 980px) { .report-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 560px) { .report-grid { grid-template-columns: 1fr; } }
-
-/* Flip-card styles (matching teams.html behavior) */
-.report-card.flip-card { 
-  position: relative; 
-  height: clamp(380px, 50vw, 420px);
-  min-height: 380px;
-  perspective: 1000px;
-  transition: transform .18s ease;
-}
-@media (max-width: 768px) {
-  .report-card.flip-card { 
-    height: clamp(360px, 70vw, 400px);
-    min-height: 360px;
-  }
-}
-@media (max-width: 480px) {
-  .report-card.flip-card { 
-    height: auto;
-    min-height: 350px;
-  }
-}
-/* Hover effect: lift card up when NOT flipped (applied to parent, separate from 3D transform) */
-.flip-card:not(.flipped):hover {
-  transform: translateY(-3px);
-}
-/* Reset transform when flipped to prevent conflicts */
-.flip-card.flipped {
-  transform: none;
-}
-.flip-card-inner { 
-  position: relative; 
-  width: 100%; 
-  height: 100%; 
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-}
-.flip-card.flipped .flip-card-inner { 
-  transform: rotateY(180deg);
-}
-.flip-face { 
-  position: absolute; 
-  inset: 0; 
-  backface-visibility: hidden; 
-  border-radius: var(--r-lg); 
-  overflow: hidden;
-}
-.flip-back { 
-  transform: rotateY(180deg);
-}
-
-.card-surface {
-  background: linear-gradient(180deg, rgba(18,24,35,.9), rgba(18,24,35,.7));
-  border: 1px solid var(--border);
-  border-radius: var(--r-lg);
-  box-shadow: var(--shadow);
-  transition: box-shadow .18s ease, border-color .18s ease;
-  overflow: hidden;
-}
-/* Hover effect using only visual properties - NO transforms to avoid conflicts with 3D flip */
-.flip-card:not(.flipped):hover .card-surface { 
-  box-shadow: 0 15px 40px rgba(0,0,0,.5);
-  border-color: rgba(6, 91, 124, 0.5); 
-}
-/* Completely disable all hover effects when flipped to prevent any visual glitches */
-.flip-card.flipped .card-surface {
-  transition: none !important;
-}
-.flip-card.flipped:hover .card-surface {
-  box-shadow: var(--shadow) !important;
-  border-color: var(--border) !important;
-}
-
-.card-content { padding: clamp(12px, 2vw, 14px); display: grid; gap: clamp(6px, 1.5vw, 8px); height: 100%; }
-.title { font-weight: 700; font-size: clamp(16px, 2.5vw, 18px); }
-.meta { color: var(--muted); font-size: clamp(11px, 1.8vw, 12px); }
-.actions { display: flex; gap: clamp(8px, 2vw, 10px); flex-wrap: wrap; }
-.btn {
-  display: inline-flex; align-items:center; justify-content:center; gap: 6px;
-  padding: clamp(8px, 2vw, 10px) clamp(12px, 2.5vw, 14px); border-radius: 9999px; text-decoration: none; font-weight: 700;
-  background: linear-gradient(145deg, var(--accent), var(--accent-2)); color: #001319;
-  border: 1px solid rgba(255,255,255,.06);
-  font-size: clamp(13px, 1.8vw, 15px);
-}
-.btn.muted { background: transparent; color: var(--muted); border: 1px solid var(--border); }
-
-.preview { max-height: clamp(280px, 45vw, 360px); overflow: hidden; border-top: 1px solid var(--border); }
-.preview iframe { width: 100%; height: clamp(260px, 43vw, 340px); min-height: 260px; border: 0; display: block; background: #0b0f14; }
-@media (max-width: 480px) {
-  .preview { max-height: 300px; }
-  .preview iframe { height: 280px; min-height: 280px; }
-}
-
-.back-cta { display: flex; gap: clamp(8px, 2vw, 12px); flex-wrap: wrap; justify-content: center; padding: clamp(16px, 4vw, 24px); }
-.flip-hint { color: var(--muted); font-size: clamp(11px, 1.8vw, 12px); text-align: center; margin-top: 8px; }
-</style>
+  <link rel="stylesheet" href="assets/site.css" />
+  <link rel="stylesheet" href="assets/market-insights.css" />
+  <script src="assets/site.js" defer></script>
 </head>
 <body>
   <header class="nav">
@@ -246,7 +18,7 @@ body {
       </a>
       <button class="hamburger" aria-label="Open menu" aria-controls="site-menu" aria-expanded="false"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
       <nav id="site-menu" class="nav-links">
-        <a href="marketInsights.html">Market Insights</a>
+        <a href="marketInsights.html" aria-current="page">Market Insights</a>
         <a href="verticals.html">Verticals</a>
         <a href="teams.html">Teams</a>
         <a href="pastMembers.html">Past Members</a>
@@ -276,11 +48,11 @@ body {
               <div class="title">February 3rd 2025</div>
               <div class="meta">Spring 2025 · HTML</div>
               <div class="actions">
-                <a class="btn open-link" href="reports\Market Insights\Spring 2025\February 3rd 2025.pdf" target="_blank" rel="noopener">Open</a>
-                <a class="btn muted download-link" href="reports\Market Insights\Spring 2025\February 3rd 2025.pdf" download>Download</a>
+                <a class="btn open-link" href="reports/Market Insights/Spring 2025/February 3rd 2025.pdf" target="_blank" rel="noopener">Open</a>
+                <a class="btn muted download-link" href="reports/Market Insights/Spring 2025/February 3rd 2025.pdf" download>Download</a>
               </div>
               <div class="preview">
-                <iframe src="reports\Market Insights\Spring 2025\February 3rd 2025.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+                <iframe data-src="reports/Market Insights/Spring 2025/February 3rd 2025.pdf#toolbar=0&navpanes=0&scrollbar=0" title="Report preview"></iframe>
               </div>
             </div>
           </div>
@@ -302,7 +74,7 @@ body {
                 <a class="btn muted download-link" href="reports/Market Insights/Spring 2025/February 15th 2025.pdf" download>Download</a>
               </div>
               <div class="preview">
-                <iframe src="reports/Market Insights/Spring 2025/February 15th 2025.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+                <iframe data-src="reports/Market Insights/Spring 2025/February 15th 2025.pdf#toolbar=0&navpanes=0&scrollbar=0" title="Report preview"></iframe>
               </div>
             </div>
           </div>
@@ -332,7 +104,7 @@ body {
                 <a class="btn muted download-link" href="reports/Market Insights/Spring 2025/February 19th 2025.pdf" download>Download</a>
               </div>
               <div class="preview">
-                <iframe src="reports/Market Insights/Spring 2025/February 19th 2025.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+                <iframe data-src="reports/Market Insights/Spring 2025/February 19th 2025.pdf#toolbar=0&navpanes=0&scrollbar=0" title="Report preview"></iframe>
               </div>
             </div>
           </div>
@@ -362,7 +134,7 @@ body {
                 <a class="btn muted download-link" href="reports/Market Insights/Spring 2025/February 28th 2025.pdf" download>Download</a>
               </div>
               <div class="preview">
-                <iframe src="reports/Market Insights/Spring 2025/February 28th 2025.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+                <iframe data-src="reports/Market Insights/Spring 2025/February 28th 2025.pdf#toolbar=0&navpanes=0&scrollbar=0" title="Report preview"></iframe>
               </div>
             </div>
           </div>
@@ -392,7 +164,7 @@ body {
                 <a class="btn muted download-link" href="reports/Market Insights/Spring 2025/March 18th 2025.pdf" download>Download</a>
               </div>
               <div class="preview">
-                <iframe src="reports/Market Insights/Spring 2025/March 18th 2025.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+                <iframe data-src="reports/Market Insights/Spring 2025/March 18th 2025.pdf#toolbar=0&navpanes=0&scrollbar=0" title="Report preview"></iframe>
               </div>
             </div>
           </div>
@@ -422,7 +194,7 @@ body {
                 <a class="btn muted download-link" href="reports/Market Insights/Spring 2025/March 25th 2025.pdf" download>Download</a>
               </div>
               <div class="preview">
-                <iframe src="reports/Market Insights/Spring 2025/March 25th 2025.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+                <iframe data-src="reports/Market Insights/Spring 2025/March 25th 2025.pdf#toolbar=0&navpanes=0&scrollbar=0" title="Report preview"></iframe>
               </div>
             </div>
           </div>
@@ -452,7 +224,7 @@ body {
                 <a class="btn muted download-link" href="reports/Market Insights/Spring 2025/April 3rd 2025.pdf" download>Download</a>
               </div>
               <div class="preview">
-                <iframe src="reports/Market Insights/Spring 2025/April 3rd 2025.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+                <iframe data-src="reports/Market Insights/Spring 2025/April 3rd 2025.pdf#toolbar=0&navpanes=0&scrollbar=0" title="Report preview"></iframe>
               </div>
             </div>
           </div>
@@ -482,7 +254,7 @@ body {
                 <a class="btn muted download-link" href="reports/Market Insights/Spring 2025/April 10th 2025.pdf" download>Download</a>
               </div>
               <div class="preview">
-                <iframe src="reports/Market Insights/Spring 2025/April 10th 2025.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+                <iframe data-src="reports/Market Insights/Spring 2025/April 10th 2025.pdf#toolbar=0&navpanes=0&scrollbar=0" title="Report preview"></iframe>
               </div>
             </div>
           </div>
@@ -519,7 +291,7 @@ body {
                 <a class="btn muted download-link" href="reports/Market Insights/Fall 2024/October 15th 2024.pdf" download>Download</a>
               </div>
               <div class="preview">
-                <iframe src="reports/Market Insights/Fall 2024/October 15th 2024.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+                <iframe data-src="reports/Market Insights/Fall 2024/October 15th 2024.pdf#toolbar=0&navpanes=0&scrollbar=0" title="Report preview"></iframe>
               </div>
             </div>
           </div>
@@ -549,7 +321,7 @@ body {
                 <a class="btn muted download-link" href="reports/Market Insights/Fall 2024/October 21st 2024.pdf" download>Download</a>
               </div>
               <div class="preview">
-                <iframe src="reports/Market Insights/Fall 2024/October 21st 2024.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+                <iframe data-src="reports/Market Insights/Fall 2024/October 21st 2024.pdf#toolbar=0&navpanes=0&scrollbar=0" title="Report preview"></iframe>
               </div>
             </div>
           </div>
@@ -579,7 +351,7 @@ body {
                 <a class="btn muted download-link" href="reports/Market Insights/Fall 2024/October 28th 2024.pdf" download>Download</a>
               </div>
               <div class="preview">
-                <iframe src="reports/Market Insights/Fall 2024/October 28th 2024.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+                <iframe data-src="reports/Market Insights/Fall 2024/October 28th 2024.pdf#toolbar=0&navpanes=0&scrollbar=0" title="Report preview"></iframe>
               </div>
             </div>
           </div>
@@ -609,7 +381,7 @@ body {
                 <a class="btn muted download-link" href="reports/Market Insights/Fall 2024/November 4th 2024.pdf" download>Download</a>
               </div>
               <div class="preview">
-                <iframe src="reports/Market Insights/Fall 2024/November 4th 2024.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+                <iframe data-src="reports/Market Insights/Fall 2024/November 4th 2024.pdf#toolbar=0&navpanes=0&scrollbar=0" title="Report preview"></iframe>
               </div>
             </div>
           </div>
@@ -639,7 +411,7 @@ body {
                 <a class="btn muted download-link" href="reports/Market Insights/Fall 2024/November 12th 2024.pdf" download>Download</a>
               </div>
               <div class="preview">
-                <iframe src="reports/Market Insights/Fall 2024/November 12th 2024.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+                <iframe data-src="reports/Market Insights/Fall 2024/November 12th 2024.pdf#toolbar=0&navpanes=0&scrollbar=0" title="Report preview"></iframe>
               </div>
             </div>
           </div>
@@ -669,7 +441,7 @@ body {
                 <a class="btn muted download-link" href="reports/Market Insights/Fall 2024/November 18th 2024.pdf" download>Download</a>
               </div>
               <div class="preview">
-                <iframe src="reports/Market Insights/Fall 2024/November 18th 2024.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+                <iframe data-src="reports/Market Insights/Fall 2024/November 18th 2024.pdf#toolbar=0&navpanes=0&scrollbar=0" title="Report preview"></iframe>
               </div>
             </div>
           </div>
@@ -699,7 +471,7 @@ body {
                 <a class="btn muted download-link" href="reports/Market Insights/Fall 2024/November 25th 2024.pdf" download>Download</a>
               </div>
               <div class="preview">
-                <iframe src="reports/Market Insights/Fall 2024/November 25th 2024.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+                <iframe data-src="reports/Market Insights/Fall 2024/November 25th 2024.pdf#toolbar=0&navpanes=0&scrollbar=0" title="Report preview"></iframe>
               </div>
             </div>
           </div>
@@ -736,7 +508,7 @@ body {
                 <a class="btn muted download-link" href="reports/Market Insights/Spring 2024/February 19th 2024.pdf" download>Download</a>
               </div>
               <div class="preview">
-                <iframe src="reports/Market Insights/Spring 2024/February 19th 2024.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+                <iframe data-src="reports/Market Insights/Spring 2024/February 19th 2024.pdf#toolbar=0&navpanes=0&scrollbar=0" title="Report preview"></iframe>
               </div>
             </div>
           </div>
@@ -766,7 +538,7 @@ body {
                 <a class="btn muted download-link" href="reports/Market Insights/Spring 2024/February 26th 2024.pdf" download>Download</a>
               </div>
               <div class="preview">
-                <iframe src="reports/Market Insights/Spring 2024/February 26th 2024.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+                <iframe data-src="reports/Market Insights/Spring 2024/February 26th 2024.pdf#toolbar=0&navpanes=0&scrollbar=0" title="Report preview"></iframe>
               </div>
             </div>
           </div>
@@ -796,7 +568,7 @@ body {
                 <a class="btn muted download-link" href="reports/Market Insights/Spring 2024/March 4th 2024.pdf" download>Download</a>
               </div>
               <div class="preview">
-                <iframe src="reports/Market Insights/Spring 2024/March 4th 2024.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+                <iframe data-src="reports/Market Insights/Spring 2024/March 4th 2024.pdf#toolbar=0&navpanes=0&scrollbar=0" title="Report preview"></iframe>
               </div>
             </div>
           </div>
@@ -826,7 +598,7 @@ body {
                 <a class="btn muted download-link" href="reports/Market Insights/Spring 2024/March 18th 2024.pdf" download>Download</a>
               </div>
               <div class="preview">
-                <iframe src="reports/Market Insights/Spring 2024/March 18th 2024.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+                <iframe data-src="reports/Market Insights/Spring 2024/March 18th 2024.pdf#toolbar=0&navpanes=0&scrollbar=0" title="Report preview"></iframe>
               </div>
             </div>
           </div>
@@ -856,7 +628,7 @@ body {
                 <a class="btn muted download-link" href="reports/Market Insights/Spring 2024/March 25th 2024.pdf" download>Download</a>
               </div>
               <div class="preview">
-                <iframe src="reports/Market Insights/Spring 2024/March 25th 2024.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+                <iframe data-src="reports/Market Insights/Spring 2024/March 25th 2024.pdf#toolbar=0&navpanes=0&scrollbar=0" title="Report preview"></iframe>
               </div>
             </div>
           </div>
@@ -886,7 +658,7 @@ body {
                 <a class="btn muted download-link" href="reports/Market Insights/Spring 2024/April 1st 2024.pdf" download>Download</a>
               </div>
               <div class="preview">
-                <iframe src="reports/Market Insights/Spring 2024/April 1st 2024.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+                <iframe data-src="reports/Market Insights/Spring 2024/April 1st 2024.pdf#toolbar=0&navpanes=0&scrollbar=0" title="Report preview"></iframe>
               </div>
             </div>
           </div>
@@ -916,7 +688,7 @@ body {
                 <a class="btn muted download-link" href="reports/Market Insights/Spring 2024/April 8th 2024.pdf" download>Download</a>
               </div>
               <div class="preview">
-                <iframe src="reports/Market Insights/Spring 2024/April 8th 2024.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+                <iframe data-src="reports/Market Insights/Spring 2024/April 8th 2024.pdf#toolbar=0&navpanes=0&scrollbar=0" title="Report preview"></iframe>
               </div>
             </div>
           </div>
@@ -953,7 +725,7 @@ body {
                 <a class="btn muted download-link" href="reports/Market Insights/Fall 2023/October 10th.pdf" download>Download</a>
               </div>
               <div class="preview">
-                <iframe src="reports/Market Insights/Fall 2023/October 10th.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+                <iframe data-src="reports/Market Insights/Fall 2023/October 10th.pdf#toolbar=0&navpanes=0&scrollbar=0" title="Report preview"></iframe>
               </div>
             </div>
           </div>
@@ -983,7 +755,7 @@ body {
                 <a class="btn muted download-link" href="reports/Market Insights/Fall 2023/October 16th.pdf" download>Download</a>
               </div>
               <div class="preview">
-                <iframe src="reports/Market Insights/Fall 2023/October 16th.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+                <iframe data-src="reports/Market Insights/Fall 2023/October 16th.pdf#toolbar=0&navpanes=0&scrollbar=0" title="Report preview"></iframe>
               </div>
             </div>
           </div>
@@ -1013,7 +785,7 @@ body {
                 <a class="btn muted download-link" href="reports/Market Insights/Fall 2023/October 23rd.pdf" download>Download</a>
               </div>
               <div class="preview">
-                <iframe src="reports/Market Insights/Fall 2023/October 23rd.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+                <iframe data-src="reports/Market Insights/Fall 2023/October 23rd.pdf#toolbar=0&navpanes=0&scrollbar=0" title="Report preview"></iframe>
               </div>
             </div>
           </div>
@@ -1043,7 +815,7 @@ body {
                 <a class="btn muted download-link" href="reports/Market Insights/Fall 2023/October 30th.pdf" download>Download</a>
               </div>
               <div class="preview">
-                <iframe src="reports/Market Insights/Fall 2023/October 30th.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+                <iframe data-src="reports/Market Insights/Fall 2023/October 30th.pdf#toolbar=0&navpanes=0&scrollbar=0" title="Report preview"></iframe>
               </div>
             </div>
           </div>
@@ -1073,7 +845,7 @@ body {
                 <a class="btn muted download-link" href="reports/Market Insights/Fall 2023/November 14th.pdf" download>Download</a>
               </div>
               <div class="preview">
-                <iframe src="reports/Market Insights/Fall 2023/November 14th.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+                <iframe data-src="reports/Market Insights/Fall 2023/November 14th.pdf#toolbar=0&navpanes=0&scrollbar=0" title="Report preview"></iframe>
               </div>
             </div>
           </div>
@@ -1103,7 +875,7 @@ body {
                 <a class="btn muted download-link" href="reports/Market Insights/Fall 2023/November 21st.pdf" download>Download</a>
               </div>
               <div class="preview">
-                <iframe src="reports/Market Insights/Fall 2023/November 21st.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+                <iframe data-src="reports/Market Insights/Fall 2023/November 21st.pdf#toolbar=0&navpanes=0&scrollbar=0" title="Report preview"></iframe>
               </div>
             </div>
           </div>
@@ -1133,7 +905,7 @@ body {
                 <a class="btn muted download-link" href="reports/Market Insights/Fall 2023/December 4th.pdf" download>Download</a>
               </div>
               <div class="preview">
-                <iframe src="reports/Market Insights/Fall 2023/December 4th.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+                <iframe data-src="reports/Market Insights/Fall 2023/December 4th.pdf#toolbar=0&navpanes=0&scrollbar=0" title="Report preview"></iframe>
               </div>
             </div>
           </div>
@@ -1156,54 +928,15 @@ body {
 
   </main>
 
-  <footer style="border-top:1px solid rgba(255,255,255,.06); margin-top: 40px;">
-    <div style="max-width:var(--maxw); margin:0 auto; padding:22px 20px; color:var(--muted); display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;">
-      <div>© <span id="y"></span> Bull & Bear Research</div>
-      <div style="display:flex; gap:12px;">
-        <a href="#" style="color:var(--muted); text-decoration:none;">Code of Conduct</a>
-        <a href="#" style="color:var(--muted); text-decoration:none;">Privacy</a>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>© <span data-current-year></span> Bull & Bear Research</div>
+      <div class="footer-links">
+        <a class="footer-link" href="#">Code of Conduct</a>
+        <a class="footer-link" href="#">Privacy</a>
       </div>
     </div>
   </footer>
-
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-
-    // Hamburger menu toggle
-    (function() {
-      const btn = document.querySelector('.hamburger');
-      const menu = document.getElementById('site-menu');
-      if (!btn || !menu) return;
-
-      function closeMenu() {
-        menu.classList.remove('open');
-        btn.classList.remove('active');
-        btn.setAttribute('aria-expanded', 'false');
-      }
-      function toggleMenu() {
-        const isOpen = menu.classList.toggle('open');
-        btn.classList.toggle('active', isOpen);
-        btn.setAttribute('aria-expanded', String(isOpen));
-      }
-
-      btn.addEventListener('click', toggleMenu);
-
-      // Close when clicking outside
-      document.addEventListener('click', (e) => {
-        if (!menu.contains(e.target) && !btn.contains(e.target)) {
-          closeMenu();
-        }
-      });
-
-      // Close with Escape
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeMenu();
-      });
-
-      // Close after selecting a menu item
-      menu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
-    })();
-  </script>
 
   <script>
     // Click-to-flip for cards - separate from hover events

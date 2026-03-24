@@ -1,0 +1,113 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  text-decoration: none;
+  font-weight: 700;
+  background: linear-gradient(145deg, var(--accent), var(--accent-2));
+  color: #001319;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.btn.muted {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--border);
+}
+
+.btn.muted:hover {
+  color: var(--text);
+}
+
+.btn.small {
+  padding: 6px 10px;
+  font-size: 12px;
+  border-radius: 8px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+@media (max-width: 980px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background: linear-gradient(180deg, rgba(18, 24, 35, 0.9), rgba(18, 24, 35, 0.7));
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.18s ease, border-color 0.18s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(6, 91, 124, 0.4);
+}
+
+.card-top {
+  background: linear-gradient(180deg, rgba(35, 83, 167, 0.55), rgba(14, 21, 34, 1));
+  padding: 14px 14px 0;
+  flex-shrink: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.card .img {
+  width: 90%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 3px solid rgba(255, 255, 255, 0.06);
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+.card .body {
+  padding: clamp(12px, 2.5vw, 14px);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(6px, 1.5vw, 8px);
+  flex: 1;
+  min-height: 0;
+}
+
+.card .name {
+  font-weight: 700;
+  font-size: clamp(14px, 2vw, 16px);
+  flex-shrink: 0;
+}
+
+.card .role {
+  color: var(--muted);
+  font-size: clamp(11px, 1.6vw, 12px);
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.card .links {
+  margin-top: auto;
+  padding-top: clamp(8px, 2vw, 12px);
+  display: flex;
+  gap: clamp(6px, 1.5vw, 8px);
+  flex-wrap: wrap;
+  width: 100%;
+}

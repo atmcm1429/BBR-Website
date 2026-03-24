@@ -5,303 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Bull & Bear Research</title>
   <meta name="description" content="Bull & Bear Research." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #0f1b39;
-      --card: #121823;
-      --muted: #8aa0b2;
-      --text: #e6edf3;
-      --accent: #5dd0ff;
-      --accent-2: #25238d;
-      --border: #1e293b;
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --radius-xl: 18px;
-      --radius-lg: 14px;
-      --radius-md: 10px;
-      --maxw: 1200px;
-    }
-
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
-    body {
-      margin: 0;
-      font-family: Garamond, serif;
-      background: radial-gradient(1200px 800px at 80% -10%, rgba(192, 194, 198, 0.15), transparent 70%),
-                  radial-gradient(900px 700px at -10% 10%, rgba(0, 149, 248, 0.12), transparent 80%),
-                  var(--bg);
-      color: var(--text);
-      line-height: 1.55;
-    }
-
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(10px);
-      background: rgba(11, 15, 20, 0.7);
-      border-bottom: 1px solid rgba(255,255,255,.05);
-    }
-    .nav-inner {
-      max-width: var(--maxw);
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 14px 20px;
-    }
-    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--text); }
-    .logo {
-      width: 50px; height: 50px; display: grid; place-items: center;
-      border-radius: 10px; background: linear-gradient(145deg, var(--accent), var(--accent-2));
-      color: #001319; font-weight: 800; font-size: 20px; box-shadow: var(--shadow);
-    }
-    .brand-name { font-weight: 700; font-size: 20px; letter-spacing: .2px; }
-
-    .nav-links { display: flex; align-items: center; gap: 18px; }
-    .nav-links a { color: var(--muted); text-decoration: none; font-weight: 500; padding: 8px 10px; border-radius: 8px; }
-    .nav-links a:hover { color: var(--text); background: rgba(255,255,255,.04); }
-    .cta {
-      background: linear-gradient(145deg, var(--accent), var(--accent-2));
-      color: #001319 !important;
-      padding: 10px 14px !important; border-radius: 10px; font-weight: 700 !important;
-      box-shadow: var(--shadow); text-decoration: none; border: none;
-    }
-
-    .hero {
-      max-width: var(--maxw);
-      margin: 36px auto 12px;
-      padding: 0 20px 20px;
-      display: grid; grid-template-columns: 0.95fr 1.05fr; gap: 24px;
-      align-items: center;
-    }
-    @media (max-width: 900px) { .hero { grid-template-columns: 1fr; } }
-
-    .h-eyebrow { color: var(--accent); font-weight: 700; letter-spacing: .14em; font-size: 16px; text-transform: uppercase; }
-    .h-title { font-size: clamp(28px, 4.2vw, 54px); line-height: 1.05; margin: 10px 0 14px; font-weight: 800; }
-    .h-sub { color: var(--muted); font-size: clamp(14px, 1.6vw, 18px); max-width: 52ch; }
-    .h-badges { display: flex; gap: 12px; margin-top: 18px; flex-wrap: wrap; }
-    .badge { border: 1px solid var(--border); color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 13px; }
-
-    .hero-card {
-      background: linear-gradient(180deg, rgba(18,24,35,.8), rgba(18,24,35,.6));
-      border: 1px solid var(--border);
-      border-radius: var(--radius-xl);
-      box-shadow: var(--shadow);
-      padding: 18px;
-    }
-
-    .hero-stat { display: grid; grid-template-columns: 64px 1fr; gap: 14px; align-items: center; padding: 12px; border-radius: 14px;
-      background: rgba(255,255,255,.03); border: 1px solid var(--border);
-    }
-    .stat-icon { width: 64px; height: 64px; border-radius: 12px; display: grid; place-items: center; background: rgba(93,208,255,.12); border: 1px solid var(--border); font-weight: 800; color: var(--accent); }
-    .stat-title { font-weight: 700; }
-    .stat-desc { color: var(--muted); font-size: 14px; }
-
-    .section { max-width: var(--maxw); margin: 8px auto; padding: 24px 20px 60px; }
-    .section h2 { font-size: clamp(22px, 3vw, 34px); margin: 0 0 14px; letter-spacing: -.3px; }
-    .section p.lead { color: var(--muted); margin: 0 0 22px; }
-
-    .grid { display: grid; gap: 16px; }
-    .grid.team { grid-template-columns: repeat(3, 1fr); }
-    .grid.directors { grid-template-columns: repeat(2, 1fr); }
-    @media (max-width: 900px) { .grid.team { grid-template-columns: repeat(2, 1fr);} }
-    @media (max-width: 640px) { .grid.team, .grid.directors { grid-template-columns: 1fr; } }
-
-    .card {
-      background: linear-gradient(180deg, rgba(18,24,35,.9), rgba(18,24,35,.7));
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      transition: transform .18s ease, border-color .18s ease;
-    }
-    .card:hover { transform: translateY(-3px); border-color: rgba(6, 91, 124, 0.4); }
-    .card-head {
-      position: relative;
-      padding-top: 58%;
-      background: radial-gradient(400px 200px at 80% -30%, rgba(93,208,255,.25), transparent 60%), #0c121b;
-      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-    }
-    .avatar {
-      position: absolute;
-      bottom: -40px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 250px;
-      height: 250px;
-      border: 3px solid var(--border);
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-    }
-    .avatar img { width: 100%; height: 100%; object-fit: cover; }
-
-    .card-body { padding: 48px 16px 16px; }
-    .name { font-weight: 700; font-size: 18px; }
-    .role { color: var(--muted); font-size: 14px; margin-top: 2px; }
-    .meta { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
-    .pill { font-size: 12px; color: var(--muted); border: 1px solid var(--border); padding: 6px 8px; border-radius: 999px; }
-    .links { display: flex; gap: 10px; margin-top: 14px; }
-    .link {
-      display: inline-flex; align-items: center; gap: 8px; padding: 8px 10px; border-radius: 10px; text-decoration: none; font-weight: 600;
-      color: #001319; background: linear-gradient(145deg, var(--accent), var(--accent-2));
-    }
-    .link.muted { background: none; color: var(--muted); border: 1px solid var(--border); }
-    .link.muted:hover { color: var(--text); }
-
-    footer { border-top: 1px solid rgba(255,255,255,.06); padding: 22px 20px; color: var(--muted); }
-    .footer-inner { max-width: var(--maxw); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
-
-    /* PDF Carousel */
-    .pdf-carousel { padding: 12px; }
-    .pdf-stage {
-      position: relative;
-      display: grid;
-      grid-template-columns: 40px 1fr 40px;
-      align-items: center;
-      gap: 10px;
-    }
-    .pdf-frame {
-      position: relative;
-      background: rgba(255,255,255,.02);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-xl);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      height: clamp(600px, 52vh, 600px);
-    }
-    .pdf-frame img, .pdf-frame iframe, .pdf-frame object {
-      position: absolute; inset: 0; width: 100%; height: 100%;
-      border: 0; object-fit: contain; background: #0c121b;
-    }
-    .pdf-frame object { display: none; }
-    .nav-btn {
-      height: 44px; width: 44px; border-radius: 12px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,.04);
-      color: var(--text); font-size: 26px; line-height: 1;
-      cursor: pointer; transition: transform .12s ease, background .12s ease, border-color .12s ease;
-    }
-    .nav-btn:hover { transform: translateY(-1px); background: rgba(255,255,255,.07); border-color: rgba(6,91,124,.4); }
-    .pdf-caption {
-      margin-top: 10px;
-      border: 1px solid var(--border);
-      background: linear-gradient(180deg, rgba(18,24,35,.85), rgba(18,24,35,.65));
-      border-radius: var(--radius-lg);
-      padding: 12px 14px;
-      font-weight: 600;
-      letter-spacing: .2px;
-    }
-    .pdf-caption a { color: var(--accent); text-decoration: none; }
-    .pdf-caption a:hover { text-decoration: underline; }
-
-    .pdf-dots { display: flex; gap: 6px; justify-content: center; margin-top: 10px; }
-    .pdf-dots button {
-      width: 8px; height: 8px; border-radius: 999px; border: 0; cursor: pointer;
-      background: rgba(255,255,255,.18);
-    }
-    .pdf-dots button.active { background: var(--accent); }
-
-    @media (max-width: 900px) {
-      .hero { grid-template-columns: 1fr; }
-      .pdf-frame { height: 340px; }
-    }
-  
-    /* ===== Responsive Enhancements + Mobile Hamburger Menu (added by ChatGPT) ===== */
-    /* Fluid avatar sizes instead of fixed */
-    .avatar {
-      width: clamp(120px, 30vw, 250px);
-      height: clamp(120px, 30vw, 250px);
-    }
-    /* Avoid header crowding */
-    .card-head { padding-top: min(58%, 320px); }
-
-    /* More fluid padding inside cards */
-    .card-body {
-      padding: clamp(32px, 8vw, 48px) clamp(12px, 5vw, 16px) 16px;
-    }
-
-    /* Extra grid breakpoints */
-    @media (max-width: 1100px) {
-      .grid.team { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 600px) {
-      .grid.team { grid-template-columns: 1fr; }
-    }
-
-    /* PDF frame height tuned per device */
-    @media (max-width: 768px) {
-      .pdf-frame { height: 300px; }
-    }
-    @media (max-width: 480px) {
-      .pdf-frame { height: 240px; }
-    }
-
-    /* Slightly reduce hero spacing on small screens */
-    @media (max-width: 600px) {
-      .hero { margin: 20px auto 0; padding: 0 16px 16px; }
-      .h-title { margin: 8px 0 10px; }
-    }
-
-    /* Mobile Hamburger Menu */
-    .nav-inner { position: relative; }
-    .hamburger {
-      display: none;
-      background: transparent;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 8px 10px;
-      cursor: pointer;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      height: 42px;
-      width: 48px;
-      color: var(--text);
-    }
-    .hamburger .bar {
-      display: block;
-      width: 22px;
-      height: 2px;
-      background: var(--text);
-      margin: 4px 0;
-      transition: transform .2s ease, opacity .2s ease;
-    }
-    .hamburger.active .bar:nth-child(1) { transform: translateY(6px) rotate(45deg); }
-    .hamburger.active .bar:nth-child(2) { opacity: 0; }
-    .hamburger.active .bar:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
-
-    @media (max-width: 768px) {
-      .hamburger { display: inline-flex; }
-      .nav-links {
-        position: absolute;
-        right: 20px;
-        top: calc(100% + 10px);
-        display: none;
-        flex-direction: column;
-        gap: 8px;
-        background: rgba(11, 15, 20, 0.96);
-        border: 1px solid var(--border);
-        border-radius: var(--radius-lg);
-        padding: 12px;
-        width: min(86vw, 360px);
-        box-shadow: var(--shadow);
-      }
-      .nav-links a { padding: 10px 12px; border-radius: 8px; }
-      .nav-links.open { display: flex; }
-    }
-    /* ===== End Additions ===== */
-
-</style>
+  <link rel="stylesheet" href="assets/site.css" />
+  <link rel="stylesheet" href="assets/index.css" />
+  <script src="assets/site.js" defer></script>
 </head>
 <body>
   <header class="nav">
     <div class="nav-inner">
-      <a class="brand" href="#">
+      <a class="brand" href="index.html">
         <div class="logo">BBR</div>
         <div class="brand-name">Bull & Bear Research</div>
       </a>
@@ -333,11 +44,7 @@
       <div class="pdf-stage">
         <button class="nav-btn prev" aria-label="Previous PDF">‹</button>
         <div class="pdf-frame">
-          <!-- Show ONLY first page image -->
           <img id="pdfImage" src="" alt="PDF first page preview" />
-          <!-- Keep these hidden/unused to avoid full PDF render -->
-          <iframe id="pdfViewer" src="" title="PDF preview" loading="lazy" style="display:none;"></iframe>
-          <object id="pdfFallback" data="" type="application/pdf" aria-label="PDF preview (fallback)" style="display:none;"></object>
         </div>
         <button class="nav-btn next" aria-label="Next PDF">›</button>
       </div>
@@ -354,7 +61,7 @@
 
       <article class="card">
         <div class="card-head">
-          <div class="avatar"><img src="/pictures/Jack Miller.jpeg" alt="Team Member" /></div>
+          <div class="avatar"><img loading="lazy" decoding="async" src="/pictures/Jack Miller.jpeg" alt="Team Member" /></div>
         </div>
         <div class="card-body">
           <div class="name">Jack Miller</div>
@@ -362,14 +69,13 @@
           <div class="meta"><span class="pill">Market Insights</span></div>
           <div class="links">
             <a class="link" href="https://www.linkedin.com/in/miller-jack1/">LinkedIn</a>
-            <a class="link muted" href="mailto:president@example.edu">Email</a>
           </div>
         </div>
       </article>
 
       <article class="card">
         <div class="card-head">
-          <div class="avatar"><img src="/pictures/Ben Rosenberg.JPG" alt="Team Member" /></div>
+          <div class="avatar"><img loading="lazy" decoding="async" src="/pictures/Ben Rosenberg.JPG" alt="Team Member" /></div>
         </div>
         <div class="card-body">
           <div class="name">Ben Rosenberg </div>
@@ -377,14 +83,13 @@
           <div class="meta"><span class="pill">Real Estate</span><span class="pill">Technology</span></div>
           <div class="links">
             <a class="link" href="https://www.linkedin.com/in/benrosenberg10/">LinkedIn</a>
-            <a class="link muted" href="mailto:evp@example.edu">Email</a>
           </div>
         </div>
       </article>
 
       <article class="card">
         <div class="card-head">
-          <div class="avatar"><img src="/pictures/Craig Ottaviano.jpeg" alt="Team Member" /></div>
+          <div class="avatar"><img loading="lazy" decoding="async" src="/pictures/Craig Ottaviano.jpeg" alt="Team Member" /></div>
         </div>
         <div class="card-body">
           <div class="name">Craig Ottaviano</div>
@@ -392,7 +97,6 @@
           <div class="meta"><span class="pill">Technology</span></div>
           <div class="links">
             <a class="link" href="https://www.linkedin.com/in/craigottaviano/">LinkedIn</a>
-            <a class="link muted" href="mailto:education@example.edu">Email</a>
           </div>
         </div>
       </article>
@@ -400,7 +104,7 @@
 
       <article class="card">
         <div class="card-head">
-          <div class="avatar"><img src="/pictures/Miles Rucker.JPG" alt="Team Member" /></div>
+          <div class="avatar"><img loading="lazy" decoding="async" src="/pictures/Miles Rucker.JPG" alt="Team Member" /></div>
         </div>
         <div class="card-body">
           <div class="name">Miles Rucker</div>
@@ -408,7 +112,6 @@
           <div class="meta"><span class="pill">Industrials</span></div>
           <div class="links">
             <a class="link" href="https://www.linkedin.com/in/miles-rucker/">LinkedIn</a>
-            <a class="link muted" href="mailto:finance@example.edu">Email</a>
           </div>
         </div>
       </article>
@@ -416,7 +119,7 @@
      <!-- 
       <article class="card">
         <div class="card-head">
-          <div class="avatar"><img src="/pictures/Alex McMillan.JPG" alt="Team Member" /></div>
+          <div class="avatar"><img loading="lazy" decoding="async" src="/pictures/Alex McMillan.JPG" alt="Team Member" /></div>
         </div>
         <div class="card-body">
           <div class="name">Alex McMillan</div>
@@ -424,14 +127,13 @@
           <div class="meta"><span class="pill">Industrials</span><span class="pill">Healthcare</span></div>
           <div class="links">
             <a class="link" href="https://www.linkedin.com/in/alex-mcmillan-526806221/">LinkedIn</a>
-            <a class="link muted" href="mailto:atmcm46@gmail.com">Email</a>
           </div>
         </div>
       </article>
     -->
       <article class="card">
         <div class="card-head">
-          <div class="avatar"><img src="/pictures/Andrew Wu.JPG" alt="Team Member" /></div>
+          <div class="avatar"><img loading="lazy" decoding="async" src="/pictures/Andrew Wu.JPG" alt="Team Member" /></div>
         </div>
         <div class="card-body">
           <div class="name">Andrew Wu</div>
@@ -439,7 +141,6 @@
           <div class="meta"><span class="pill">Industrials</span></div>
           <div class="links">
             <a class="link" href="https://www.linkedin.com/in/andrew-wu9/">LinkedIn</a>
-            <a class="link muted" href="mailto:finance@example.edu">Email</a>
           </div>
         </div>
       </article>
@@ -454,49 +155,43 @@
   <section id="join" class="section">
     <h2>Join the Team</h2>
     <p class="lead">Interested in research, finance, or economics? Join us during our next recruiting cycle.</p>
-    <div class="grid" style="grid-template-columns: 1.2fr .8fr; gap: 18px;">
-      <form class="card" style="padding: 16px;">
-        <label style="display:block; font-weight:600; margin: 6px 0 6px">Fall 2026</label>
-        <label style="display:block; font-weight:600; margin: 6px 0 6px">Applications will open in September 2026</label>
-        <div style="display:flex; justify-content:flex-end; margin-top: 12px;">
-          <button class="link" type="button">Apply</button>
+    <div class="grid join-grid">
+      <form class="card join-card">
+        <label class="join-title">Fall 2026</label>
+        <label class="join-title">Applications will open in September 2026</label>
+        <div class="join-actions">
+          <a class="link" href="https://docs.google.com/forms/d/e/1FAIpQLSfM_gBcxjGRGj3959yo_IR2OUh4J6UyWsmvRwhZIcY8l2weQQ/viewform?pli=1">Apply</a>
         </div>
       </form>
-      <aside class="card" style="padding: 18px;">
+      <aside class="card join-panel">
         <div class="stat-title" style="font-size:18px;">Current Openings:</div>
-        <ul style="margin: 10px 0 0 18px; color: var(--muted);">
+        <ul class="openings-list">
           <li>All positions have been filled at this time</li>
         </ul>
       </aside>
     </div>
   </section>
 
-  <footer>
+  <footer class="site-footer">
     <div class="footer-inner">
-      <div>© <span id="y"></span> Bull & Bear Research</div>
-      <div style="display:flex; gap:12px;">
-        <a href="#" style="color:var(--muted); text-decoration:none;">Code of Conduct</a>
-        <a href="#" style="color:var(--muted); text-decoration:none;">Privacy</a>
+      <div>© <span data-current-year></span> Bull & Bear Research</div>
+      <div class="footer-links">
+        <a class="footer-link" href="#">Code of Conduct</a>
+        <a class="footer-link" href="#">Privacy</a>
       </div>
     </div>
   </footer>
 
   <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
-  <script>
-    // Show only the FIRST PAGE IMAGE for each PDF; keep a link to the full PDF
-    
     const pdfs = [
       { img: "/pictures/Industrials - Fall 2025.png", pdf: "/reports/Industrials/Space Manufacturing - Fall 2025.pdf",  name: "OUT NOW - Space Manufacturing Report" },
-      { img: "/pictures/Healthcare - Fall 2025.png", pdf: "/reports/Healtcare/Drug Manufacturers - Fall 2025.pdf",  name: "OUT NOW - Drug Manufacturers Report" },
+      { img: "/pictures/Healthcare - Fall 2025.png", pdf: "/reports/Healthcare/Drug Manufacturers - Fall 2025.pdf",  name: "OUT NOW - Drug Manufacturers Report" },
       { img: "/pictures/Technology - Fall 2025.png", pdf: "/reports/Technology/Financial Payments - Fall 2025.pdf",  name: "OUT NOW - Financial Payments Report" },
       { img: "/pictures/Real Estate - Fall 2025.png", pdf: "/reports/Real Estate/Retail - Fall 2025.pdf",  name: "OUT NOW - Retail Report" }
-  ];
+    ];
+
     let idx = 0;
     const imgEl = document.getElementById('pdfImage');
-    const iframe = document.getElementById('pdfViewer');   // kept hidden
-    const fallback = document.getElementById('pdfFallback'); // kept hidden
     const caption = document.getElementById('pdfCaption');
     const dotsWrap = document.getElementById('pdfDots');
 
@@ -515,16 +210,9 @@
 
     function render() {
       const { img, pdf, name } = pdfs[idx];
-      // Set image only (no full PDF)
       imgEl.src = img;
       imgEl.alt = name + " — first page preview";
-      // Update caption with an 'Open PDF' link
       caption.innerHTML = name + ' — <a href="' + pdf + '" target="_blank" rel="noopener">Open PDF</a>';
-      // Ensure the iframe/fallback stay hidden
-      if (iframe) iframe.style.display = 'none';
-      if (fallback) fallback.style.display = 'none';
-      // Smooth scroll into view
-      document.querySelector('.pdf-carousel').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       markActiveDot();
     }
 
@@ -547,42 +235,5 @@
     render();
   </script>
 
-  <script>
-    (function() {
-      const btn = document.querySelector('.hamburger');
-      const menu = document.getElementById('site-menu');
-      if (!btn || !menu) return;
-
-      function closeMenu() {
-        menu.classList.remove('open');
-        btn.classList.remove('active');
-        btn.setAttribute('aria-expanded', 'false');
-      }
-      function toggleMenu() {
-        const isOpen = menu.classList.toggle('open');
-        btn.classList.toggle('active', isOpen);
-        btn.setAttribute('aria-expanded', String(isOpen));
-      }
-
-      btn.addEventListener('click', toggleMenu);
-
-      // Close when clicking outside
-      document.addEventListener('click', (e) => {
-        if (!menu.contains(e.target) && !btn.contains(e.target)) {
-          closeMenu();
-        }
-      });
-
-      // Close with Escape
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeMenu();
-      });
-
-      // Close after selecting a menu item
-      menu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
-    })();
-  </script>
-
 </body>
 </html>
-
