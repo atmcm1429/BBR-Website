@@ -290,6 +290,38 @@
   gap: 18px;
 }
 
+.logo-marquee {
+  overflow: hidden;
+  padding: 12px 0 4px;
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+.logo-track {
+  display: flex;
+  width: max-content;
+  gap: 80px;
+  animation: logo-scroll 34s linear infinite;
+}
+
+.logo-marquee:hover .logo-track {
+  animation-play-state: running;
+}
+
+.logo-item {
+  flex: 0 0 auto;
+  width: 80px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-item img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
 .join-card {
   padding: 16px;
 }
@@ -318,6 +350,16 @@
 .footer-meta {
   display: flex;
   gap: 12px;
+}
+
+@keyframes logo-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-50% - 40px));
+  }
 }
 
 @media (max-width: 1100px) {
@@ -358,6 +400,16 @@
 
   .grid.team {
     grid-template-columns: 1fr;
+  }
+
+  .logo-track {
+    gap: 56px;
+    animation-duration: 28s;
+  }
+
+  .logo-item {
+    width: 64px;
+    height: 32px;
   }
 }
 
