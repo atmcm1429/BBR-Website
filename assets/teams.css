@@ -136,48 +136,49 @@
   min-width: 0;
 }
 
-.market-insights-cards {
+.macro-cards {
   grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
   gap: 12px;
 }
 
-.market-insights-cards .card-top {
+.macro-cards .card-top {
   padding: 10px 10px 0;
 }
 
-.market-insights-cards .img {
+.macro-cards .img,
+.macro-cards .portrait-placeholder {
   width: 78%;
   border-radius: 14px;
 }
 
-.market-insights-cards .body {
+.macro-cards .body {
   padding: 10px;
   gap: 5px;
 }
 
-.market-insights-cards .name {
+.macro-cards .name {
   font-size: 14px;
   line-height: 1.25;
 }
 
-.market-insights-cards .role {
+.macro-cards .role {
   font-size: 11px;
   line-height: 1.25;
   margin-top: 2px;
 }
 
-.market-insights-cards .links {
+.macro-cards .links {
   padding-top: 8px;
   gap: 6px;
 }
 
-.market-insights-cards .btn.small {
+.macro-cards .btn.small {
   padding: 5px 8px;
   font-size: 11px;
 }
 
 @media (max-width: 1100px) {
-  .market-insights-cards {
+  .macro-cards {
     grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
   }
 }
@@ -211,7 +212,7 @@
     border-bottom: none;
   }
 
-  .market-insights-cards {
+  .macro-cards {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
 }
@@ -247,7 +248,7 @@
   }
 
   .directors-layout .cards,
-  .market-insights-cards {
+  .macro-cards {
     grid-template-columns: 1fr !important;
   }
 }

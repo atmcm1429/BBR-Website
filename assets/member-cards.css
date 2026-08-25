@@ -81,6 +81,35 @@
   max-width: 100%;
 }
 
+.card .portrait-placeholder {
+  width: 90%;
+  max-width: 100%;
+  aspect-ratio: 1 / 1;
+  display: grid;
+  place-items: center;
+  margin: 0 auto;
+  border: 3px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  background: linear-gradient(145deg, rgba(76, 195, 255, 0.22), rgba(14, 21, 34, 0.96));
+  color: var(--text);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.card .portrait-placeholder.initials span {
+  font-size: clamp(30px, 5vw, 48px);
+}
+
+.card .portrait-placeholder.open-seat {
+  color: var(--muted);
+  border-style: dashed;
+}
+
+.card .portrait-placeholder.open-seat span {
+  font-size: clamp(14px, 2vw, 18px);
+}
+
 .card .body {
   padding: clamp(12px, 2.5vw, 14px);
   display: flex;
