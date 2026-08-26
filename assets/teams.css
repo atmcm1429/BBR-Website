@@ -254,3 +254,71 @@
     grid-template-columns: 1fr !important;
   }
 }
+
+@media (max-width: 600px) {
+  .section {
+    padding: 18px 16px 48px;
+  }
+
+  .verticals-nav {
+    display: flex;
+    margin-bottom: 14px;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scroll-snap-type: inline proximity;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .verticals-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .verticals-nav a {
+    flex: 0 0 auto;
+    min-width: 142px;
+    padding: 12px 16px;
+    border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-bottom: 0 !important;
+    white-space: nowrap;
+    scroll-snap-align: start;
+  }
+
+  .verticals-nav a:last-child {
+    border-right: 0 !important;
+  }
+
+  .directors-layout {
+    grid-template-rows: auto auto auto;
+    gap: 14px;
+  }
+
+  .hero {
+    min-height: 190px;
+    aspect-ratio: 16 / 9;
+  }
+
+  .featured {
+    min-height: 0;
+  }
+
+  .featured .img {
+    width: min(72vw, 280px);
+  }
+
+  .card-top {
+    max-height: none;
+    overflow: visible;
+  }
+
+  .directors-layout .cards,
+  .macro-cards {
+    grid-template-columns: 1fr !important;
+    gap: 14px;
+  }
+
+  .macro-cards .img,
+  .macro-cards .portrait-placeholder {
+    width: min(90%, 320px);
+  }
+}

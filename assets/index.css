@@ -398,18 +398,96 @@
   .hero {
     margin: 20px auto 0;
     padding: 0 16px 16px;
+    gap: 18px;
   }
 
   .h-title {
     margin: 8px 0 10px;
   }
 
+  .h-eyebrow {
+    font-size: 14px;
+    line-height: 1.4;
+    letter-spacing: 0.1em;
+  }
+
+  .h-badges {
+    gap: 8px;
+    margin-top: 14px;
+  }
+
+  .badge {
+    padding: 5px 9px;
+    font-size: 12px;
+  }
+
+  .hero-card {
+    padding: 10px;
+  }
+
+  .pdf-stage {
+    display: block;
+  }
+
+  .pdf-frame {
+    height: min(72vw, 360px);
+  }
+
+  .nav-btn {
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    width: 40px;
+    height: 40px;
+    transform: translateY(-50%);
+    background: rgba(8, 14, 27, 0.82);
+  }
+
+  .nav-btn.prev {
+    left: 8px;
+  }
+
+  .nav-btn.next {
+    right: 8px;
+  }
+
+  .nav-btn:hover {
+    transform: translateY(-50%);
+  }
+
+  .pdf-caption {
+    padding: 10px 12px;
+    font-size: 14px;
+    line-height: 1.35;
+  }
+
   .grid.team {
     grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .card-head {
+    padding-top: min(68%, 270px);
+  }
+
+  .avatar {
+    bottom: -36px;
+    width: min(58vw, 230px);
+    height: min(58vw, 230px);
+    border-radius: 20px;
+  }
+
+  .card-body {
+    padding: 48px 16px 18px;
+  }
+
+  .links .link {
+    min-height: 42px;
+    justify-content: center;
   }
 
   .logo-track {
-    gap: 56px;
+    gap: 42px;
     animation-duration: 28s;
   }
 
@@ -421,10 +499,19 @@
   .logo-item.logo-item--wide {
     width: 132px;
   }
+
+  .join-actions {
+    justify-content: stretch;
+  }
+
+  .join-actions .link {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 @media (max-width: 480px) {
   .pdf-frame {
-    height: 240px;
+    height: min(88vw, 340px);
   }
 }

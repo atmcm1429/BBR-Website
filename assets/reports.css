@@ -77,9 +77,11 @@ p.lead {
   border: 1px solid var(--reports-border);
   border-radius: 10px;
   background: #0e1a3a;
+  color: var(--text);
   cursor: pointer;
   text-align: left;
   font-family: Garamond, "Times New Roman", serif;
+  width: 100%;
 }
 
 .item:hover {
@@ -181,7 +183,56 @@ p.lead {
 }
 
 @media (max-width: 600px) {
+  .container {
+    margin: 22px auto;
+    padding: 0 16px;
+  }
+
+  h1 {
+    font-size: 28px;
+    line-height: 1.15;
+  }
+
+  .viewer-wrap {
+    gap: 14px;
+  }
+
+  .sidebar,
+  .viewer {
+    padding: 12px;
+  }
+
+  .search input {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .list {
+    max-height: 44vh;
+  }
+
+  .viewer-header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .controls {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+  }
+
+  .controls .btn {
+    justify-content: center;
+    min-height: 44px;
+  }
+
   .pdf-frame {
-    height: 70vh;
+    height: 62dvh;
+    min-height: 420px;
+  }
+
+  .report-card {
+    padding: 14px;
   }
 }

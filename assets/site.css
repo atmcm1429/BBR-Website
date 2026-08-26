@@ -35,6 +35,7 @@ body {
   background: var(--bg);
   color: var(--text);
   line-height: 1.55;
+  overflow-x: hidden;
 }
 
 a {
@@ -72,6 +73,7 @@ img {
   gap: 0;
   text-decoration: none;
   color: var(--text);
+  min-width: 0;
 }
 
 .brand-name {
@@ -123,6 +125,7 @@ img {
   height: 42px;
   width: 48px;
   color: var(--text);
+  flex: 0 0 auto;
 }
 
 .hamburger .bar {
@@ -165,11 +168,14 @@ img {
     width: min(86vw, 360px);
     box-shadow: var(--shadow);
     z-index: 100;
+    max-height: calc(100dvh - 82px);
+    overflow-y: auto;
   }
 
   .nav-links a {
     padding: 10px 12px;
     border-radius: 8px;
+    width: 100%;
   }
 
   .nav-links.open {
@@ -245,6 +251,57 @@ img {
 
 [hidden] {
   display: none !important;
+}
+
+@media (max-width: 600px) {
+  .nav-inner {
+    gap: 12px;
+    padding: 12px 16px;
+  }
+
+  .brand-name {
+    font-size: 18px;
+    line-height: 1.15;
+  }
+
+  .hamburger {
+    width: 44px;
+    height: 40px;
+    padding: 7px 9px;
+  }
+
+  .nav-links {
+    right: 16px;
+    width: calc(100vw - 32px);
+  }
+
+  .nav-links .cta {
+    text-align: center;
+  }
+
+  .section {
+    margin: 4px auto;
+    padding: 20px 16px 44px;
+  }
+
+  .section h2 {
+    font-size: clamp(24px, 7vw, 30px);
+    line-height: 1.15;
+  }
+
+  .intro {
+    padding-inline: 16px;
+  }
+
+  .footer-inner {
+    justify-content: center;
+    padding: 20px 16px;
+    text-align: center;
+  }
+
+  .footer-links {
+    justify-content: center;
+  }
 }
 
 /* Stagger the major page regions so each page settles in from top to bottom. */

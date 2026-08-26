@@ -140,3 +140,36 @@
   flex-wrap: wrap;
   width: 100%;
 }
+
+@media (max-width: 560px) {
+  .cards {
+    gap: 14px;
+  }
+
+  .card-top {
+    padding: 12px 12px 0;
+  }
+
+  .card .img,
+  .card .portrait-placeholder {
+    width: min(90%, 320px);
+  }
+
+  .card .body {
+    padding: 14px 16px 16px;
+  }
+
+  .card .name {
+    font-size: 17px;
+  }
+
+  .card .role {
+    font-size: 13px;
+  }
+
+  .card .btn.small {
+    min-height: 40px;
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+}
