@@ -60,6 +60,7 @@
 .featured .img {
   display: block;
   width: min(82%, 230px);
+  height: auto;
   aspect-ratio: 1 / 1;
   margin: 0 auto;
   object-fit: cover;
