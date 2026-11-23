@@ -44,14 +44,6 @@
   font-size: 13px;
 }
 
-.hero-card {
-  background: linear-gradient(180deg, rgba(18, 24, 35, 0.8), rgba(18, 24, 35, 0.6));
-  border: 1px solid var(--border);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow);
-  padding: 18px;
-}
-
 .hero-stat {
   display: grid;
   grid-template-columns: 64px 1fr;
@@ -106,16 +98,22 @@
   transition: transform 0.18s ease, border-color 0.18s ease;
 }
 
-.card:hover {
+.card:hover,
+article.card:hover {
   transform: translateY(-3px);
   border-color: rgba(6, 91, 124, 0.4);
+}
+
+/* Headshot cards: outline only. The Join cards keep their fill. */
+article.card {
+  background: none;
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow: none;
 }
 
 .card-head {
   position: relative;
   padding-top: min(58%, 320px);
-  background: radial-gradient(400px 200px at 80% -30%, rgba(93, 208, 255, 0.25), transparent 60%), #0c121b;
-  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
 }
 
 .avatar {
@@ -195,63 +193,66 @@
   color: var(--text);
 }
 
-.pdf-carousel {
-  padding: 12px;
-}
-
 .pdf-stage {
-  position: relative;
   display: grid;
-  grid-template-columns: 40px 1fr 40px;
+  grid-template-columns: auto minmax(0, 464px) auto;
+  justify-content: center;
   align-items: center;
-  gap: 10px;
-}
-
-.pdf-frame {
-  position: relative;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-xl);
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  height: clamp(600px, 52vh, 600px);
+  gap: 12px;
 }
 
 .pdf-frame img {
-  position: absolute;
-  inset: 0;
   width: 100%;
-  height: 100%;
-  border: 0;
-  object-fit: contain;
-  background: #0c121b;
+  height: auto;
+  border-radius: var(--radius-md);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
 }
 
 .nav-btn {
-  height: 44px;
+  display: grid;
+  place-items: center;
   width: 44px;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.04);
-  color: var(--text);
-  font-size: 26px;
-  line-height: 1;
+  height: 64px;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: none;
+  color: var(--muted);
   cursor: pointer;
-  transition: transform 0.12s ease, background 0.12s ease, border-color 0.12s ease;
+  -webkit-tap-highlight-color: transparent;
+  transition: color 0.18s ease, transform 0.18s ease;
+}
+
+.nav-btn svg {
+  width: 30px;
+  height: 30px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .nav-btn:hover {
-  transform: translateY(-1px);
-  background: rgba(255, 255, 255, 0.07);
-  border-color: rgba(6, 91, 124, 0.4);
+  color: var(--text);
+}
+
+.nav-btn:focus-visible {
+  color: var(--accent);
+}
+
+.nav-btn.prev:hover {
+  transform: translateX(-3px);
+}
+
+.nav-btn.next:hover {
+  transform: translateX(3px);
 }
 
 .pdf-caption {
-  margin-top: 10px;
-  border: 1px solid var(--border);
-  background: linear-gradient(180deg, rgba(18, 24, 35, 0.85), rgba(18, 24, 35, 0.65));
-  border-radius: var(--radius-lg);
-  padding: 12px 14px;
+  margin-top: 22px;
+  text-align: center;
+  font-size: 17px;
   font-weight: 600;
   letter-spacing: 0.2px;
 }
@@ -259,30 +260,12 @@
 .pdf-caption a {
   color: var(--accent);
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .pdf-caption a:hover {
   text-decoration: underline;
-}
-
-.pdf-dots {
-  display: flex;
-  gap: 6px;
-  justify-content: center;
-  margin-top: 10px;
-}
-
-.pdf-dots button {
-  width: 8px;
-  height: 8px;
-  border-radius: 999px;
-  border: 0;
-  cursor: pointer;
-  background: rgba(255, 255, 255, 0.18);
-}
-
-.pdf-dots button.active {
-  background: var(--accent);
+  text-underline-offset: 4px;
 }
 
 .join-grid {
@@ -390,18 +373,12 @@
     grid-template-columns: 1fr;
   }
 
-  .pdf-frame {
-    height: 340px;
+  .pdf-stage {
+    grid-template-columns: auto minmax(0, 360px) auto;
   }
 
   .join-grid {
     grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 768px) {
-  .pdf-frame {
-    height: 300px;
   }
 }
 
@@ -432,43 +409,17 @@
     font-size: 12px;
   }
 
-  .hero-card {
-    padding: 10px;
-  }
-
   .pdf-stage {
-    display: block;
-  }
-
-  .pdf-frame {
-    height: min(72vw, 360px);
+    gap: 4px;
   }
 
   .nav-btn {
-    position: absolute;
-    top: 50%;
-    z-index: 2;
-    width: 40px;
-    height: 40px;
-    transform: translateY(-50%);
-    background: rgba(8, 14, 27, 0.82);
-  }
-
-  .nav-btn.prev {
-    left: 8px;
-  }
-
-  .nav-btn.next {
-    right: 8px;
-  }
-
-  .nav-btn:hover {
-    transform: translateY(-50%);
+    width: 36px;
   }
 
   .pdf-caption {
-    padding: 10px 12px;
-    font-size: 14px;
+    margin-top: 16px;
+    font-size: 15px;
     line-height: 1.35;
   }
 
@@ -518,11 +469,5 @@
   .join-actions .link {
     width: 100%;
     justify-content: center;
-  }
-}
-
-@media (max-width: 480px) {
-  .pdf-frame {
-    height: min(88vw, 340px);
   }
 }

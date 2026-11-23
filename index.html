@@ -40,16 +40,15 @@
         <span class="badge">Consumer</span>
       </div>
     </div>
-    <aside class="hero-card pdf-carousel">
+    <aside class="pdf-carousel">
       <div class="pdf-stage">
-        <button class="nav-btn prev" aria-label="Previous PDF">‹</button>
+        <button class="nav-btn prev" type="button" aria-label="Previous report"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4 7 12l8 8" /></svg></button>
         <div class="pdf-frame">
           <img id="pdfImage" src="/assets/images/reports/agentic-ai-spring-2026.webp" width="1094" height="1416" decoding="async" fetchpriority="high" alt="OUT NOW - Agentic AI Report — first page preview" />
         </div>
-        <button class="nav-btn next" aria-label="Next PDF">›</button>
+        <button class="nav-btn next" type="button" aria-label="Next report"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 4 8 8-8 8" /></svg></button>
       </div>
       <div class="pdf-caption" id="pdfCaption">Loading…</div>
-      <div class="pdf-dots" id="pdfDots"></div>
     </aside>
   </section>
 
@@ -264,28 +263,18 @@
     let idx = 0;
     const imgEl = document.getElementById('pdfImage');
     const caption = document.getElementById('pdfCaption');
-    const dotsWrap = document.getElementById('pdfDots');
-
-    function buildDots() {
-      dotsWrap.innerHTML = "";
-      pdfs.forEach((_, i) => {
-        const b = document.createElement('button');
-        b.addEventListener('click', () => { idx = i; render(); });
-        dotsWrap.appendChild(b);
-      });
-    }
-
-    function markActiveDot() {
-      [...dotsWrap.children].forEach((b, i) => { b.classList.toggle('active', i === idx); });
-    }
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
     function render() {
       const { img, pdf, name } = pdfs[idx];
       imgEl.src = img;
       imgEl.alt = name + " — first page preview";
       caption.innerHTML = name + ' — <a href="' + pdf + '" target="_blank" rel="noopener">Open PDF</a>';
-      markActiveDot();
     }
+
+    imgEl.addEventListener('load', () => {
+      if (!reduceMotion.matches) imgEl.animate([{ opacity: 0.3 }, { opacity: 1 }], { duration: 260, easing: 'ease-out' });
+    });
 
     function prev() { idx = (idx - 1 + pdfs.length) % pdfs.length; render(); }
     function next() { idx = (idx + 1) % pdfs.length; render(); }
@@ -302,7 +291,6 @@
       if (e.key === 'ArrowRight') next();
     });
 
-    buildDots();
     render();
   </script>
 

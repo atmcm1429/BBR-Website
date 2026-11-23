@@ -14,7 +14,7 @@
 .directors-layout {
   display: grid;
   grid-template-columns: minmax(0, 2fr) minmax(0, 1.1fr);
-  grid-template-rows: clamp(320px, 40vw, 380px) auto;
+  grid-template-rows: minmax(clamp(320px, 40vw, 380px), auto) auto;
   grid-template-areas:
     "hero featured"
     "cards cards";
@@ -37,11 +37,7 @@
   flex-direction: column;
   border-radius: var(--r-xl);
   overflow: hidden;
-  box-shadow: var(--shadow);
-  background:
-    radial-gradient(clamp(300px, 50vw, 600px) clamp(200px, 40vh, 400px) at 80% -20%, rgba(76, 195, 255, 0.35), transparent 60%),
-    linear-gradient(180deg, #111a28, #0f1725);
-  border: 1px solid var(--border);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   transition: transform 0.18s ease, border-color 0.18s ease;
   min-height: clamp(280px, 35vw, 360px);
 }
@@ -70,9 +66,6 @@
 
 .featured .content {
   padding: clamp(12px, 2.5vw, 16px) clamp(12px, 3vw, 18px) clamp(16px, 3.5vw, 22px);
-  background: linear-gradient(180deg, rgba(9, 14, 22, 0), rgba(7, 10, 18, 0.7));
-  border-top-left-radius: clamp(18px, 4vw, 24px);
-  border-top-right-radius: clamp(18px, 4vw, 24px);
 }
 
 .featured .name {
@@ -137,6 +130,17 @@
 
 .directors-layout .cards > .card {
   min-width: 0;
+  background: none;
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow: none;
+}
+
+.directors-layout .cards > .card:hover {
+  border-color: rgba(6, 91, 124, 0.4);
+}
+
+.directors-layout .card-top {
+  background: none;
 }
 
 .macro-cards {
